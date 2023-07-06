@@ -10,7 +10,6 @@ function root(glob: string, exclude = false) {
 
 export const config: JestConfigWithTsJest = {
   transform: preset.transform,
-  testTimeout: 2000,
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: [path.join(__dirname, 'setup.ts')],
   testMatch: [root('**/?(*.)+(spec|test).[jt]s?(x)')],
