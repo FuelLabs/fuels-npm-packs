@@ -1,0 +1,11 @@
+{
+  "extends": "@fuels/config-ts/base.json",
+  "compilerOptions": {
+    "keyofStringsOnly": true,
+    "ignoreDeprecations": "5.0",
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "rootDir": "."
+  },
+  "include": ["src"]
+}

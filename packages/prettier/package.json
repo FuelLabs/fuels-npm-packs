@@ -1,0 +1,13 @@
+{
+  "name": "@fuels/config-prettier",
+  "version": "0.0.1",
+  "license": "Apache-2.0",
+  "main": "./index.json",
+  "access": "public",
+  "dependencies": {
+    "prettier": "^2.8.8"
+  },
+  "peerDependencies": {
+    "prettier": "^2.8.8"
+  }
+}

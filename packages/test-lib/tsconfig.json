@@ -1,0 +1,9 @@
+{
+  "extends": "@fuels/config-ts/base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "rootDir": "."
+  },
+  "include": ["src", "./config.ts", "./setup.ts"]
+}
