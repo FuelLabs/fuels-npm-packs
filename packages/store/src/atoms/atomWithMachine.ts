@@ -35,7 +35,7 @@ export type AtomWithMachineOpts<M extends AnyStateMachine> = {
 
 export function atomWithMachine<
   M extends AnyStateMachine,
-  S extends AnyInterpreter = InterpreterFrom<M>
+  S extends AnyInterpreter = InterpreterFrom<M>,
 >({ key, getMachine, getOptions, hasStorage }: AtomWithMachineOpts<M>) {
   let initialized = false;
   const storage = new LocalStorage(`@xstate/store_`);
@@ -167,7 +167,7 @@ export function atomWithMachine<
         }
         sub.unsubscribe();
       };
-    }
+    },
   );
 
   return atom((get) => {

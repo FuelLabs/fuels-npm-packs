@@ -15,7 +15,7 @@ import type { ServiceAtom } from './serviceAtom';
  */
 export function createStateAtom<T extends MachinesObj>(
   machinesAtom: MachinesAtom<T>,
-  serviceAtom: ServiceAtom<T>
+  serviceAtom: ServiceAtom<T>,
 ) {
   return <K extends keyof T>(key: keyof T) => {
     type Service = InterpreterFrom<T[K]>;
@@ -28,7 +28,7 @@ export function createStateAtom<T extends MachinesObj>(
       (get, _set, ev: Event) => {
         const service = get(serviceAtom(key));
         service.send(ev);
-      }
+      },
     );
   };
 }

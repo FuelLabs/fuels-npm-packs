@@ -31,7 +31,7 @@ export function createMachinesAtom<T extends MachinesObj>() {
       const machinesObj = { ...curr, [input.key]: machineAtom };
       set(machinesObjAtom, machinesObj);
       return machinesObj as Obj;
-    }
+    },
   );
 }
 export type MachinesAtom<T extends MachinesObj> = ReturnType<

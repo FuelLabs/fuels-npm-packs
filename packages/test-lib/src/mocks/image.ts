@@ -1,4 +1,3 @@
-/* eslint-disable no-constructor-return */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 type Status = 'loaded' | 'error';
@@ -11,7 +10,6 @@ export function mockImage() {
   // @ts-expect-error
   window.Image = class Image {
     onload: VoidFunction = () => {
-      // eslint-disable-next-line no-console
       console.log('called');
     };
 

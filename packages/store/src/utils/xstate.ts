@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-/* eslint-disable consistent-return */
-
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { MaybeLazy } from '@xstate/react/lib/types';
 import type { AnyInterpreter, AnyStateMachine, StateFrom } from 'xstate';
@@ -19,13 +16,13 @@ import type { Handlers, InterpreterOptions } from '../types';
  */
 export function createHandlers<Keys extends unknown[], H extends Handlers>(
   keys: Keys,
-  handlers?: H
+  handlers?: H,
 ) {
   const fns = handlers || {};
   return Object.entries(fns).reduce((obj, [key, fn]) => {
     if (keys.includes(key)) {
       throw new Error(
-        `You cannot use "${key}" as event, because it's already a store property`
+        `You cannot use "${key}" as event, because it's already a store property`,
       );
     }
     return { ...obj, [key]: fn };
@@ -38,7 +35,7 @@ export function createHandlers<Keys extends unknown[], H extends Handlers>(
  * @returns MachineConfig
  */
 function getMachineConfig<M extends AnyStateMachine>(
-  opts: InterpreterOptions<M>
+  opts: InterpreterOptions<M>,
 ) {
   const { guards, actions, services, delays, context: _context } = opts || {};
   return {
@@ -55,7 +52,7 @@ function getMachineConfig<M extends AnyStateMachine>(
  * @returns InterpreterOptions<M>
  */
 function getInterpreterOpts<M extends AnyStateMachine>(
-  opts: InterpreterOptions<M>
+  opts: InterpreterOptions<M>,
 ) {
   const {
     guards: _guards,
@@ -76,7 +73,7 @@ function getInterpreterOpts<M extends AnyStateMachine>(
  */
 export function setMachine<M extends AnyStateMachine>(
   getMachine: MaybeLazy<M>,
-  opts: InterpreterOptions<M> = {}
+  opts: InterpreterOptions<M> = {},
 ) {
   const { context } = opts;
   const machine = typeof getMachine === 'function' ? getMachine() : getMachine;
@@ -96,7 +93,7 @@ export function setMachine<M extends AnyStateMachine>(
  */
 export function createIdleService<M extends AnyStateMachine>(
   getMachine: MaybeLazy<M>,
-  opts: InterpreterOptions<M> = {}
+  opts: InterpreterOptions<M> = {},
 ) {
   const config = getMachineConfig(opts);
   const interpreterOptions = getInterpreterOpts(opts);
@@ -117,7 +114,7 @@ export function createIdleService<M extends AnyStateMachine>(
  */
 export function updateService<I extends AnyInterpreter>(
   service: I | undefined,
-  opts: InterpreterOptions<I['machine']> = {}
+  opts: InterpreterOptions<I['machine']> = {},
 ) {
   if (!service) return;
   Object.assign(service.machine.options.actions ?? {}, opts.actions ?? {});
@@ -129,7 +126,7 @@ export function updateService<I extends AnyInterpreter>(
 
 export async function waitFor<
   I extends AnyInterpreter,
-  S = StateFrom<I['machine']>
+  S = StateFrom<I['machine']>,
 >(service: I, givenState: (state: S) => boolean, timeout = 5000) {
   const state = await waitForRef<I>(service, givenState, { timeout });
   return state as S;

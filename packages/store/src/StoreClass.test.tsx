@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-syntax */
 import { counterHandlers, createMockStore, todosHandlers } from './__mocks__';
 
 const STORE_ID = 'StoreClass_store';

@@ -24,7 +24,7 @@ export interface FocusableElement {
 }
 
 export function isInputElement(
-  element: FocusableElement
+  element: FocusableElement,
 ): element is HTMLInputElement {
   return (
     isHTMLElement(element) &&

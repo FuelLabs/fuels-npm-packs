@@ -1,4 +1,3 @@
-/* eslint-disable no-promise-executor-return */
 import { act } from '@testing-library/react';
 
 export function queue(): Promise<void> {
@@ -7,7 +6,6 @@ export function queue(): Promise<void> {
 
 export function nextTick(): Promise<void> {
   return act(async () => {
-    // eslint-disable-next-line no-new
     new Promise((resolve) => {
       requestAnimationFrame(() => resolve(null));
     });

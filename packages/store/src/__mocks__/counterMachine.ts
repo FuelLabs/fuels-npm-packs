@@ -92,7 +92,7 @@ export const counterMachine = createMachine(
       })),
       log: () => ({}),
     },
-  }
+  },
 );
 
 export type CounterMachine = typeof counterMachine;

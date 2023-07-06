@@ -14,7 +14,7 @@ import type { ServiceAtom } from './serviceAtom';
  */
 export function createServicesAtom<T extends MachinesObj>(
   keysAtom: KeysAtom<T>,
-  serviceAtom: ServiceAtom<T>
+  serviceAtom: ServiceAtom<T>,
 ) {
   return atom((get) => {
     const keys = get(keysAtom);

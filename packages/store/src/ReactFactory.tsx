@@ -51,7 +51,7 @@ export class ReactFactory<T extends MachinesObj> {
      */
     return function useSelector<K extends keyof T, R>(
       key: K,
-      selector: (state: StateFrom<T[K]>) => R
+      selector: (state: StateFrom<T[K]>) => R,
     ) {
       const atom = useMemo(() => serviceAtom(key), [key]);
       const service = useAtomValue(atom);
@@ -103,7 +103,7 @@ export class ReactFactory<T extends MachinesObj> {
      */
     return function useUpdateMachineConfig<K extends keyof T>(
       key: K,
-      opts: Partial<AddMachineInput<T, K>['getOptions']> = {}
+      opts: Partial<AddMachineInput<T, K>['getOptions']> = {},
     ) {
       const atom = useMemo(() => serviceAtom(key), [key]);
       const [service, updateService] = useAtom(atom);

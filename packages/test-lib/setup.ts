@@ -27,14 +27,14 @@ failOnConsole({
   silenceMessage: (errorMessage) => {
     if (
       /Warning: ReactDOM.render is no longer supported in React 18/i.test(
-        errorMessage
+        errorMessage,
       )
     ) {
       return true;
     }
     if (
       /When testing, code that causes React state updates should be wrapped into act/i.test(
-        errorMessage
+        errorMessage,
       )
     ) {
       return true;

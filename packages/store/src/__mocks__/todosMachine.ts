@@ -114,7 +114,7 @@ export const todosMachine = createMachine(
         },
       }),
     },
-  }
+  },
 );
 
 export type TodosMachine = typeof todosMachine;

@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-syntax */
 import type { AnyInterpreter, AnyState, StateFrom } from 'xstate';
 
 import { ReactFactory } from './ReactFactory';
@@ -83,7 +82,7 @@ export class StoreClass<T extends MachinesObj> implements IStore<T> {
   addMachine<K extends keyof T>(
     key: K,
     machine: AddMachineInput<T, K>['getMachine'],
-    opts: AddMachineInput<T, K>['getOptions'] = {}
+    opts: AddMachineInput<T, K>['getOptions'] = {},
   ) {
     const { store, machinesAtom } = this.opts.atoms;
     const hasStorage = this.opts.persistedStates?.includes(key);
@@ -108,8 +107,8 @@ export class StoreClass<T extends MachinesObj> implements IStore<T> {
    */
   addHandlers<H extends Handlers>(
     cb: <S extends StoreClass<T>>(
-      store: S
-    ) => { [P in keyof H]: P extends keyof StoreClass<T> ? never : H[P] }
+      store: S,
+    ) => { [P in keyof H]: P extends keyof StoreClass<T> ? never : H[P] },
   ) {
     const { store, keysAtom } = this.opts.atoms;
     const keys = Object.keys(store.get(keysAtom));
@@ -218,7 +217,7 @@ export class StoreClass<T extends MachinesObj> implements IStore<T> {
    */
   onStateChange<K extends keyof T>(
     key: K,
-    givenListener: Listener<[StateFrom<T[K]>]>
+    givenListener: Listener<[StateFrom<T[K]>]>,
   ) {
     const { store, onStateChangeAtom } = this.opts.atoms;
     const service = this.services[key];
@@ -293,7 +292,7 @@ export class StoreClass<T extends MachinesObj> implements IStore<T> {
       const appState = await waitFor<AnyInterpreter>(
         service,
         (state) => state.matches(doneState) || state.matches(failureState),
-        timeout
+        timeout,
       );
       if (appState.matches(failureState)) {
         throw new Error(appState.context[failureMessageField], {
@@ -307,7 +306,7 @@ export class StoreClass<T extends MachinesObj> implements IStore<T> {
       // Timeout of 5000 ms exceeded
       if (/Timeout of (.*) ms exceeded/.test(error.message)) {
         throw new Error(
-          `Window closed by inactivity after ${timeout / 1000 / 60} minutes!`
+          `Window closed by inactivity after ${timeout / 1000 / 60} minutes!`,
         );
       }
       // Throw customized error from machine

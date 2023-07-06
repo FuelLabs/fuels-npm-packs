@@ -16,14 +16,14 @@ import type { ServiceAtom } from './serviceAtom';
  * const [state, send] = useAtom(waitForAtom({ key: 'counter', state: 'idle' }));
  */
 export function createWaitForAtom<T extends MachinesObj>(
-  serviceAtom: ServiceAtom<T>
+  serviceAtom: ServiceAtom<T>,
 ) {
   return <K extends keyof T>(...[key, ...args]: WaitForArgs<T, K>) => {
     return loadable(
       atom(async (get) => {
         const service = get(serviceAtom(key));
         return waitFor(service, ...args);
-      })
+      }),
     );
   };
 }

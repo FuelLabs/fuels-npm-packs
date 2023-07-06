@@ -11,7 +11,7 @@ import type { MachinesAtom } from './machinesAtom';
  * const keys = useAtom(keysAtom);
  */
 export function createKeysAtom<T extends MachinesObj>(
-  machinesAtom: MachinesAtom<T>
+  machinesAtom: MachinesAtom<T>,
 ) {
   return atom<(keyof T)[]>((get) => {
     const items = get(machinesAtom);

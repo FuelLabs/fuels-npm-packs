@@ -14,7 +14,7 @@ import type { MachinesAtom } from './machinesAtom';
  * const [service, updateService] = useAtom(serviceAtom('counter'));
  */
 export function createServiceAtom<T extends MachinesObj>(
-  machinesAtom: MachinesAtom<T>
+  machinesAtom: MachinesAtom<T>,
 ) {
   return <K extends keyof T>(key: K) =>
     atom(
@@ -35,7 +35,7 @@ export function createServiceAtom<T extends MachinesObj>(
         }
         updateService(service, opts);
         return service;
-      }
+      },
     );
 }
 export type ServiceAtom<T extends MachinesObj> = ReturnType<

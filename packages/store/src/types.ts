@@ -37,7 +37,7 @@ export type Machine<M extends AnyStateMachine> = StateMachine<
 
 export type StateItem<
   T extends MachinesObj,
-  K extends keyof T = keyof T
+  K extends keyof T = keyof T,
 > = StateFrom<T[K]>;
 
 export type MatchesState<M extends AnyStateMachine> =
@@ -49,12 +49,12 @@ export type MatchesState<M extends AnyStateMachine> =
 
 export type Service<
   T extends MachinesObj,
-  K extends keyof T = keyof T
+  K extends keyof T = keyof T,
 > = InterpreterFrom<T[K]>;
 
 export type StoreServiceObj<
   T extends MachinesObj,
-  K extends keyof T = keyof T
+  K extends keyof T = keyof T,
 > = {
   [P in K]: InterpreterFrom<T[P]>;
 };
@@ -88,7 +88,7 @@ export type InterpreterOptions<TMachine extends AnyStateMachine> =
 
 export type AddMachineInput<
   T extends MachinesObj = MachinesObj,
-  K extends keyof T = keyof T
+  K extends keyof T = keyof T,
 > = {
   key: K;
   getMachine: MaybeLazy<T[K]>;
@@ -108,7 +108,7 @@ export type StateListener<K, Args extends unknown[] = unknown[]> = {
 export type WaitForArgs<T extends MachinesObj, K extends keyof T> = [
   key: K,
   givenState: (state: StateFrom<T[K]>) => boolean,
-  timeout?: number
+  timeout?: number,
 ];
 
 export type WaitForStateArgs<T extends MachinesObj, K extends keyof T> = [
@@ -118,5 +118,5 @@ export type WaitForStateArgs<T extends MachinesObj, K extends keyof T> = [
     failure?: T[K]['__TResolvedTypesMeta']['resolved']['matchesStates'];
     failureMessage?: StateFrom<T[K]>['context'];
     timeout?: number;
-  }
+  },
 ];

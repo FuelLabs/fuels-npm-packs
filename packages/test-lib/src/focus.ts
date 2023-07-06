@@ -12,7 +12,6 @@ export function focus(el: HTMLElement) {
 }
 
 export function blur(el?: HTMLElement | null) {
-  // eslint-disable-next-line no-param-reassign
   if (el == null) el = document.activeElement as HTMLElement;
   if (el.tagName === 'BODY') return;
   if (getActiveElement(el) !== el) return;

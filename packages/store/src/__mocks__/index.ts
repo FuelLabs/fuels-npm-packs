@@ -23,14 +23,14 @@ export function createMockStore(id: string) {
     .addMachine('todos', () =>
       todosMachine.withContext({
         todos: [],
-      })
+      }),
     )
     .addMachine('counter', () =>
       counterMachine.withContext({
         count: 0,
         incValue: 2,
         type: 'manual',
-      })
+      }),
     )
     .addHandlers(counterHandlers)
     .addHandlers(todosHandlers)

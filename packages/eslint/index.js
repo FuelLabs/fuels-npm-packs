@@ -36,7 +36,7 @@ const hookPropertyMap = new Map(
   ].map(([request, replacement]) => [
     request,
     require.resolve(replacement, { paths: sortedPaths }),
-  ])
+  ]),
 );
 
 const mod = require('module');
@@ -58,6 +58,14 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
+  },
+  env: {
+    browser: true,
+    node: true,
+    jest: true,
+    commonjs: true,
+    es6: true,
+    es2020: true,
   },
   plugins: ['testing-library', 'jest-dom'],
   extends: [
@@ -107,7 +115,6 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'off',
     'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
     'eslint-comments/no-unused-disable': 'error',
-    'eslint-comments/no-unused-disable': 'off',
     'import/no-anonymous-default-export': 'warn',
     'react/no-unknown-property': 'off',
     'react/react-in-jsx-scope': 'off',

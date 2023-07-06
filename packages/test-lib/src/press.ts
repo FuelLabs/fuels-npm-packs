@@ -29,10 +29,9 @@ const keyupMap: Record<
 export async function press(
   key: string,
   element?: Element | null,
-  options: KeyboardEventInit = {}
+  options: KeyboardEventInit = {},
 ) {
   if (element == null) {
-    // eslint-disable-next-line no-param-reassign
     element = document.activeElement || document.body;
   }
 

@@ -7,7 +7,7 @@ import { render } from './render';
 
 export async function testA11y(
   ui: React.ReactElement | HTMLElement,
-  options: RenderOptions & { axeOptions?: JestAxeConfigureOptions } = {}
+  options: RenderOptions & { axeOptions?: JestAxeConfigureOptions } = {},
 ) {
   const { axeOptions, ...rest } = options;
   const container = isValidElement(ui) ? render(ui, rest).container : ui;
