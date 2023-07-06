@@ -77,7 +77,6 @@ jobs:
           package-manager: pnpm
           annotations: failed-tests
           test-script: pnpm test:ci
-          working-directory: ./design-system/react
           prnumber: ${{ steps.findPr.outputs.number }}
           skip-test: all
           coverage-file: ${{ env.COVERAGE_FILE }}
