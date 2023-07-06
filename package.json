@@ -62,5 +62,21 @@
     "@changesets/cli": "^2.26.2",
     "@changesets/get-github-info": "^0.5.2",
     "@fuels/config-eslint": "workspace:*"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowAny": [
+        "react",
+        "react-dom"
+      ],
+      "ignoreMissing": [
+        "react",
+        "react-dom"
+      ]
+    },
+    "overrides": {
+      "semver@<7.5.2": ">=7.5.2",
+      "word-wrap": "npm:@aashutoshrathi/word-wrap"
+    }
   }
 }
