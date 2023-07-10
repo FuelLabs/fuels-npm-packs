@@ -1,5 +1,5 @@
 {
-  "name": "@fuels/test-lib",
+  "name": "@fuels/jest",
   "version": "0.0.1",
   "license": "Apache-2.0",
   "main": "./src/index.ts",
@@ -56,8 +56,8 @@
     "ts-jest": "^29.1.1"
   },
   "devDependencies": {
-    "@fuels/config-ts": "workspace:*",
-    "@fuels/config-tsup": "workspace:*",
+    "@fuels/ts-config": "workspace:*",
+    "@fuels/tsup-config": "workspace:*",
     "@jest/types": "^29.6.1",
     "@types/jest-axe": "^3.5.5",
     "@types/testing-library__jest-dom": "^5.14.7"

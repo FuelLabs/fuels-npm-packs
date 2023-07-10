@@ -144,77 +144,7 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
 
-  packages/prettier:
-    dependencies:
-      prettier:
-        specifier: ^3.0.0
-        version: 3.0.0
-
-  packages/storage:
-    devDependencies:
-      '@fuels/config-ts':
-        specifier: workspace:*
-        version: link:../tsconfig
-      '@fuels/config-tsup':
-        specifier: workspace:*
-        version: link:../tsup
-      '@fuels/test-lib':
-        specifier: workspace:*
-        version: link:../test-lib
-      jest-localstorage-mock:
-        specifier: ^2.4.26
-        version: 2.4.26
-
-  packages/store:
-    dependencies:
-      '@fuels/local-storage':
-        specifier: workspace:*
-        version: link:../storage
-      '@xstate/inspect':
-        specifier: ^0.8.0
-        version: 0.8.0(ws@8.13.0)(xstate@4.38.0)
-      '@xstate/react':
-        specifier: ^3.2.2
-        version: 3.2.2(@types/react@18.2.14)(react@18.2.0)(xstate@4.38.0)
-      fast-equals:
-        specifier: ^5.0.1
-        version: 5.0.1
-      jotai:
-        specifier: ^2.2.2
-        version: 2.2.2(react@18.2.0)
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
-      uuid:
-        specifier: ^9.0.0
-        version: 9.0.0
-      xstate:
-        specifier: ^4.38.0
-        version: 4.38.0
-    devDependencies:
-      '@fuels/config-ts':
-        specifier: workspace:*
-        version: link:../tsconfig
-      '@fuels/config-tsup':
-        specifier: workspace:*
-        version: link:../tsup
-      '@fuels/test-lib':
-        specifier: workspace:*
-        version: link:../test-lib
-      '@testing-library/react':
-        specifier: ^14.0.0
-        version: 14.0.0(react-dom@18.2.0)(react@18.2.0)
-      '@types/uuid':
-        specifier: ^9.0.2
-        version: 9.0.2
-      jest-localstorage-mock:
-        specifier: ^2.4.26
-        version: 2.4.26
-
-  packages/test-lib:
+  packages/jest:
     dependencies:
       '@testing-library/dom':
         specifier: ^9.3.1
@@ -265,10 +195,10 @@ importers:
         specifier: ^29.1.1
         version: 29.1.1(@babel/core@7.22.5)(@jest/types@29.6.1)(esbuild@0.18.10)(jest@29.6.1)(typescript@5.1.6)
     devDependencies:
-      '@fuels/config-ts':
+      '@fuels/ts-config':
         specifier: workspace:*
         version: link:../tsconfig
-      '@fuels/config-tsup':
+      '@fuels/tsup-config':
         specifier: workspace:*
         version: link:../tsup
       '@jest/types':
@@ -280,6 +210,27 @@ importers:
       '@types/testing-library__jest-dom':
         specifier: ^5.14.7
         version: 5.14.7
+
+  packages/prettier:
+    dependencies:
+      prettier:
+        specifier: ^3.0.0
+        version: 3.0.0
+
+  packages/storage:
+    devDependencies:
+      '@fuels/jest':
+        specifier: workspace:*
+        version: link:../jest
+      '@fuels/ts-config':
+        specifier: workspace:*
+        version: link:../tsconfig
+      '@fuels/tsup-config':
+        specifier: workspace:*
+        version: link:../tsup
+      jest-localstorage-mock:
+        specifier: ^2.4.26
+        version: 2.4.26
 
   packages/tsconfig:
     dependencies:
@@ -301,6 +252,55 @@ importers:
       tsup:
         specifier: ^7.1.0
         version: 7.1.0(ts-node@10.9.1)(typescript@5.1.6)
+
+  packages/xstore:
+    dependencies:
+      '@fuels/local-storage':
+        specifier: workspace:*
+        version: link:../storage
+      '@xstate/inspect':
+        specifier: ^0.8.0
+        version: 0.8.0(ws@8.13.0)(xstate@4.38.0)
+      '@xstate/react':
+        specifier: ^3.2.2
+        version: 3.2.2(@types/react@18.2.14)(react@18.2.0)(xstate@4.38.0)
+      fast-equals:
+        specifier: ^5.0.1
+        version: 5.0.1
+      jotai:
+        specifier: ^2.2.2
+        version: 2.2.2(react@18.2.0)
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+      uuid:
+        specifier: ^9.0.0
+        version: 9.0.0
+      xstate:
+        specifier: ^4.38.0
+        version: 4.38.0
+    devDependencies:
+      '@fuels/jest':
+        specifier: workspace:*
+        version: link:../jest
+      '@fuels/ts-config':
+        specifier: workspace:*
+        version: link:../tsconfig
+      '@fuels/tsup-config':
+        specifier: workspace:*
+        version: link:../tsup
+      '@testing-library/react':
+        specifier: ^14.0.0
+        version: 14.0.0(react-dom@18.2.0)(react@18.2.0)
+      '@types/uuid':
+        specifier: ^9.0.2
+        version: 9.0.2
+      jest-localstorage-mock:
+        specifier: ^2.4.26
+        version: 2.4.26
 
 packages:
 
@@ -6006,7 +6006,7 @@ packages:
       esbuild: 0.18.10
       fast-json-stable-stringify: 2.1.0
       jest: 29.6.1(@types/node@20.4.0)(ts-node@10.9.1)
-      jest-util: 29.5.0
+      jest-util: 29.6.1
       json5: 2.2.3
       lodash.memoize: 4.1.2
       make-error: 1.3.6

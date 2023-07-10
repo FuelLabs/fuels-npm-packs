@@ -1,4 +1,4 @@
-import baseConfig from '@fuels/config-tsup';
+import baseConfig from '@fuels/tsup-config';
 import { defineConfig } from 'tsup';
 
 export default defineConfig((options) => ({

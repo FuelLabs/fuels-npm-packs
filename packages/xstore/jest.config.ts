@@ -1,5 +1,5 @@
-import type { Config } from '@fuels/test-lib/config';
-import { config as baseDefaultConfig } from '@fuels/test-lib/config';
+import type { Config } from '@fuels/jest/config';
+import { config as baseDefaultConfig } from '@fuels/jest/config';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const { globals, preset, ...baseConfig } = baseDefaultConfig;
@@ -14,7 +14,7 @@ const config: Config = {
   rootDir: __dirname,
   roots: ['<rootDir>'],
   setupFiles: ['jest-localstorage-mock'],
-  setupFilesAfterEnv: [require.resolve('@fuels/test-lib/setup')],
+  setupFilesAfterEnv: [require.resolve('@fuels/jest/setup')],
 };
 
 export default config;

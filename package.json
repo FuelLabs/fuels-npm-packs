@@ -20,7 +20,6 @@
     "build": "turbo run build",
     "changeset": "changeset",
     "changeset:check": "changeset status --since=master",
-    "changeset:next": "node ./scripts/changesets/next.mjs",
     "changeset:release": "changeset publish --no-git-tag",
     "changeset:version": "changeset version",
     "deps:update": "updates -gu && pnpm -r exec updates -gu",

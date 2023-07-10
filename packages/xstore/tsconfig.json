@@ -1,5 +1,5 @@
 {
-  "extends": "@fuels/config-ts/base.json",
+  "extends": "@fuels/ts-config/base.json",
   "compilerOptions": {
     "keyofStringsOnly": true,
     "ignoreDeprecations": "5.0",

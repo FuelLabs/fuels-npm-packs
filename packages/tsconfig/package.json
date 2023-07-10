@@ -1,5 +1,5 @@
 {
-  "name": "@fuels/config-ts",
+  "name": "@fuels/ts-config",
   "version": "0.0.1",
   "license": "Apache-2.0",
   "publishConfig": {

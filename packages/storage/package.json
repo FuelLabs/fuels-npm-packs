@@ -27,9 +27,9 @@
     "test:watch": "jest --watch"
   },
   "devDependencies": {
-    "@fuels/test-lib": "workspace:*",
-    "@fuels/config-ts": "workspace:*",
-    "@fuels/config-tsup": "workspace:*",
+    "@fuels/jest": "workspace:*",
+    "@fuels/ts-config": "workspace:*",
+    "@fuels/tsup-config": "workspace:*",
     "jest-localstorage-mock": "^2.4.26"
   }
 }
