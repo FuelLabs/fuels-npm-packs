@@ -1,5 +1,5 @@
 {
-  "name": "@fuels/config-prettier",
+  "name": "@fuels/prettier-config",
   "version": "0.0.1",
   "license": "Apache-2.0",
   "main": "./index.json",
