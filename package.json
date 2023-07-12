@@ -1,0 +1,81 @@
+{
+  "name": "fuels-npm-packs",
+  "version": "0.0.1",
+  "description": "Fuel's common library packages",
+  "private": true,
+  "author": "Fuel Labs <contact@fuel.sh> (https://fuel.network/)",
+  "homepage": "https://github.com/FuelLabs/fuels-npm-packs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FuelLabs/fuels-npm-packs.git"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/FuelLabs/fuels-npm-packs/issues"
+  },
+  "workspaces": [
+    "./packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "changeset": "changeset",
+    "changeset:check": "changeset status --since=origin/main",
+    "changeset:release": "changeset publish --no-git-tag",
+    "changeset:version": "changeset version",
+    "deps:update": "updates -gu && pnpm -r exec updates -gu",
+    "lint": "run-s lint:check prettier:check",
+    "lint:check": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint:fix": "pnpm lint:check --fix",
+    "prepare": "husky install",
+    "prettier:check": "prettier --check .",
+    "prettier:format": "prettier --write .",
+    "test": "turbo run test --parallel",
+    "test:ci": "jest --ci --testLocationInResults --json --coverage",
+    "test:clear": "pnpm -r exec jest --clearCache",
+    "test:coverage": "turbo run test --parallel -- --coverage",
+    "ts:check": "turbo run ts:check",
+    "xstate:typegen": "pnpm -r xstate:typegen"
+  },
+  "devDependencies": {
+    "@jest/types": "^29.6.1",
+    "@types/jest": "^29.5.2",
+    "@types/node": "^20.4.0",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "@xstate/cli": "^0.5.2",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.44.0",
+    "husky": "^8.0.3",
+    "jest": "29.6.1",
+    "lint-staged": "^13.2.3",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.0.0",
+    "ts-node": "^10.9.1",
+    "tsup": "^7.1.0",
+    "turbo": "^1.10.7",
+    "typescript": "5.1.6",
+    "updates": "^14.3.2"
+  },
+  "dependencies": {
+    "@changesets/changelog-github": "^0.4.8",
+    "@changesets/cli": "^2.26.2",
+    "@changesets/get-github-info": "^0.5.2",
+    "@fuels/eslint-config": "workspace:*"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowAny": [
+        "react",
+        "react-dom"
+      ],
+      "ignoreMissing": [
+        "react",
+        "react-dom"
+      ]
+    },
+    "overrides": {
+      "semver@<7.5.2": ">=7.5.2",
+      "word-wrap": "npm:@aashutoshrathi/word-wrap"
+    }
+  }
+}

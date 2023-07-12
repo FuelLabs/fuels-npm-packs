@@ -1,0 +1,33 @@
+{
+  "name": "@fuels/eslint-config",
+  "version": "0.0.1",
+  "license": "Apache-2.0",
+  "main": "./index.js",
+  "publishConfig": {
+    "access": "public",
+    "files": [
+      "./index.js"
+    ]
+  },
+  "peerDependencies": {
+    "eslint": "^8.44.0"
+  },
+  "dependencies": {
+    "@rushstack/eslint-patch": "^1.3.2",
+    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "@typescript-eslint/parser": "^5.61.0",
+    "eslint": "^8.44.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-import-resolver-node": "^0.3.7",
+    "eslint-import-resolver-typescript": "^3.5.5",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jest-dom": "^5.0.1",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-testing-library": "^5.11.0",
+    "prettier": "^3.0.0"
+  }
+}

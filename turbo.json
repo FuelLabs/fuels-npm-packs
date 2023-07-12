@@ -1,0 +1,15 @@
+{
+  "pipeline": {
+    "build": {
+      "dependsOn": ["ts:check", "^build"],
+      "cache": false
+    },
+    "ts:check": {
+      "dependsOn": [],
+      "outputs": ["./**/*.typegen.ts"]
+    },
+    "test": {
+      "dependsOn": []
+    }
+  }
+}

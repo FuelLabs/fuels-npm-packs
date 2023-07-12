@@ -1,0 +1,35 @@
+{
+  "name": "@fuels/local-storage",
+  "private": true,
+  "version": "0.0.1",
+  "license": "Apache-2.0",
+  "main": "src/index.ts",
+  "publishConfig": {
+    "access": "public",
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "typings": "dist/index.d.ts",
+    "exports": {
+      ".": {
+        "require": "dist/index.js",
+        "default": "dist/index.mjs"
+      }
+    },
+    "files": [
+      "dist"
+    ]
+  },
+  "scripts": {
+    "build": "tsup --dts",
+    "ts:check": "tsc --noEmit",
+    "test": "jest --verbose",
+    "test:watch": "jest --watch"
+  },
+  "devDependencies": {
+    "@fuels/jest": "workspace:*",
+    "@fuels/ts-config": "workspace:*",
+    "@fuels/tsup-config": "workspace:*",
+    "jest-localstorage-mock": "^2.4.26"
+  }
+}

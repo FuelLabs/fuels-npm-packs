@@ -1,0 +1,19 @@
+{
+  "name": "@fuels/tsup-config",
+  "version": "0.0.1",
+  "license": "Apache-2.0",
+  "access": "public",
+  "files": [
+    "./index.js",
+    "./react-imports.js"
+  ],
+  "peerDependencies": {
+    "tsup": "^7.1.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tsup": "^7.1.0"
+  }
+}
