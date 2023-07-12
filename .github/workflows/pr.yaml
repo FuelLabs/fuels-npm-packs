@@ -14,7 +14,7 @@ env:
 jobs:
   validate-title:
     name: Validate PR Title
-    if: ${{ github.head_ref != 'changeset-release/master' }}
+    if: ${{ github.head_ref != 'changeset-release/main' }}
     runs-on: ubuntu-latest
     steps:
       - uses: amannn/action-semantic-pull-request@v4
@@ -38,7 +38,7 @@ jobs:
   changesets:
     name: Changeset Checks
     needs: check-packages-changed
-    if: ${{ github.head_ref != 'changeset-release/master' && needs.check-packages-changed.outputs.changed == 'true' }}
+    if: ${{ github.head_ref != 'changeset-release/main' && needs.check-packages-changed.outputs.changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -47,11 +47,11 @@ jobs:
           fetch-depth: 0
 
       - uses: FuelLabs/github-actions/setups/node@master
-      - run: pnpm changeset status --since=origin/master
+      - run: pnpm changeset:check
 
   audit:
     name: Audit
-    if: ${{ github.head_ref != 'changeset-release/master' }}
+    if: ${{ github.head_ref != 'changeset-release/main' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -60,7 +60,7 @@ jobs:
 
   lint-build:
     name: Lint & Build
-    if: ${{ github.head_ref != 'changeset-release/master' }}
+    if: ${{ github.head_ref != 'changeset-release/main' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -71,7 +71,7 @@ jobs:
 
   test:
     name: Tests with coverage
-    if: ${{ github.head_ref != 'changeset-release/master' }}
+    if: ${{ github.head_ref != 'changeset-release/main' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
