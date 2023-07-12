@@ -21,6 +21,9 @@ importers:
       '@changesets/get-github-info':
         specifier: ^0.5.2
         version: 0.5.2
+      '@fuels/changeset':
+        specifier: workspace:*
+        version: link:packages/changeset
       '@fuels/eslint-config':
         specifier: workspace:*
         version: link:packages/eslint-config
