@@ -18,12 +18,8 @@ jobs:
         with:
           # need this to get full git-history/clone in order to build changelogs and check changesets
           fetch-depth: 0
-
-      - name: CI Setup
-        uses: ./.github/actions/ci-setup
-
-      - name: Configure NPM
-        uses: ./.github/actions/npm-config
+      - uses: FuelLabs/github-actions/setups/node
+      - uses: FuelLabs/github-actions/setups/npm
         with:
           npm-token: ${{ secrets.NPM_TOKEN }}
 
