@@ -13,7 +13,6 @@ export function mockImage() {
       console.log('called');
     };
 
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
     onerror: VoidFunction = () => {};
     src = '';
     alt = '';

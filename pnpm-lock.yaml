@@ -24,9 +24,9 @@ importers:
       '@fuels/changeset':
         specifier: workspace:*
         version: link:packages/changeset
-      '@fuels/eslint-config':
+      '@fuels/eslint-plugin':
         specifier: workspace:*
-        version: link:packages/eslint-config
+        version: link:packages/eslint-plugin
     devDependencies:
       '@jest/types':
         specifier: ^29.6.1
@@ -96,8 +96,11 @@ importers:
         specifier: ^20.4.2
         version: 20.4.2
 
-  packages/eslint-config:
+  packages/eslint-plugin:
     dependencies:
+      '@next/eslint-plugin-next':
+        specifier: ^13.4.9
+        version: 13.4.9
       '@rushstack/eslint-patch':
         specifier: ^1.3.2
         version: 1.3.2

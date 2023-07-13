@@ -6,14 +6,34 @@
 '@fuels/jest': patch
 ---
 
-Feat: add `config.nextjs` as an option to have default config also for nextjs projects without conflict with base config.
-Fix: add `config.monorepo` to add extra configuration when using monorepos with typescript
+Fix: Change eslint plugin project to @fuels/eslint-plugin to be able to load as `plugin:@fuels/base`
+Feat: Add custom configurations on eslint plugin to be able to handle different types of projects with the same plugin
 Fix: prettier configuration to be our default
 
-To use custom eslint configs you can extends like this:
+To use the base configuration you can extends like this:
 
 ```json
 {
-  "extends": ["plugin:@fuels/eslint-config/nextjs"]
+  "extends": ["plugin:@fuels/base"]
+}
+```
+
+You also provide a configuration for NextJS projects:
+
+```json
+{
+  "extends": ["plugin:@fuels/next"]
+}
+```
+
+Or you can pick some specific configuration:
+
+```json
+{
+  "extends": [
+    "plugin:@fuels/typescript",
+    "plugin:@fuels/react",
+    "plugin:@fuels/jest"
+  ]
 }
 ```
