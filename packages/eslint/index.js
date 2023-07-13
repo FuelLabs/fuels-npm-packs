@@ -1,3 +1,5 @@
+const nextConfig = require('eslint-config-next');
+
 /*
  * @rushstack/eslint-patch is used to include plugins as dev
  * dependencies instead of imposing them as peer dependencies
@@ -51,7 +53,7 @@ mod._resolveFilename = function (request, parent, isMain, options) {
 
 require('@rushstack/eslint-patch/modern-module-resolution');
 
-module.exports = {
+const config = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     sourceType: 'module',
@@ -119,13 +121,10 @@ module.exports = {
     'react/no-unknown-property': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
-    'jsx-a11y/alt-text': [
-      'warn',
-      {
-        elements: ['img'],
-        img: ['Image'],
-      },
-    ],
+    'react-hooks/exhaustive-deps': 'off',
+    'react-hooks/display-name': 'off',
+    'jsx-a11y/no-autofocus': 'off',
+    'jsx-a11y/alt-text': ['warn', { elements: ['img'], img: ['Image'] }],
     'jsx-a11y/aria-props': 'warn',
     'jsx-a11y/aria-proptypes': 'warn',
     'jsx-a11y/aria-unsupported-elements': 'warn',
@@ -168,4 +167,39 @@ module.exports = {
       },
     },
   ],
+};
+
+module.exports = {
+  ...config,
+  configs: {
+    monorepo: {
+      settings: {
+        ...config.settings,
+        'import/resolver': {
+          [require.resolve('eslint-import-resolver-node')]: {
+            extensions: ['.js', '.jsx', '.ts', '.tsx'],
+          },
+          [require.resolve('eslint-import-resolver-typescript')]: {
+            alwaysTryTypes: true,
+            project: '**/tsconfig.json',
+          },
+        },
+      },
+    },
+    nextjs: {
+      extends: [...config.extends, 'plugin:@next/next/recommended'],
+      plugins: [
+        ...config.plugins,
+        ...nextConfig.plugins.filter((f) => f !== 'import'),
+      ],
+      rules: {
+        ...config.rules,
+        ...Object.fromEntries(
+          Object.entries(nextConfig.rules).filter(
+            ([key]) => key !== 'import/order',
+          ),
+        ),
+      },
+    },
+  },
 };
