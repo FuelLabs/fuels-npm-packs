@@ -1,6 +1,6 @@
 ---
 '@fuels/prettier-config': patch
-'@fuels/eslint-config': patch
+'@fuels/eslint-plugin': patch
 '@fuels/react-xstore': patch
 '@fuels/changeset': patch
 '@fuels/jest': patch
