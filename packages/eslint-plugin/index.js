@@ -1,6 +1,15 @@
+const path = require('path');
+
+const resolveRoot = (dir) => path.resolve(process.cwd(), dir);
+
 const config = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
+    tsconfigRootDir: resolveRoot(),
+    project: [
+      resolveRoot('./**/**/tsconfig.json'),
+      resolveRoot('./tsconfig.json'),
+    ],
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
@@ -39,7 +48,6 @@ const config = {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
       [require.resolve('eslint-import-resolver-typescript')]: {
-        project: ['tsconfig.json', '**/**/tsconfig.json'],
         alwaysTryTypes: true,
       },
     },
