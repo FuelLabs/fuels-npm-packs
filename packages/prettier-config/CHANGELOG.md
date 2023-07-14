@@ -1,5 +1,11 @@
 # @fuels/prettier-config
 
+## 0.0.3
+
+### Patch Changes
+
+- 🐞 Fix: prettier configuration to be our default
+
 ## 0.0.2
 
 ### Patch Changes
