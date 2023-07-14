@@ -13,7 +13,6 @@ export class LocalStorage {
 
   subscribe(listener: () => void): () => void;
   subscribe(listener: <T extends unknown[]>(...args: T) => void) {
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
     if (!this.emitter) return () => {};
     this.emitter.on('change', listener);
     return () => {

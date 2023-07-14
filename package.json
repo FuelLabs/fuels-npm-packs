@@ -38,10 +38,10 @@
   },
   "devDependencies": {
     "@jest/types": "^29.6.1",
-    "@types/jest": "^29.5.2",
-    "@types/node": "^20.4.0",
-    "@types/react": "^18.2.14",
-    "@types/react-dom": "^18.2.6",
+    "@types/jest": "^29.5.3",
+    "@types/node": "^20.4.2",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
     "@xstate/cli": "^0.5.2",
     "dotenv": "^16.3.1",
     "eslint": "^8.44.0",
@@ -60,8 +60,8 @@
     "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "^2.26.2",
     "@changesets/get-github-info": "^0.5.2",
-    "@fuels/eslint-config": "workspace:*",
-    "@fuels/changeset": "workspace:*"
+    "@fuels/changeset": "workspace:*",
+    "@fuels/eslint-plugin": "workspace:*"
   },
   "pnpm": {
     "peerDependencyRules": {

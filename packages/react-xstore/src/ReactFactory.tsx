@@ -109,7 +109,6 @@ export class ReactFactory<T extends MachinesObj> {
       const [service, updateService] = useAtom(atom);
       useEffect(() => {
         updateService(opts);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [opts, key]);
       return service as InterpreterFrom<T[K]>;
     };

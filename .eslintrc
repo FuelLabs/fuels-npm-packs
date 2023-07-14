@@ -1,3 +1,3 @@
 {
-  "extends": "./packages/eslint-config"
+  "extends": ["plugin:@fuels/base"]
 }
