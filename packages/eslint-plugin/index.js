@@ -108,7 +108,7 @@ module.exports = {
         'jsx-a11y/no-autofocus': 'off',
         'jsx-a11y/role-has-required-aria-props': 'warn',
         'jsx-a11y/role-supports-aria-props': 'warn',
-        'react-hooks/display-name': 'off',
+        'react/display-name': 'off',
         'react-hooks/exhaustive-deps': 'off',
         'react/jsx-no-target-blank': 'off',
         'react/no-unknown-property': 'off',
