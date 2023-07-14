@@ -4,7 +4,6 @@
 
 ### Patch Changes
 
-- 🐞 Fix: prettier configuration to be our default
 - 🐞 Fix: Change eslint plugin project to @fuels/eslint-plugin to be able to load as `plugin:@fuels/base`
 - 🚀 Feat: Add custom configurations on eslint plugin to be able to handle different types of projects with the same plugin
 
