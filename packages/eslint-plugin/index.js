@@ -1,7 +1,16 @@
+const project = [
+  'tsconfig.json',
+  'packages/**/tsconfig.json',
+  // this are here because of the design-system repo
+  'design-system/**/tsconfig.json',
+  'examples/**/tsconfig.json',
+  'stitches/**/tsconfig.json',
+];
+
 const config = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    sourceType: 'module',
+    EXPERIMENTAL_useProjectService: true,
     ecmaFeatures: {
       jsx: true,
     },
@@ -39,7 +48,7 @@ const config = {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
       [require.resolve('eslint-import-resolver-typescript')]: {
-        project: ['tsconfig.json', '**/**/tsconfig.json'],
+        project,
         alwaysTryTypes: true,
       },
     },
