@@ -143,10 +143,19 @@ importers:
       eslint-plugin-testing-library:
         specifier: ^5.11.1
         version: 5.11.1(eslint@8.46.0)(typescript@5.1.6)
+      get-tsconfig:
+        specifier: 4.6.2
+        version: 4.6.2
       prettier:
         specifier: ^3.0.1
         version: 3.0.1
     devDependencies:
+      '@fuels/ts-config':
+        specifier: workspace:*
+        version: link:../ts-config
+      '@fuels/tsup-config':
+        specifier: workspace:*
+        version: link:../tsup-config
       '@testing-library/dom':
         specifier: ^9.3.1
         version: 9.3.1

@@ -1,4 +1,9 @@
+import path from 'path';
+
+const resolveRoot = (str: string) => path.resolve(__dirname, str);
+
 const project = [
+  resolveRoot('./tsconfig.eslint.json'),
   'tsconfig.json',
   'packages/**/tsconfig.json',
   // this are here because of the design-system repo
@@ -44,6 +49,8 @@ const config = {
       ],
     },
     'import/resolver': {
+      typescript: true,
+      node: true,
       [require.resolve('eslint-import-resolver-node')]: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
