@@ -1,17 +1,32 @@
+import type { Config as JestConfig } from 'jest';
 import path from 'node:path';
-import type { JestConfigWithTsJest } from 'ts-jest';
-import { defaultsESM as preset } from 'ts-jest/presets';
 
-export type Config = JestConfigWithTsJest;
+export type Config = JestConfig;
 
 function root(glob: string, exclude = false) {
   return path.join(`${exclude ? '!' : ''}<rootDir>`, glob);
 }
 
-export const config: JestConfigWithTsJest = {
-  transform: preset.transform,
+export const config: Config = {
+  transform: {
+    '.*\\.(tsx?)$': [
+      '@swc/jest',
+      {
+        jsc: {
+          transform: {
+            react: {
+              runtime: 'automatic',
+            },
+          },
+        },
+      },
+    ],
+  },
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: [path.join(__dirname, 'setup.ts')],
+  setupFilesAfterEnv: [
+    '@testing-library/jest-dom',
+    path.join(__dirname, 'setup.ts'),
+  ],
   testMatch: [root('**/?(*.)+(spec|test).[jt]s?(x)')],
   setupFiles: ['dotenv/config'],
   testPathIgnorePatterns: ['/node_modules/'],
