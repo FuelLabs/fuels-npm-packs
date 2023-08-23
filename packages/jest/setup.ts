@@ -1,3 +1,5 @@
+import '@testing-library/jest-dom';
+import { configure } from '@testing-library/react';
 import failOnConsole from 'jest-fail-on-console';
 
 const { getComputedStyle } = window;
@@ -22,23 +24,22 @@ if (typeof window.matchMedia !== 'function') {
   });
 }
 
+const ERRORS_MSGS = [
+  /warning: ReactDOM.render is no longer supported in React/i,
+  /when testing, code that causes React state updates should be wrapped into act/i,
+];
+
 failOnConsole({
   shouldFailOnWarn: false,
   silenceMessage: (errorMessage) => {
-    if (
-      /Warning: ReactDOM.render is no longer supported in React 18/i.test(
-        errorMessage,
-      )
-    ) {
-      return true;
-    }
-    if (
-      /When testing, code that causes React state updates should be wrapped into act/i.test(
-        errorMessage,
-      )
-    ) {
-      return true;
-    }
-    return false;
+    return ERRORS_MSGS.some((errorMsg) => errorMsg.test(errorMessage));
   },
 });
+
+if (process.env.DEBUG) {
+  beforeEach(() => {
+    configure({
+      throwSuggestions: true,
+    });
+  });
+}

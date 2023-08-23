@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 type Status = 'loaded' | 'error';
 
 const originalImage = window.Image;
@@ -7,7 +5,8 @@ const originalImage = window.Image;
 export function mockImage() {
   let status: Status;
 
-  // @ts-expect-error
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //@ts-expect-error
   window.Image = class Image {
     onload: VoidFunction = () => {
       console.log('called');
@@ -21,6 +20,7 @@ export function mockImage() {
     }
 
     getAttribute(name: string) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       return name in this ? (this as any)[name] : null;
     }
 
