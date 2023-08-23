@@ -1,7 +1,5 @@
+import { getActiveElement, isFocusable } from '@chakra-ui/utils';
 import { act } from '@testing-library/react';
-
-import { getActiveElement } from './utils/dom';
-import { isFocusable } from './utils/tabbable';
 
 export function focus(el: HTMLElement) {
   if (getActiveElement(el) === el) return;

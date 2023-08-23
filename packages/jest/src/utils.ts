@@ -4,12 +4,12 @@ export function queue(): Promise<void> {
   return act(() => Promise.resolve());
 }
 
-export function nextTick(): Promise<void> {
-  return act(async () => {
-    new Promise((resolve) => {
-      requestAnimationFrame(() => resolve(null));
-    });
-  });
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function nextTick(): Promise<any> {
+  return act(
+    () =>
+      new Promise((resolve) => requestAnimationFrame(() => resolve(void 0))),
+  );
 }
 
 export async function sleep(ms = 16): Promise<void> {
