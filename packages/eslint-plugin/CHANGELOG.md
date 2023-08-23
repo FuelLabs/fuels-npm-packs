@@ -1,5 +1,11 @@
 # @fuels/eslint-config
 
+## 0.0.4
+
+### Patch Changes
+
+- 🐞 Fix: adjust typescript lint parser root option to resolve tsconfig paths, by [@pedronauck](https://github.com/pedronauck) (See [#7](https://github.com/FuelLabs/fuels-npm-packs/pull/7))
+
 ## 0.0.3
 
 ### Patch Changes
