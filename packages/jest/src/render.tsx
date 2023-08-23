@@ -1,12 +1,15 @@
 import '@testing-library/jest-dom';
 import type { RenderOptions } from '@testing-library/react';
 import { render as rtlRender } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { toHaveNoViolations } from 'jest-axe';
+import type * as React from 'react';
 
-import { userEvent } from './user-event';
+expect.extend(toHaveNoViolations);
 
 export function render(
   ui: React.ReactElement,
-  options: RenderOptions = {},
+  options: RenderOptions,
 ): ReturnType<typeof rtlRender> & { user: ReturnType<typeof userEvent.setup> } {
   const user = userEvent.setup();
   const result = rtlRender(ui, options);

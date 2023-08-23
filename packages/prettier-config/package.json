@@ -5,9 +5,9 @@
   "main": "./index.json",
   "access": "public",
   "dependencies": {
-    "prettier": "^3.0.0"
+    "prettier": "^3.0.2"
   },
   "peerDependencies": {
-    "prettier": "^3.0.0"
+    "prettier": "^3.0.2"
   }
 }
