@@ -38,6 +38,7 @@
     "ts:check": "tsc --noEmit"
   },
   "dependencies": {
+    "@ariakit/test": "^0.2.2",
     "@chakra-ui/utils": "^2.0.15",
     "@testing-library/dom": "^9.3.1",
     "@testing-library/jest-dom": "^6.1.2",
