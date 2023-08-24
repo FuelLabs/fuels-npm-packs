@@ -1,5 +1,11 @@
 # @fuels/jest
 
+## 0.0.6
+
+### Patch Changes
+
+- 🐞 Fix: put it back `press()` methods, but now using `@ariakit/test` to avoid having things locally customized, by [@pedronauck](https://github.com/pedronauck) (See [#12](https://github.com/FuelLabs/fuels-npm-packs/pull/12))
+
 ## 0.0.5
 
 ### Patch Changes
