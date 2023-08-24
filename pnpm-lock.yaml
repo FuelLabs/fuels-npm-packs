@@ -149,6 +149,9 @@ importers:
 
   packages/jest:
     dependencies:
+      '@ariakit/test':
+        specifier: ^0.2.2
+        version: 0.2.2(@testing-library/dom@9.3.1)(@testing-library/react@14.0.0)(react@18.2.0)
       '@chakra-ui/utils':
         specifier: ^2.0.15
         version: 2.0.15
@@ -330,6 +333,26 @@ packages:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.3
       '@jridgewell/trace-mapping': 0.3.18
+
+  /@ariakit/core@0.2.9:
+    resolution: {integrity: sha512-BIEfY3AHImIc8R5j5DaBrEBKLlki5f0vqZbs56I0xQb12ssjn5VqpLr8Jl4v7DBm5S4ktTgeHjLloTppKFdABg==}
+    dev: false
+
+  /@ariakit/test@0.2.2(@testing-library/dom@9.3.1)(@testing-library/react@14.0.0)(react@18.2.0):
+    resolution: {integrity: sha512-SJLP7Vz+EG7INWoGmGr/I2/IH4DtfFfYA4rc+DtIznaDA7PA3DHGK/Say4vXY9cGBotcTn4jE6MPzcJWo4qrvA==}
+    peerDependencies:
+      '@testing-library/dom': ^8.0.0 || ^9.0.0
+      '@testing-library/react': ^12.0.0 || ^13.0.0 || ^14.0.0
+      react: '*'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      '@ariakit/core': 0.2.9
+      '@testing-library/dom': 9.3.1
+      '@testing-library/react': 14.0.0(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+    dev: false
 
   /@babel/code-frame@7.22.5:
     resolution: {integrity: sha512-Xmwn266vad+6DAqEB2A6V/CcZVp62BbwVmcOJc2RPuwih1kw02TjQvWVWlcKGbBPd+8/0V5DEkOcizRGYsspYQ==}
