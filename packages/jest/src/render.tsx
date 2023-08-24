@@ -9,7 +9,7 @@ expect.extend(toHaveNoViolations);
 
 export function render(
   ui: React.ReactElement,
-  options: RenderOptions,
+  options: RenderOptions = {},
 ): ReturnType<typeof rtlRender> & { user: ReturnType<typeof userEvent.setup> } {
   const user = userEvent.setup();
   const result = rtlRender(ui, options);
