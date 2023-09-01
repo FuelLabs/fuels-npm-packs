@@ -1,5 +1,11 @@
 # @fuels/local-storage
 
+## 0.0.7
+
+### Patch Changes
+
+- Release local-storage package, by [@luizstacio](https://github.com/luizstacio) (See [#14](https://github.com/FuelLabs/fuels-npm-packs/pull/14))
+
 ## 0.0.6
 
 ## 0.0.5
