@@ -18,6 +18,7 @@
   ],
   "scripts": {
     "build": "turbo run build",
+    "build:watch": "pnpm -r --parallel build --watch",
     "changeset": "changeset",
     "changeset:check": "changeset status --since=origin/main",
     "changeset:release": "changeset publish --no-git-tag",

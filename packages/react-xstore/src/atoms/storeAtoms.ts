@@ -36,7 +36,7 @@ export function createStoreAtoms<T extends MachinesObj>(id: string) {
   const serviceAtom = createServiceAtom(machinesAtom);
   const servicesAtom = createServicesAtom(keysAtom, serviceAtom);
   const waitForAtom = createWaitForAtom(serviceAtom);
-  const stateAtom = createStateAtom(machinesAtom, serviceAtom);
+  const stateAtom = createStateAtom(serviceAtom);
   const onStateChangeAtom = createOnStateChangeAtom<T>();
   const onStoreStartAtom = createStoreStartAtom();
   return {

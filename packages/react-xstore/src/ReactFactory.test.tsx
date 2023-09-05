@@ -30,6 +30,7 @@ describe('ReactFactory', () => {
     const { result } = renderHook(() => {
       return store.useSelector('todos', (state) => state.context.todos);
     }, opts);
+
     expect(result.current).toEqual([payload]);
     expect(spy).toBeCalledTimes(1);
 
