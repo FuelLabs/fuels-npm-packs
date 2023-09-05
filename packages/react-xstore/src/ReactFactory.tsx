@@ -1,7 +1,7 @@
 import { useSelector as useSelectorRef } from '@xstate/react';
-import { Provider, useAtom, useAtomValue } from 'jotai';
+import { Provider, useAtom, useAtomValue, useSetAtom } from 'jotai';
 import type { ReactNode } from 'react';
-import { useMemo, useEffect } from 'react';
+import { useEffect } from 'react';
 import type { InterpreterFrom, StateFrom } from 'xstate';
 
 import type { CreateStoreAtomsReturn } from './atoms';
@@ -40,7 +40,7 @@ export class ReactFactory<T extends MachinesObj> {
   // ---------------------------------------------------------------------------
 
   private createUseSelector() {
-    const { serviceAtom } = this.atoms;
+    const { servicesAtom } = this.atoms;
     /**
      * A hook to be used as selector for a specific service.
      * @param key The key of the service to select from.
@@ -49,18 +49,19 @@ export class ReactFactory<T extends MachinesObj> {
      * @example
      * const count = useSelector('counter', (state) => state.context.count);
      */
+
     return function useSelector<K extends keyof T, R>(
       key: K,
       selector: (state: StateFrom<T[K]>) => R,
     ) {
-      const atom = useMemo(() => serviceAtom(key), [key]);
-      const service = useAtomValue(atom);
+      const services = useAtomValue(servicesAtom);
+      const service = services[key];
       return useSelectorRef(service, selector) as R;
     };
   }
 
   private createUseService() {
-    const { serviceAtom } = this.atoms;
+    const { servicesAtom } = this.atoms;
     /**
      * A hook to be used to get a specific service.
      * @param key The key of the service to get.
@@ -69,8 +70,8 @@ export class ReactFactory<T extends MachinesObj> {
      * const service = useService('counter');
      */
     return function useService<K extends keyof T>(key: K) {
-      const atom = useMemo(() => serviceAtom(key), [key]);
-      return useAtomValue(atom);
+      const services = useAtomValue(servicesAtom);
+      return services[key];
     };
   }
 
@@ -84,13 +85,15 @@ export class ReactFactory<T extends MachinesObj> {
      * const [state, send] = useState('counter');
      */
     return function useState<K extends keyof T>(key: K) {
-      const atom = useMemo(() => stateAtom(key), [key]);
-      return useAtom(atom) as [StateFrom<T[K]>, InterpreterFrom<T[K]>['send']];
+      return useAtom(stateAtom(key)) as [
+        StateFrom<T[K]>,
+        InterpreterFrom<T[K]>['send'],
+      ];
     };
   }
 
   private createUseUpdateMachineConfig() {
-    const { serviceAtom } = this.atoms;
+    const { servicesAtom, serviceAtom } = this.atoms;
     /**
      * A hook to be used to update a specific service config.
      * @param key The key of the service to update.
@@ -105,11 +108,14 @@ export class ReactFactory<T extends MachinesObj> {
       key: K,
       opts: Partial<AddMachineInput<T, K>['getOptions']> = {},
     ) {
-      const atom = useMemo(() => serviceAtom(key), [key]);
-      const [service, updateService] = useAtom(atom);
+      const updateService = useSetAtom(serviceAtom(key));
+      const services = useAtomValue(servicesAtom);
+      const service = services[key];
+
       useEffect(() => {
         updateService(opts);
       }, [opts, key]);
+
       return service as InterpreterFrom<T[K]>;
     };
   }

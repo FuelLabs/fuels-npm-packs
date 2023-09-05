@@ -1,9 +1,9 @@
 import { atom } from 'jotai';
-import type { InterpreterFrom } from 'xstate';
+import { atomFamily } from 'jotai/utils';
+import type { InterpreterFrom, StateFrom } from 'xstate';
 
 import type { MachinesObj } from '../types';
 
-import type { MachinesAtom } from './machinesAtom';
 import type { ServiceAtom } from './serviceAtom';
 
 /**
@@ -14,23 +14,23 @@ import type { ServiceAtom } from './serviceAtom';
  * const [state, send] = useAtom(stateAtom('counter'));
  */
 export function createStateAtom<T extends MachinesObj>(
-  machinesAtom: MachinesAtom<T>,
   serviceAtom: ServiceAtom<T>,
 ) {
-  return <K extends keyof T>(key: keyof T) => {
-    type Service = InterpreterFrom<T[K]>;
+  return atomFamily((key: keyof T) => {
+    type Machine = T[keyof T];
+    type Service = InterpreterFrom<Machine>;
     type Event = Parameters<Service['send']>[0];
     return atom(
       (get) => {
-        const machineAtom = get(machinesAtom)[key];
-        return get(get(machineAtom).atoms.state);
+        const service = get(serviceAtom(key));
+        return service.getSnapshot() as StateFrom<Machine>;
       },
       (get, _set, ev: Event) => {
         const service = get(serviceAtom(key));
         service.send(ev);
       },
     );
-  };
+  });
 }
 export type StateAtom<T extends MachinesObj> = ReturnType<
   typeof createStateAtom<T>

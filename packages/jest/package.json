@@ -62,7 +62,7 @@
     "@fuels/ts-config": "workspace:*",
     "@fuels/tsup-config": "workspace:*",
     "@jest/types": "^29.6.3",
-    "@swc/core": "^1.3.78",
+    "@swc/core": "^1.3.82",
     "@swc/jest": "^0.2.29",
     "@types/jest-axe": "^3.5.5"
   },

@@ -37,7 +37,7 @@
     "@xstate/inspect": "^0.8.0",
     "@xstate/react": "^3.2.2",
     "fast-equals": "^5.0.1",
-    "jotai": "^2.4.0",
+    "jotai": "^2.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "uuid": "^9.0.0",
@@ -48,7 +48,7 @@
     "@fuels/ts-config": "workspace:*",
     "@fuels/tsup-config": "workspace:*",
     "@testing-library/react": "^14.0.0",
-    "@types/uuid": "^9.0.2",
+    "@types/uuid": "^9.0.3",
     "jest-localstorage-mock": "^2.4.26"
   }
 }
