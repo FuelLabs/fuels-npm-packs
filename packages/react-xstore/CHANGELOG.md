@@ -1,5 +1,11 @@
 # @fuels/react-xstore
 
+## 0.0.8
+
+### Patch Changes
+
+- 🐞 Fix: remove `useMemo` from built-in hooks inside store, by [@pedronauck](https://github.com/pedronauck) (See [#16](https://github.com/FuelLabs/fuels-npm-packs/pull/16))
+
 ## 0.0.7
 
 ## 0.0.6
