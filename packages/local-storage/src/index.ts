@@ -15,12 +15,12 @@ export class LocalStorage {
     return () => {
       this.emitter.off('change', listener);
     };
-  }
+  };
 
   setItem = <T>(key: string, value: T) => {
     localStorage.setItem(this.createKey(key), JSON.stringify(value));
     this.dispatchChange(key, value);
-  }
+  };
 
   getItem = <T>(key: string): T | null => {
     try {
@@ -29,19 +29,19 @@ export class LocalStorage {
     } catch {
       return null;
     }
-  }
+  };
 
   clear = () => {
     Object.keys(localStorage)
       .filter((key) => key.startsWith(this.prefix))
       .forEach((key) => localStorage.removeItem(key));
     this.dispatchChange();
-  }
+  };
 
   removeItem = (key: string) => {
     localStorage.removeItem(this.createKey(key));
     this.dispatchChange();
-  }
+  };
 
   // ---------------------------------------------------------------------------
   // Private methods
