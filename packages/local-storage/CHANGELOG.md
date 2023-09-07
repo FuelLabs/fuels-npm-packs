@@ -1,5 +1,11 @@
 # @fuels/local-storage
 
+## 0.0.9
+
+### Patch Changes
+
+- 🐞 Fix scope reference on local storge class, by [@luizstacio](https://github.com/luizstacio) (See [#18](https://github.com/FuelLabs/fuels-npm-packs/pull/18))
+
 ## 0.0.8
 
 ## 0.0.7
