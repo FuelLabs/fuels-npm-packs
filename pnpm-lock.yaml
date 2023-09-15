@@ -311,6 +311,9 @@ importers:
       '@fuel-wallet/sdk':
         specifier: 0.12.3
         version: 0.12.3(dexie@3.2.4)(fuels@0.54.1)
+      '@fuels/ts-config':
+        specifier: workspace:*
+        version: link:../ts-config
       fuels:
         specifier: 0.54.1
         version: 0.54.1
