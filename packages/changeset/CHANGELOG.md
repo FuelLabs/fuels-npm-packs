@@ -1,5 +1,11 @@
 # @fuels/changeset
 
+## 0.0.10
+
+### Patch Changes
+
+- Release changeset package, by [@luizstacio](https://github.com/luizstacio) (See [#22](https://github.com/FuelLabs/fuels-npm-packs/pull/22))
+
 ## 0.0.9
 
 ## 0.0.8
