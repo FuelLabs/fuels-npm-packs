@@ -1,6 +1,5 @@
 {
   "name": "@fuels/changeset",
-  "private": true,
   "version": "0.0.9",
   "license": "Apache-2.0",
   "access": "public",

@@ -6,7 +6,6 @@ const { config } = require('dotenv');
 
 config();
 
-const REPO = 'FuelLabs/fuels-npm-packs';
 const SEE_LINE = /^See:\s*(.*)/i;
 const TRAILING_CHAR = /[.;:]$/g;
 const listFormatter = new Intl.ListFormat('en-US');
@@ -43,7 +42,13 @@ const changelogFunctions = {
   getDependencyReleaseLine: async () => {
     return '';
   },
-  getReleaseLine: async (changeset, _type) => {
+  getReleaseLine: async (changeset, _type, options) => {
+    if (!options || !options.repo) {
+      throw new Error(
+        'Please provide a repo to this changelog generator like this:\n"changelog": ["@changesets/changelog-github", { "repo": "org/repo" }]',
+      );
+    }
+
     let pull, commit, user;
 
     const lines = getSummaryLines(changeset);
@@ -58,7 +63,7 @@ const changelogFunctions = {
 
     if (changeset.commit && !pull) {
       const { links } = await getInfo({
-        repo: REPO,
+        repo: options.repo,
         commit: changeset.commit,
       });
 
