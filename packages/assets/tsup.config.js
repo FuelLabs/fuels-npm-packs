@@ -11,7 +11,7 @@ export default defineConfig((options) => ({
   shims: false,
   treeshake: false,
   env: {
-    BASE_URL: process.env.ASSETS_BASE_URL,
+    BASE_URL: process.env.ASSETS_BASE_URL || '',
   },
   onSuccess() {
     const outputDir = join(__dirname, './images');
