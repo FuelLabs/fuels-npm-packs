@@ -20,7 +20,7 @@ export default defineConfig((options) => ({
     });
     writeFileSync(
       join(outputDir, './assets.json'),
-      JSON.stringify(assets, null, ' '),
+      JSON.stringify(assets, ' ', 2),
       {
         recursive: true,
       },
