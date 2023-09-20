@@ -17,9 +17,13 @@ export default defineConfig((options) => ({
     const outputDir = join(__dirname, './images');
     mkdirSync(outputDir, {
       recursive: true,
-    })
-    writeFileSync(join(outputDir, './assets.json'), JSON.stringify(assets, null, ' '), {
-      recursive: true,
     });
-  }
+    writeFileSync(
+      join(outputDir, './assets.json'),
+      JSON.stringify(assets, null, ' '),
+      {
+        recursive: true,
+      },
+    );
+  },
 }));

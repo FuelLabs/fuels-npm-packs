@@ -1,10 +1,10 @@
-import type { Assets } from "../types";
+import type { Assets } from '../types';
 
-import { urlJoin } from "./url";
+import { urlJoin } from './url';
 
 export function resolveIconPath(path: string, assets: Assets) {
-    return assets.map((asset) => ({
-        ...asset,
-        icon: asset.icon ? urlJoin(path, asset.icon) : null,
-    }));
+  return assets.map((asset) => ({
+    ...asset,
+    icon: asset.icon ? urlJoin(path, asset.icon) : null,
+  }));
 }
