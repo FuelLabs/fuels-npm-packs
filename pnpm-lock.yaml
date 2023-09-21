@@ -83,6 +83,15 @@ importers:
         specifier: ^14.5.0
         version: 14.5.0
 
+  packages/assets:
+    devDependencies:
+      '@fuels/ts-config':
+        specifier: workspace:*
+        version: link:../ts-config
+      '@fuels/tsup-config':
+        specifier: workspace:*
+        version: link:../tsup-config
+
   packages/changeset:
     dependencies:
       '@changesets/get-github-info':
