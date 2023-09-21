@@ -1,6 +1,6 @@
 import baseConfig from '@fuels/tsup-config';
 import { defineConfig } from 'tsup';
-import assets from './src';
+import { assets, resolveIconPath } from './src';
 import { mkdirSync, writeFileSync } from 'fs';
 import { join } from 'path';
 
@@ -18,9 +18,10 @@ export default defineConfig((options) => ({
     mkdirSync(outputDir, {
       recursive: true,
     });
+    const assetsData = resolveIconPath(process.env.ASSETS_BASE_URL, assets);
     writeFileSync(
       join(outputDir, './assets.json'),
-      JSON.stringify(assets, ' ', 2),
+      JSON.stringify(assetsData, ' ', 2),
       {
         recursive: true,
       },
