@@ -30,7 +30,7 @@ export type Asset = {
   /** symbol of the asset */
   symbol: string;
   /** icon of the asset */
-  icon: string;
+  icon: string | null;
   /** asset id on Fuel Network */
   assetId: string;
   /** Networks are a representation of the asset on a specfic network */
