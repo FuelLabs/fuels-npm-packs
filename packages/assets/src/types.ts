@@ -30,7 +30,7 @@ export type Asset = {
   /** symbol of the asset */
   symbol: string;
   /** icon of the asset */
-  icon: string | null;
+  icon: string;
   /** asset id on Fuel Network */
   networks: Array<Ethereum | Fuel>;
 };
