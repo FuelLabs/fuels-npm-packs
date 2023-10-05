@@ -26,8 +26,6 @@ export type Asset = {
   /** name of the asset */
   name: string;
   /** description of the asset */
-  description?: string;
-  /** symbol of the asset */
   symbol: string;
   /** icon of the asset */
   icon: string;

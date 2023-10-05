@@ -4,7 +4,6 @@ import type { Assets } from './types';
 export const assets: Assets = [
   {
     name: 'Ethereum',
-    description: 'Fuel base asset',
     symbol: 'ETH',
     icon: 'eth.svg',
     networks: [
