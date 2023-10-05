@@ -1,5 +1,6 @@
 import { assets as assetList } from './assets';
 import { resolveIconPath } from './utils/populateIconPath';
+export * from './constants';
 export * from './utils/populateIconPath';
 export * from './types';
 

@@ -26,14 +26,12 @@ export type Asset = {
   /** name of the asset */
   name: string;
   /** description of the asset */
-  description: string;
+  description?: string;
   /** symbol of the asset */
   symbol: string;
   /** icon of the asset */
   icon: string | null;
   /** asset id on Fuel Network */
-  assetId: string;
-  /** Networks are a representation of the asset on a specfic network */
   networks: Array<Ethereum | Fuel>;
 };
 
