@@ -5,6 +5,6 @@ import { urlJoin } from './url';
 export function resolveIconPath(path: string, assets: Assets) {
   return assets.map((asset) => ({
     ...asset,
-    icon: asset.icon ? urlJoin(path, asset.icon) : null,
+    icon: urlJoin(path, asset.icon),
   }));
 }
