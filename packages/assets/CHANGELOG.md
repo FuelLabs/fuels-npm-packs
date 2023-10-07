@@ -1,5 +1,11 @@
 # @fuels/assets
 
+## 0.1.0
+
+### Minor Changes
+
+- Use chainID 31337 for local eth network, by [@LuizAsFight](https://github.com/LuizAsFight) (See [#29](https://github.com/FuelLabs/fuels-npm-packs/pull/29))
+
 ## 0.0.12
 
 ### Patch Changes
