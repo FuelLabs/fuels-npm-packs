@@ -1,5 +1,11 @@
 # @fuels/assets
 
+## 0.1.1
+
+### Patch Changes
+
+- 🐞 fix: remove bg from eth logo, by [@luizstacio](https://github.com/luizstacio) (See [#31](https://github.com/FuelLabs/fuels-npm-packs/pull/31))
+
 ## 0.1.0
 
 ### Minor Changes
