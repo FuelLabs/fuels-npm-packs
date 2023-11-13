@@ -20,8 +20,8 @@ export const getDefaultChainId = (
 
 export type GetAssetNetworkParams<T extends NetworkTypes | undefined> = {
   asset: Asset;
-  chainId: number;
-  networkType?: T;
+  chainId?: number;
+  networkType: T;
 };
 
 export const getAssetNetwork = <T extends NetworkTypes | undefined>({
@@ -36,19 +36,20 @@ export const getAssetNetwork = <T extends NetworkTypes | undefined>({
   return network;
 };
 
-export const getAssetEth = (
-  asset: Asset,
-  chainId?: number,
-): AssetEth | undefined => {
+export const getAssetWithNetwork = <T extends NetworkTypes>({
+  asset,
+  chainId,
+  networkType,
+}: GetAssetNetworkParams<T>): AssetEth | AssetFuel | undefined => {
   const { networks: _, ...assetRest } = asset;
 
-  const chainIdToUse = chainId ?? getDefaultChainId('ethereum');
+  const chainIdToUse = chainId ?? getDefaultChainId(networkType);
   if (!chainIdToUse) return undefined;
 
   const assetNetwork = getAssetNetwork({
     asset,
     chainId: chainIdToUse,
-    networkType: 'ethereum',
+    networkType,
   });
 
   if (!assetNetwork) return undefined;
@@ -59,25 +60,19 @@ export const getAssetEth = (
   };
 };
 
-export const getAssetFuel = (
-  asset: Asset,
-  chainId: number,
-): AssetFuel | undefined => {
-  const { networks: _, ...assetRest } = asset;
-
-  const chainIdToUse = chainId ?? getDefaultChainId('fuel');
-  if (!chainIdToUse) return undefined;
-
-  const assetNetwork = getAssetNetwork({
+// Updated functions using the generic function
+export const getAssetEth = (asset: Asset, chainId?: number): AssetEth | undefined => {
+  return getAssetWithNetwork({
     asset,
+    networkType: 'ethereum',
     chainId,
+  }) as AssetEth;
+};
+
+export const getAssetFuel = (asset: Asset, chainId?: number): AssetFuel | undefined => {
+  return getAssetWithNetwork({
+    asset,
     networkType: 'fuel',
-  });
-
-  if (!assetNetwork) return undefined;
-
-  return {
-    ...assetRest,
-    ...assetNetwork,
-  };
+    chainId,
+  }) as AssetFuel;
 };
