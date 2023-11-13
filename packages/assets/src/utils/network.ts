@@ -60,7 +60,6 @@ export const getAssetWithNetwork = <T extends NetworkTypes>({
   };
 };
 
-// Updated functions using the generic function
 export const getAssetEth = (
   asset: Asset,
   chainId?: number,
