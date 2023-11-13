@@ -1,5 +1,5 @@
-import { CHAIN_IDS } from "../constants";
-import type { Asset, AssetEth, AssetFuel, Ethereum, Fuel } from "../types";
+import { CHAIN_IDS } from '../constants';
+import type { Asset, AssetEth, AssetFuel, Ethereum, Fuel } from '../types';
 
 type Network = Ethereum | Fuel; // Assuming Ethereum and Fuel are your types
 export type NetworkTypes = Ethereum['type'] | Fuel['type'];
@@ -9,12 +9,14 @@ type NetworkTypeToNetwork<T> = T extends 'ethereum'
   ? Fuel
   : Network;
 
-export const getDefaultChainId = (networkType: NetworkTypes): number | undefined => {
+export const getDefaultChainId = (
+  networkType: NetworkTypes,
+): number | undefined => {
   if (networkType === 'ethereum') return CHAIN_IDS.eth.sepolia;
   if (networkType === 'fuel') return CHAIN_IDS.fuel.beta4;
 
   return undefined;
-}
+};
 
 export type GetAssetNetworkParams<T extends NetworkTypes | undefined> = {
   asset: Asset;
@@ -28,13 +30,16 @@ export const getAssetNetwork = <T extends NetworkTypes | undefined>({
   networkType,
 }: GetAssetNetworkParams<T>): NetworkTypeToNetwork<T> => {
   const network = asset.networks.find(
-    (network) => network.chainId === chainId && network.type === networkType
+    (network) => network.chainId === chainId && network.type === networkType,
   ) as NetworkTypeToNetwork<T>;
 
   return network;
 };
 
-export const getAssetEth = (asset: Asset, chainId?: number): AssetEth | undefined => {
+export const getAssetEth = (
+  asset: Asset,
+  chainId?: number,
+): AssetEth | undefined => {
   const { networks: _, ...assetRest } = asset;
 
   const chainIdToUse = chainId ?? getDefaultChainId('ethereum');
@@ -54,7 +59,10 @@ export const getAssetEth = (asset: Asset, chainId?: number): AssetEth | undefine
   };
 };
 
-export const getAssetFuel = (asset: Asset, chainId: number): AssetFuel | undefined => {
+export const getAssetFuel = (
+  asset: Asset,
+  chainId: number,
+): AssetFuel | undefined => {
   const { networks: _, ...assetRest } = asset;
 
   const chainIdToUse = chainId ?? getDefaultChainId('fuel');
