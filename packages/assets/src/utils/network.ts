@@ -1,7 +1,7 @@
 import { CHAIN_IDS } from '../constants';
 import type { Asset, AssetEth, AssetFuel, Ethereum, Fuel } from '../types';
 
-type Network = Ethereum | Fuel; // Assuming Ethereum and Fuel are your types
+type Network = Ethereum | Fuel;
 export type NetworkTypes = Ethereum['type'] | Fuel['type'];
 type NetworkTypeToNetwork<T> = T extends 'ethereum'
   ? Ethereum
