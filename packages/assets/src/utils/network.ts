@@ -61,7 +61,10 @@ export const getAssetWithNetwork = <T extends NetworkTypes>({
 };
 
 // Updated functions using the generic function
-export const getAssetEth = (asset: Asset, chainId?: number): AssetEth | undefined => {
+export const getAssetEth = (
+  asset: Asset,
+  chainId?: number,
+): AssetEth | undefined => {
   return getAssetWithNetwork({
     asset,
     networkType: 'ethereum',
@@ -69,7 +72,10 @@ export const getAssetEth = (asset: Asset, chainId?: number): AssetEth | undefine
   }) as AssetEth;
 };
 
-export const getAssetFuel = (asset: Asset, chainId?: number): AssetFuel | undefined => {
+export const getAssetFuel = (
+  asset: Asset,
+  chainId?: number,
+): AssetFuel | undefined => {
   return getAssetWithNetwork({
     asset,
     networkType: 'fuel',
