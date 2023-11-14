@@ -1,5 +1,11 @@
 # @fuels/assets
 
+## 0.1.3
+
+### Patch Changes
+
+- 🐞 fix: accept chainId zero, by [@LuizAsFight](https://github.com/LuizAsFight) (See [#35](https://github.com/FuelLabs/fuels-npm-packs/pull/35))
+
 ## 0.1.2
 
 ### Patch Changes
