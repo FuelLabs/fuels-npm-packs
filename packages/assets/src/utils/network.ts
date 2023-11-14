@@ -36,6 +36,12 @@ export const getAssetNetwork = <T extends NetworkTypes | undefined>({
   return network;
 };
 
+/**
+ * Returns the asset with the network information based on the provided parameters.
+ * @template T - The network type.
+ * @param {GetAssetNetworkParams<T>} params - The parameters to get the asset with network information.
+ * @returns {(AssetEth | AssetFuel | undefined)} - The asset with network information or undefined if not found.
+ */
 export const getAssetWithNetwork = <T extends NetworkTypes>({
   asset,
   chainId,
@@ -44,7 +50,8 @@ export const getAssetWithNetwork = <T extends NetworkTypes>({
   const { networks: _, ...assetRest } = asset;
 
   const chainIdToUse = chainId ?? getDefaultChainId(networkType);
-  if (!chainIdToUse) return undefined;
+  // use two equals(==) cuz we wan't to keep 0 as a valid chainId
+  if (chainIdToUse == undefined) return undefined;
 
   const assetNetwork = getAssetNetwork({
     asset,
