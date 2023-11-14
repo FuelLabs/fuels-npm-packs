@@ -34,3 +34,6 @@ export type Asset = {
 };
 
 export type Assets = Array<Asset>;
+
+export type AssetEth = Omit<Asset, 'networks'> & Ethereum;
+export type AssetFuel = Omit<Asset, 'networks'> & Fuel;
