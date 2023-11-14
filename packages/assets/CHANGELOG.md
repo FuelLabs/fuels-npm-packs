@@ -1,5 +1,11 @@
 # @fuels/assets
 
+## 0.1.2
+
+### Patch Changes
+
+- Asset package: Add network utils, by [@LuizAsFight](https://github.com/LuizAsFight) (See [#33](https://github.com/FuelLabs/fuels-npm-packs/pull/33))
+
 ## 0.1.1
 
 ### Patch Changes
