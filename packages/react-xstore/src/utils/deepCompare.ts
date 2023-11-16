@@ -8,17 +8,17 @@
  * For our use cases we can use JSON.stringify to compare objects, as the order
  * of properties in most cases is the same. And it's more performatic than
  * deepEqual functions.
- * 
+ *
  * Reference: https://xstate.js.org/docs/packages/xstate-react/#api
  * Why use JSON https://www.mattzeunert.com/2016/01/28/javascript-deep-equal.html
  *
- * @param a 
- * @param b 
+ * @param a
+ * @param b
  * @returns if objects are different
  */
 export function deepCompare(a: unknown, b: unknown) {
-    if (typeof a === 'object') {
-        return JSON.stringify(a) === JSON.stringify(b);
-    }
-    return a === b;
+  if (typeof a === 'object') {
+    return JSON.stringify(a) === JSON.stringify(b);
+  }
+  return a === b;
 }
