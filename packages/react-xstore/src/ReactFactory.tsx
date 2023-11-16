@@ -6,6 +6,7 @@ import type { InterpreterFrom, StateFrom } from 'xstate';
 
 import type { CreateStoreAtomsReturn } from './atoms';
 import type { MachinesObj, AddMachineInput } from './types';
+import { compare } from './utils/compare';
 
 export class ReactFactory<T extends MachinesObj> {
   readonly atoms!: CreateStoreAtomsReturn<T>;
@@ -56,7 +57,7 @@ export class ReactFactory<T extends MachinesObj> {
     ) {
       const services = useAtomValue(servicesAtom);
       const service = services[key];
-      return useSelectorRef(service, selector) as R;
+      return useSelectorRef(service, selector, compare) as R;
     };
   }
 
