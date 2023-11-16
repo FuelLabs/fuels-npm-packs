@@ -1,5 +1,11 @@
 # @fuels/react-xstore
 
+## 0.1.4
+
+### Patch Changes
+
+- 🐞 Fix comparator function for objects to deep verify equality, by [@luizstacio](https://github.com/luizstacio) (See [#37](https://github.com/FuelLabs/fuels-npm-packs/pull/37))
+
 ## 0.1.3
 
 ## 0.1.2
