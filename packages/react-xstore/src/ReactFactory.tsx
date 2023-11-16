@@ -6,6 +6,7 @@ import type { InterpreterFrom, StateFrom } from 'xstate';
 
 import type { CreateStoreAtomsReturn } from './atoms';
 import type { MachinesObj, AddMachineInput } from './types';
+import { deepCompare } from './utils/deepCompare';
 
 export class ReactFactory<T extends MachinesObj> {
   readonly atoms!: CreateStoreAtomsReturn<T>;
@@ -53,10 +54,11 @@ export class ReactFactory<T extends MachinesObj> {
     return function useSelector<K extends keyof T, R>(
       key: K,
       selector: (state: StateFrom<T[K]>) => R,
+      compare: (a: R, b: R) => boolean = deepCompare,
     ) {
       const services = useAtomValue(servicesAtom);
       const service = services[key];
-      return useSelectorRef(service, selector) as R;
+      return useSelectorRef(service, selector, compare) as R;
     };
   }
 
