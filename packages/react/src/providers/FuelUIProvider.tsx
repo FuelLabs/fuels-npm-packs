@@ -1,71 +1,73 @@
+import type { FuelConnector } from '@fuel-wallet/sdk';
 import {
   createContext,
   useContext,
   type ReactNode,
-  useMemo,
   useState,
   useCallback,
+  useEffect,
 } from 'react';
 
 import { useConnect } from '../hooks/useConnect';
 import { useConnectors } from '../hooks/useConnectors';
-import type { Connector, ConnectorList } from '../types';
-import { Connect } from '../ui';
-import { DEFAULT_CONNECTORS } from '../ui/Connect/connectors';
 
-import { useFuel } from './FuelProvider';
+import { useFuel } from './FuelHooksProvider';
 
-type FuelConnectProviderProps = {
+export type FuelUIProviderProps = {
   children?: ReactNode;
-  theme: string;
-  connectors?: ConnectorList;
+  theme?: string;
 };
 
-export type FuelConnectContextType = {
-  connectors: ConnectorList;
+export type FuelUIContextType = {
+  theme: string;
+  connectors: Array<FuelConnector>;
+  isLoading: boolean;
   isConnecting: boolean;
   isError: boolean;
   connect: () => void;
   cancel: () => void;
+  setTheme: (theme: string) => void;
   error: Error | null;
   dialog: {
-    connector: Connector | null;
+    connector: FuelConnector | null;
     isOpen: boolean;
     back: () => void;
-    connect: (connector: Connector) => void;
+    connect: (connector: FuelConnector) => void;
   };
 };
 
-export const FuelConnectContext = createContext<FuelConnectContextType | null>(
-  null
-);
+export const FuelConnectContext = createContext<FuelUIContextType | null>(null);
 
-export const useConnector = () => {
-  return useContext(FuelConnectContext) as FuelConnectContextType;
+export const useHasFuelConnectProvider = () => {
+  const context = useContext(FuelConnectContext);
+  return context !== undefined;
 };
 
-export function FuelConnectorProvider({
-  theme,
+export const useConnectUI = () => {
+  const context = useContext(FuelConnectContext) as FuelUIContextType;
+
+  if (context === undefined) {
+    throw new Error('useConnectUI must be used within a FuelUIProvider');
+  }
+
+  return context;
+};
+
+export function FuelUIProvider({
   children,
-  connectors: initalConnectors = DEFAULT_CONNECTORS,
-}: FuelConnectProviderProps) {
+  theme: initialTheme,
+}: FuelUIProviderProps) {
+  const [theme, setTheme] = useState(initialTheme || 'light');
   const { fuel } = useFuel();
   const { isLoading: isConnecting, isError, connect } = useConnect();
-  const { connectors: connectorList } = useConnectors();
-  const connectors = useMemo(() => {
-    return initalConnectors
-      .map((connector) => ({
-        ...connector,
-        installed: !!connectorList.find((c) => c.name === connector.name),
-      }))
-      .sort((a) => (a.installed ? -1 : 1));
-  }, [initalConnectors, connectorList]);
-  const [connector, setConnector] = useState<Connector | null>(null);
+  const { connectors, isLoading } = useConnectors();
+  const [connector, setConnector] = useState<FuelConnector | null>(null);
   const [isOpen, setOpen] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
   const handleCancel = () => {
     setOpen(false);
+    setConnector(null);
   };
 
   const handleConnect = () => {
@@ -76,14 +78,17 @@ export function FuelConnectorProvider({
     setConnector(null);
   };
 
+  useEffect(() => {
+    if (connector && connector.installed) {
+      handleBack();
+    }
+  }, [connectors.map((c) => c.installed)]);
+
   const handleSelectConnector = useCallback(
-    async (connector: Connector) => {
+    async (connector: FuelConnector) => {
       if (!fuel) return setConnector(connector);
 
-      const connectors = await fuel.listConnectors();
-      const hasConnector = connectors.find((c) => c.name === connector.name);
-
-      if (hasConnector) {
+      if (connector.installed) {
         handleCancel();
         try {
           await connect(connector.name);
@@ -100,6 +105,9 @@ export function FuelConnectorProvider({
   return (
     <FuelConnectContext.Provider
       value={{
+        theme,
+        setTheme,
+        isLoading,
         isConnecting,
         isError,
         connectors,
@@ -114,7 +122,6 @@ export function FuelConnectorProvider({
         },
       }}
     >
-      <Connect theme={theme} />
       {children}
     </FuelConnectContext.Provider>
   );
