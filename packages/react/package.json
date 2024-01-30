@@ -1,5 +1,5 @@
 {
-  "name": "@fuel-wallet/react",
+  "name": "@fuels/react",
   "description": "Interact with the Fuel Wallet Extension in React.",
   "version": "0.15.0",
   "license": "Apache-2.0",
