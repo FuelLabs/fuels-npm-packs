@@ -18,7 +18,7 @@ export const useAccount = () => {
     },
     {
       initialData: null,
-    }
+    },
   );
 
   return {

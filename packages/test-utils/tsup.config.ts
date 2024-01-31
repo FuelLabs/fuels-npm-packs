@@ -1,14 +1,8 @@
-import type { Options } from 'tsup';
+import baseConfig from '@fuels/tsup-config';
+import { defineConfig } from 'tsup';
 
-const options: Options = {
-  sourcemap: true,
-  shims: true,
-  treeshake: true,
-  splitting: false,
+export default defineConfig((options) => ({
+  ...baseConfig(options),
   dts: true,
-  format: ['cjs', 'esm'],
-  minify: process.env.NODE_ENV === 'production',
   entry: ['src/index.ts'],
-};
-
-export default options;
+}));

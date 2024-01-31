@@ -99,7 +99,7 @@ export function FuelUIProvider({
         setConnector(connector);
       }
     },
-    [fuel]
+    [fuel],
   );
 
   return (

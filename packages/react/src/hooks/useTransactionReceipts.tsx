@@ -29,7 +29,7 @@ export const useTransactionReceipts = ({ txId }: { txId?: string }) => {
     {
       initialData: null,
       enabled: !!txId,
-    }
+    },
   );
 
   return {

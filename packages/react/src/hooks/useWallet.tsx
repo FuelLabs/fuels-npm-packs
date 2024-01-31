@@ -19,7 +19,7 @@ export const useWallet = (address?: string | null) => {
       } catch (error: unknown) {
         return null;
       }
-    }
+    },
   );
 
   return {

@@ -37,7 +37,7 @@ type CustomTheme = Partial<typeof commonTheme & typeof lightTheme>;
 
 export const getThemeVariables = (
   theme: 'light' | 'dark' | string,
-  customTheme?: CustomTheme
+  customTheme?: CustomTheme,
 ) => {
   const colorTheme = theme === 'dark' ? darkTheme : lightTheme;
   return {

@@ -10,7 +10,7 @@ export const useNetwork = () => {
     [QUERY_KEYS.currentNetwork],
     async () => {
       return fuel.currentNetwork();
-    }
+    },
   );
 
   return {

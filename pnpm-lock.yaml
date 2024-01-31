@@ -276,6 +276,12 @@ importers:
       '@fuel-wallet/sdk':
         specifier: ^0.15.0
         version: 0.15.0(dexie@3.2.4)(fuels@0.72.0)
+      '@fuels/ts-config':
+        specifier: workspace:*
+        version: link:../ts-config
+      '@fuels/tsup-config':
+        specifier: workspace:*
+        version: link:../tsup-config
       compare-versions:
         specifier: ^6.1.0
         version: 6.1.0
@@ -347,6 +353,12 @@ importers:
         specifier: 0.72.0
         version: 0.72.0
     devDependencies:
+      '@fuels/ts-config':
+        specifier: workspace:*
+        version: link:../ts-config
+      '@fuels/tsup-config':
+        specifier: workspace:*
+        version: link:../tsup-config
       '@playwright/test':
         specifier: ^1.39.0
         version: 1.41.1

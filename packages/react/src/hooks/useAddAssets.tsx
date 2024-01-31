@@ -14,7 +14,7 @@ export const useAddAssets = () => {
         return fuel.addAssets(assets);
       }
       return fuel.addAsset(assets);
-    }
+    },
   );
 
   return {

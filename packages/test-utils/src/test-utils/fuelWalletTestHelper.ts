@@ -31,7 +31,7 @@ export class FuelWalletTestHelper {
     fuelProviderUrl: string,
     chainName: string,
     mnemonic: string = FUEL_MNEMONIC,
-    password: string = FUEL_WALLET_PASSWORD
+    password: string = FUEL_WALLET_PASSWORD,
   ) {
     let signupPage = await context.newPage();
     await signupPage.goto(`chrome-extension://${fuelExtensionId}/popup.html`);
@@ -70,7 +70,7 @@ export class FuelWalletTestHelper {
       .waitFor({ state: 'visible', timeout: 9000 });
 
     await signupPage.goto(
-      `chrome-extension://${fuelExtensionId}/popup.html#/wallet`
+      `chrome-extension://${fuelExtensionId}/popup.html#/wallet`,
     );
 
     const fuelWalletTestHelper = new FuelWalletTestHelper(context);
@@ -82,14 +82,14 @@ export class FuelWalletTestHelper {
 
   async walletConnect(
     accountNames?: string[],
-    connectCurrentAccount: boolean = true
+    connectCurrentAccount: boolean = true,
   ) {
     const walletNotificationPage = await this.getWalletPopupPage();
 
     if (!connectCurrentAccount) {
       const disconnectCurrentAccountButton = walletNotificationPage.getByRole(
         'switch',
-        { checked: true }
+        { checked: true },
       );
       await disconnectCurrentAccountButton.click();
     }
@@ -98,7 +98,7 @@ export class FuelWalletTestHelper {
       for (const accountName of accountNames) {
         const accountConnectionButton = getByAriaLabel(
           walletNotificationPage,
-          `Toggle ${accountName}`
+          `Toggle ${accountName}`,
         );
         await accountConnectionButton.click();
       }
@@ -142,7 +142,7 @@ export class FuelWalletTestHelper {
     name: string,
     symbol: string,
     decimals: number,
-    imageUrl?: string
+    imageUrl?: string,
   ) {
     const walletPage = this.getWalletPage();
 
@@ -181,13 +181,13 @@ export class FuelWalletTestHelper {
     name: string,
     symbol: string,
     decimals: number,
-    imageUrl?: string
+    imageUrl?: string,
   ) {
     const walletPage = this.getWalletPage();
 
     const showUnkownAssetsButton = getButtonByText(
       walletPage,
-      'Show unknown assets'
+      'Show unknown assets',
     );
     await showUnkownAssetsButton.click();
 
@@ -238,13 +238,13 @@ export class FuelWalletTestHelper {
 
       const addNewNetworkButton = getByAriaLabel(
         this.walletPage,
-        'Add new network'
+        'Add new network',
       );
       await addNewNetworkButton.click();
     } else {
       const closeNetworkButton = getByAriaLabel(
         this.walletPage,
-        'Close dialog'
+        'Close dialog',
       );
       await closeNetworkButton.click();
     }

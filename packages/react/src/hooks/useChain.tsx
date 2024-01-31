@@ -23,7 +23,7 @@ export const useChain = () => {
     {
       initialData: null,
       enabled: !!provider,
-    }
+    },
   );
 
   return {

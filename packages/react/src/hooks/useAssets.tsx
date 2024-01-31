@@ -19,7 +19,7 @@ export const useAssets = () => {
     },
     {
       initialData: [],
-    }
+    },
   );
 
   return {

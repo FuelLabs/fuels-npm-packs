@@ -31,7 +31,7 @@ export type FuelReactContextType = {
 };
 
 export const FuelReactContext = createContext<FuelReactContextType | null>(
-  null
+  null,
 );
 
 export const useFuel = () => {

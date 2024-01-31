@@ -18,7 +18,7 @@ export const useIsConnected = () => {
     },
     {
       initialData: null,
-    }
+    },
   );
 
   return {

@@ -23,7 +23,7 @@ export const useTransaction = (txId?: string) => {
     {
       initialData: null,
       enabled: !!txId,
-    }
+    },
   );
 
   return {

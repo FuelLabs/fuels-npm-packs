@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import admZip from 'adm-zip';
 import { createWriteStream } from 'fs';
 import https from 'https';

@@ -10,7 +10,7 @@ export const useAddNetwork = () => {
     [MUTATION_KEYS.addAssets],
     async (networkUrl: string) => {
       return fuel.addNetwork(networkUrl);
-    }
+    },
   );
 
   return {

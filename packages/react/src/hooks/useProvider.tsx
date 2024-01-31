@@ -14,7 +14,7 @@ export const useProvider = () => {
     },
     {
       initialData: null,
-    }
+    },
   );
 
   return {

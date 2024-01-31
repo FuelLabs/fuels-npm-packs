@@ -13,7 +13,7 @@ export const useConnectors = () => {
     },
     {
       initialData: [],
-    }
+    },
   );
 
   return {

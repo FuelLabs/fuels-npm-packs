@@ -41,6 +41,8 @@
   },
   "devDependencies": {
     "@fuel-wallet/sdk": "^0.15.0",
+    "@fuels/ts-config": "workspace:*",
+    "@fuels/tsup-config": "workspace:*",
     "styled-components": "^6.1.1",
     "compare-versions": "^6.1.0",
     "fuels": "0.72.0",
