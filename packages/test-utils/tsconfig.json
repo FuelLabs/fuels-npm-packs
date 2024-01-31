@@ -6,6 +6,6 @@
     "baseUrl": ".",
     "rootDir": "."
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "tsup.config.js"],
   "exclude": ["**/*.test.ts"]
 }
