@@ -1,5 +1,11 @@
 # @fuels/assets
 
+## 0.1.5
+
+### Patch Changes
+
+- chore: expose utils, by [@LuizAsFight](https://github.com/LuizAsFight) (See [#41](https://github.com/FuelLabs/fuels-npm-packs/pull/41))
+
 ## 0.1.4
 
 ## 0.1.3
