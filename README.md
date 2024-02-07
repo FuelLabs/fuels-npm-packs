@@ -12,7 +12,7 @@ Common libraries for Fuel frontend development.
 - jest: common test mocks and test setup for Fuel frontend projects.
 - local-storage: custom localStorage class used by Fuel frontend projects.
 - prettier-config: common prettier configuration for Fuel frontend projects.
-- react: react hooks for interacting with a Fuel wallet.
+- react: react hooks for interacting with the Fuel wallet SDK.
 - react-xstore: custom react state management library used alongside xstate.
 - test-utils: test utilities and mocks for interacting with the Fuel wallet.
 - ts-config: common ts-config for Fuel frontend projects.
