@@ -37,7 +37,7 @@ jobs:
   changesets:
     name: Changeset Checks
     needs: check-packages-changed
-    if: ${{ needs.check-packages-changed.outputs.changed == 'true' }}
+    if: ${{ github.head_ref != 'changeset-release/main' && needs.check-packages-changed.outputs.changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
