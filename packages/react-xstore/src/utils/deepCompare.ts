@@ -18,7 +18,10 @@
  */
 export function deepCompare(a: unknown, b: unknown) {
   if (typeof a === 'object') {
-    return JSON.stringify(a, stringifyBigInts) === JSON.stringify(b, stringifyBigInts);
+    return (
+      JSON.stringify(a, stringifyBigInts) ===
+      JSON.stringify(b, stringifyBigInts)
+    );
   }
   return a === b;
 }
