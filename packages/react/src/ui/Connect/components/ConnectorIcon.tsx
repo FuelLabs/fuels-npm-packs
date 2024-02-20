@@ -1,4 +1,4 @@
-import type { ConnectorMetadata } from '@fuel-wallet/sdk';
+import type { ConnectorMetadata } from 'fuels';
 
 import type { SvgIconProps } from '../../types';
 import { FuelWalletDevelopmentIcon } from '../icons/FuelWalletDevelopmentIcon';
@@ -29,6 +29,7 @@ export function ConnectorIcon({
           height={`${props.size}px`}
           width={`${props.size}px`}
           src={getImageUrl(connectorMetadata, props.theme)}
+          alt={`${connectorName} icon`}
         />
       ) : null;
   }
