@@ -18,7 +18,17 @@
  */
 export function deepCompare(a: unknown, b: unknown) {
   if (typeof a === 'object') {
-    return JSON.stringify(a) === JSON.stringify(b);
+    return (
+      JSON.stringify(a, stringifyBigInts) ===
+      JSON.stringify(b, stringifyBigInts)
+    );
   }
   return a === b;
+}
+
+export function stringifyBigInts(key: string, value: unknown) {
+  if (typeof value === 'bigint') {
+    return value.toString();
+  }
+  return value;
 }
