@@ -1,5 +1,11 @@
 # @fuels/react-xstore
 
+## 0.15.2
+
+### Patch Changes
+
+- ✨ feat: add stringify support for bigint, by [@luizstacio](https://github.com/luizstacio) (See [#49](https://github.com/FuelLabs/fuels-npm-packs/pull/49))
+
 ## 0.15.1
 
 ## 0.1.5
