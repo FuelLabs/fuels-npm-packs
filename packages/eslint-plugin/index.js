@@ -19,7 +19,7 @@ const config = {
     'plugin:eslint-comments/recommended',
     'plugin:import/recommended',
     'plugin:import/typescript',
-    'prettier',
+    'plugin:prettier/recommended',
   ],
   settings: {
     react: {
