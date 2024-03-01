@@ -1,5 +1,11 @@
 # @fuels/assets
 
+## 0.15.3
+
+### Patch Changes
+
+- 🐞 fix invalid exports in package.json, by [@helciofranco](https://github.com/helciofranco) (See [#53](https://github.com/FuelLabs/fuels-npm-packs/pull/53))
+
 ## 0.15.2
 
 ## 0.15.1
