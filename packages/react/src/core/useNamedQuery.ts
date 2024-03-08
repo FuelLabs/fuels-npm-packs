@@ -2,10 +2,9 @@ import type {
   DefinedUseQueryResult,
   QueryKey,
   UseQueryOptions,
-  UseQueryResult} from '@tanstack/react-query';
-import {
-  useQuery,
+  UseQueryResult,
 } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import { useMemo } from 'react';
 
 type ExcludeData<T> = Omit<T, 'data'>;
