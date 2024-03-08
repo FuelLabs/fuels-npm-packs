@@ -1,4 +1,4 @@
-import type { Asset } from '@fuel-wallet/sdk';
+import type { Asset } from 'fuels';
 import { useMutation } from '@tanstack/react-query';
 
 import { useFuel } from '../providers';

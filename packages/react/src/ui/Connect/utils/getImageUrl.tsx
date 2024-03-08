@@ -1,4 +1,4 @@
-import type { ConnectorMetadata } from '@fuel-wallet/sdk';
+import type { ConnectorMetadata } from 'fuels';
 
 export const getImageUrl = (connector: ConnectorMetadata, theme?: string) => {
   const { image } = connector;
