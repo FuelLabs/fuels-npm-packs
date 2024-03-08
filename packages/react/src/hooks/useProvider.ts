@@ -5,15 +5,12 @@ import { QUERY_KEYS } from '../utils';
 export const useProvider = () => {
   const { fuel } = useFuel();
 
-  return useNamedQuery(
-    'provider',
-    {
-      queryKey: [QUERY_KEYS.provider],
-      queryFn: async () => {
-        const provider = await fuel.getProvider();
-        return provider || null;
-      },
-      initialData: null,
-    }
-  );
+  return useNamedQuery('provider', {
+    queryKey: [QUERY_KEYS.provider],
+    queryFn: async () => {
+      const provider = await fuel.getProvider();
+      return provider || null;
+    },
+    initialData: null,
+  });
 };

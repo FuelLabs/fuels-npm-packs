@@ -6,7 +6,7 @@ import { QUERY_KEYS } from '../utils';
 export const useIsConnected = () => {
   const { fuel } = useFuel();
 
-  return useNamedQuery('isConnected', {
+  const query = useNamedQuery('isConnected', {
     queryKey: [QUERY_KEYS.isConnected],
     queryFn: async () => {
       try {
@@ -18,4 +18,8 @@ export const useIsConnected = () => {
     },
     initialData: null,
   });
+
+  return {
+    ...query,
+  };
 };

@@ -7,11 +7,9 @@ import { QUERY_KEYS } from '../utils';
 export const useWallet = (address?: string | null) => {
   const { fuel } = useFuel();
 
-  return useNamedQuery(
-    'wallet',
-    {
-      queryKey: [QUERY_KEYS.wallet, address],
-      queryFn: async () => {
+  return useNamedQuery('wallet', {
+    queryKey: [QUERY_KEYS.wallet, address],
+    queryFn: async () => {
       try {
         const accountAddress = address || (await fuel.currentAccount()) || '';
         // Check if the address is valid
@@ -21,7 +19,6 @@ export const useWallet = (address?: string | null) => {
       } catch (error: unknown) {
         return null;
       }
-      },
-    }
-  );
+    },
+  });
 };

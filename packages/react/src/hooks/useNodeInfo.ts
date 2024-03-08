@@ -11,7 +11,7 @@ type NodeInfoParams = {
 
 export const useNodeInfo = ({ version = '0.0.0' }: NodeInfoParams = {}) => {
   const { provider } = useProvider();
-  
+
   const query = useNamedQuery('nodeInfo', {
     queryKey: [QUERY_KEYS.nodeInfo, provider?.url],
     queryFn: () => {
@@ -22,8 +22,8 @@ export const useNodeInfo = ({ version = '0.0.0' }: NodeInfoParams = {}) => {
 
   return new Proxy(query, {
     get(target, prop) {
-      if (prop === "isCompatible") {
-        if(target.nodeInfo?.nodeVersion) {
+      if (prop === 'isCompatible') {
+        if (target.nodeInfo?.nodeVersion) {
           return compare(target.nodeInfo?.nodeVersion, version, '>=');
         }
 
