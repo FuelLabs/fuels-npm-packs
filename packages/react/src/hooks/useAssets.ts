@@ -1,5 +1,5 @@
 import type { Asset } from 'fuels';
-import { useQuery } from '@tanstack/react-query';
+import { useNamedQuery } from '../core';
 
 import { useFuel } from '../providers';
 import { QUERY_KEYS } from '../utils';
@@ -7,23 +7,19 @@ import { QUERY_KEYS } from '../utils';
 export const useAssets = () => {
   const { fuel } = useFuel();
 
-  const { data, ...queryProps } = useQuery(
-    [QUERY_KEYS.assets],
-    async () => {
-      try {
-        const assets = (await fuel.assets()) as Array<Asset>;
-        return assets || [];
-      } catch (error: unknown) {
-        return [];
-      }
-    },
+  return useNamedQuery(
+    'assets',
     {
+      queryKey: [QUERY_KEYS.assets],
+      queryFn: async () => {
+        try {
+          const assets = (await fuel.assets()) as Array<Asset>;
+          return assets || [];
+        } catch (error: unknown) {
+          return [];
+        }
+      },
       initialData: [],
-    },
+    }
   );
-
-  return {
-    assets: data,
-    ...queryProps,
-  };
 };

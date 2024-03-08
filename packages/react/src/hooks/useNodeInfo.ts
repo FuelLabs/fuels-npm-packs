@@ -1,6 +1,6 @@
-import { useQuery } from '@tanstack/react-query';
 import { compare } from 'compare-versions';
 
+import { useNamedQuery } from '../core';
 import { QUERY_KEYS } from '../utils';
 
 import { useProvider } from './useProvider';
@@ -11,22 +11,28 @@ type NodeInfoParams = {
 
 export const useNodeInfo = ({ version = '0.0.0' }: NodeInfoParams = {}) => {
   const { provider } = useProvider();
-  const { data: nodeInfo, ...query } = useQuery(
-    [QUERY_KEYS.nodeInfo, provider?.url],
-    () => {
+  
+  const query = useNamedQuery('nodeInfo', {
+    queryKey: [QUERY_KEYS.nodeInfo, provider?.url],
+    queryFn: () => {
       return provider?.fetchNode();
     },
-    {
-      enabled: !!provider,
-    },
-  );
-  const isCompatible = nodeInfo?.nodeVersion
-    ? compare(nodeInfo.nodeVersion, version, '>=')
-    : null;
+    enabled: !!provider,
+  });
 
-  return {
-    isCompatible,
-    nodeInfo,
-    ...query,
+  return new Proxy(query, {
+    get(target, prop) {
+      if (prop === "isCompatible") {
+        if(target.nodeInfo?.nodeVersion) {
+          return compare(target.nodeInfo?.nodeVersion, version, '>=');
+        }
+
+        return null;
+      }
+
+      return Reflect.get(target, prop);
+    },
+  }) as typeof query & {
+    isCompatible: boolean;
   };
 };
