@@ -7,7 +7,7 @@ The Fuel Wallet React Hooks provide a set of hooks to seamless integrate the [Fu
 ## Installation
 
 ```bash
-npm install fuels @fuel-wallet/react
+npm install fuels @fuels/react
 ```
 
 Note that the fuels package is also required as a dependency for better integration with other applications built using the [Fuels TS SDK](https://github.com/FuelLabs/fuels-ts).
@@ -19,7 +19,7 @@ Note that the fuels package is also required as a dependency for better integrat
 Adding the providers on the upper level of the application that will use the hooks.
 
 ```tsx
-import { FuelProvider } from '@fuel-wallet/react';
+import { FuelProvider } from '@fuels/react';
 
 import { App } from './App';
 
@@ -41,7 +41,7 @@ import {
   useConnectors,
   useDisconnect,
   useIsConnected,
-} from '@fuel-wallet/react';
+} from '@fuels/react';
 
 export default function App() {
   const [connector, setConnector] = useState('');
