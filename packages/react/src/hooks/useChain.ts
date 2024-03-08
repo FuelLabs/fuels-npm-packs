@@ -1,8 +1,8 @@
-import { useNamedQuery } from '../core';
 // should import ChainInfo because of this error: https://github.com/FuelLabs/fuels-ts/issues/1054
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type { ChainInfo } from 'fuels';
 
+import { useNamedQuery } from '../core';
 import { QUERY_KEYS } from '../utils';
 
 import { useProvider } from './useProvider';

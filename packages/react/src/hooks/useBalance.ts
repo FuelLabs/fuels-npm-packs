@@ -1,8 +1,8 @@
-import { useNamedQuery } from '../core';
 import type { BytesLike } from 'fuels';
 import { Address } from 'fuels';
 import { useEffect } from 'react';
 
+import { useNamedQuery } from '../core';
 import { QUERY_KEYS } from '../utils';
 
 import { useProvider } from './useProvider';

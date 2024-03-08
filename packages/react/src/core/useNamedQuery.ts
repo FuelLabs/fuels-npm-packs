@@ -1,8 +1,9 @@
-import {
+import type {
   DefinedUseQueryResult,
   QueryKey,
   UseQueryOptions,
-  UseQueryResult,
+  UseQueryResult} from '@tanstack/react-query';
+import {
   useQuery,
 } from '@tanstack/react-query';
 import { useMemo } from 'react';

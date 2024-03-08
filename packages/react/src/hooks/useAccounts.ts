@@ -1,5 +1,4 @@
 import { useNamedQuery } from '../core';
-
 import { useFuel } from '../providers';
 import { QUERY_KEYS } from '../utils';
 

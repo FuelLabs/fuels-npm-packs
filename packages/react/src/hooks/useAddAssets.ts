@@ -1,5 +1,5 @@
-import type { Asset } from 'fuels';
 import { useMutation } from '@tanstack/react-query';
+import type { Asset } from 'fuels';
 
 import { useFuel } from '../providers';
 import { MUTATION_KEYS } from '../utils';
