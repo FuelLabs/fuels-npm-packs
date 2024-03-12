@@ -1,15 +1,15 @@
-import { useQuery } from '@tanstack/react-query';
 import { Address } from 'fuels';
 
+import { useNamedQuery } from '../core';
 import { useFuel } from '../providers';
 import { QUERY_KEYS } from '../utils';
 
 export const useWallet = (address?: string | null) => {
   const { fuel } = useFuel();
 
-  const { data, ...queryProps } = useQuery(
-    [QUERY_KEYS.wallet, address],
-    async () => {
+  return useNamedQuery('wallet', {
+    queryKey: [QUERY_KEYS.wallet, address],
+    queryFn: async () => {
       try {
         const accountAddress = address || (await fuel.currentAccount()) || '';
         // Check if the address is valid
@@ -20,10 +20,5 @@ export const useWallet = (address?: string | null) => {
         return null;
       }
     },
-  );
-
-  return {
-    wallet: data,
-    ...queryProps,
-  };
+  });
 };
