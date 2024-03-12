@@ -1,5 +1,11 @@
 # @fuels/react
 
+## 0.16.0
+
+### Minor Changes
+
+- 🐞 fix: fuel hooks will only re-render tracked properties, instead of listening to every useQuery property, by [@helciofranco](https://github.com/helciofranco) (See [#55](https://github.com/FuelLabs/fuels-npm-packs/pull/55))
+
 ## 0.15.3
 
 ## 0.15.2
