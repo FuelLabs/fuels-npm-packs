@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styledComponents from 'styled-components';
 
-export const ConnectorItem = styled.div`
+export const ConnectorItem = styledComponents.div`
   display: flex;
   align-items: center;
   background-color: transparent;
@@ -24,17 +24,17 @@ export const ConnectorItem = styled.div`
   }
 `;
 
-export const ConnectorList = styled.div`
+export const ConnectorList = styledComponents.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--fuel-items-gap);
 `;
 
-export const ConnectorName = styled.div`
+export const ConnectorName = styledComponents.div`
   font-size: var(--fuel-font-size);
 `;
 
-export const ConnectorImg = styled.img`
+export const ConnectorImg = styledComponents.img`
   object-fit: cover;
 `;

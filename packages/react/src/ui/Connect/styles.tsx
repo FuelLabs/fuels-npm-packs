@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import * as Dialog from '@radix-ui/react-dialog';
-import styled, { keyframes } from 'styled-components';
+import styledComponents, { keyframes } from 'styled-components';
 
 import { BackIcon as CBackIcon } from './icons/BackIcon';
 import { CloseIcon as CCloseIcon } from './icons/CloseIcon';
@@ -34,14 +34,14 @@ const placeholderLoader = keyframes`
   }
 `;
 
-export const DialogOverlay = styled(Dialog.Overlay)`
+export const DialogOverlay = styledComponents(Dialog.Overlay)`
   background-color: var(--fuel-overlay-background);
   position: fixed;
   inset: 0;
   animation: ${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1);
 `;
 
-export const DialogContent = styled(Dialog.Content)`
+export const DialogContent = styledComponents(Dialog.Content)`
   overflow: hidden;
   color: var(--fuel-color);
   user-select: none;
@@ -67,19 +67,19 @@ export const DialogContent = styled(Dialog.Content)`
   }
 ` as any as typeof Dialog.Content;
 
-export const DialogTitle = styled(Dialog.Title)`
+export const DialogTitle = styledComponents(Dialog.Title)`
   margin: 0;
   font-weight: normal;
   text-align: center;
   font-size: 16px;
 `;
 
-export const DialogMain = styled.div`
+export const DialogMain = styledComponents.div`
   margin-top: 20px;
   position: relative;
 `;
 
-export const BackIcon = styled(CBackIcon)`
+export const BackIcon = styledComponents(CBackIcon)`
   fill: var(--fuel-color);
   padding: 4px;
   opacity: 0.5;
@@ -104,7 +104,7 @@ export const BackIcon = styled(CBackIcon)`
   }
 `;
 
-export const CloseIcon = styled(CCloseIcon)`
+export const CloseIcon = styledComponents(CCloseIcon)`
   fill: var(--fuel-color);
   padding: 4px;
   opacity: 0.5;
@@ -125,7 +125,7 @@ export const CloseIcon = styled(CCloseIcon)`
   }
 `;
 
-export const FuelRoot = styled.div`
+export const FuelRoot = styledComponents.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -143,7 +143,7 @@ export const FuelRoot = styled.div`
   }
 `;
 
-export const PlaceholderLoader = styled.div`
+export const PlaceholderLoader = styledComponents.div`
   animation-duration: 1s;
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
