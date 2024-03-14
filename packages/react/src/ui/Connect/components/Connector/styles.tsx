@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styledComponents from 'styled-components';
 
-export const ConnectorTitle = styled.h2`
+export const ConnectorTitle = styledComponents.h2`
   text-align: center;
   font-size: 1.2em;
   font-weight: 500;
@@ -8,13 +8,13 @@ export const ConnectorTitle = styled.h2`
   margin: 0 0 0.8em 0;
 `;
 
-export const ConnectorDescription = styled.p`
+export const ConnectorDescription = styledComponents.p`
   text-align: center;
   margin: 0 1.2em;
   line-height: 1.2em;
 `;
 
-export const ConnectorImage = styled.div`
+export const ConnectorImage = styledComponents.div`
   display: flex;
   justify-content: center;
   height: 6.2em;
@@ -23,7 +23,7 @@ export const ConnectorImage = styled.div`
   margin-bottom: 1.2em;
 `;
 
-export const ConnectorButton = styled.a`
+export const ConnectorButton = styledComponents.a`
   display: flex;
   box-sizing: border-box;
   text-decoration: none;
@@ -46,7 +46,7 @@ export const ConnectorButton = styled.a`
   }
 `;
 
-export const ConnectorContent = styled.div`
+export const ConnectorContent = styledComponents.div`
   display: flex;
   flex-direction: column;
 `;
