@@ -32,11 +32,8 @@ function createProxyHandler<
 >(name: TName) {
   const handlers: ProxyHandler<UseQueryResult<TData, TError>> = {
     get(target, prop) {
-      if (prop === name) {
-        return target.data;
-      }
-
-      return Reflect.get(target, prop);
+      const shouldReplaceData = prop === name;
+      return  Reflect.get(target, shouldReplaceData ? 'data' : prop);
     },
   };
 
