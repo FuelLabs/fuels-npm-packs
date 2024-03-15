@@ -6,7 +6,7 @@ export const useIsConnected = () => {
   const { fuel } = useFuel();
 
   const query = useNamedQuery('isConnected', {
-    queryKey: [QUERY_KEYS.isConnected],
+    queryKey: QUERY_KEYS.isConnected(),
     queryFn: async () => {
       try {
         const isConnected = await fuel.isConnected();

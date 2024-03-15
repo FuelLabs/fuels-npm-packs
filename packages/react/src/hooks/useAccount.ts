@@ -6,7 +6,7 @@ export const useAccount = () => {
   const { fuel } = useFuel();
 
   return useNamedQuery('account', {
-    queryKey: [QUERY_KEYS.account],
+    queryKey: QUERY_KEYS.account(),
     queryFn: async () => {
       try {
         const currentFuelAccount = await fuel?.currentAccount();

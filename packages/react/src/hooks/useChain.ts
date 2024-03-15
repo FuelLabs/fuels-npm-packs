@@ -11,7 +11,7 @@ export const useChain = () => {
   const { provider } = useProvider();
 
   return useNamedQuery('chain', {
-    queryKey: [QUERY_KEYS.chain],
+    queryKey: QUERY_KEYS.chain(),
     queryFn: async () => {
       try {
         const currentFuelChain = await provider?.getChain();

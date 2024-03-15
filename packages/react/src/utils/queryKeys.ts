@@ -1,4 +1,5 @@
-import { QueryKey } from "@tanstack/react-query";
+import type { BytesLike } from 'fuels';
+import { QueryKey } from '@tanstack/react-query';
 
 export const QUERY_KEYS = {
   base: ['fuel'] as QueryKey,
@@ -20,20 +21,31 @@ export const QUERY_KEYS = {
   provider: (): QueryKey => {
     return [...QUERY_KEYS.base, 'provider'];
   },
-  balance: (): QueryKey => {
-    return [...QUERY_KEYS.base, 'balance'];
+  balance: (address?: string, assetId?: BytesLike): QueryKey => {
+    const queryKey = [...QUERY_KEYS.base, 'balance'];
+    if (address) queryKey.push(address);
+    if (assetId) queryKey.push(assetId);
+    return queryKey;
   },
-  wallet: (): QueryKey => {
-    return [...QUERY_KEYS.base, 'wallet'];
+  wallet: (address?: string | null): QueryKey => {
+    const queryKey = [...QUERY_KEYS.base, 'wallet'];
+    if (address) queryKey.push(address);
+    return queryKey;
   },
-  transaction: (): QueryKey => {
-    return [...QUERY_KEYS.base, 'transaction'];
+  transaction: (id?: string): QueryKey => {
+    const queryKey = [...QUERY_KEYS.base, 'transaction'];
+    if (id) queryKey.push(id);
+    return queryKey;
   },
-  transactionReceipts: (): QueryKey => {
-    return [...QUERY_KEYS.base, 'transactionReceipts'];
+  transactionReceipts: (id?: string): QueryKey => {
+    const queryKey = [...QUERY_KEYS.base, 'transactionReceipts'];
+    if (id) queryKey.push(id);
+    return queryKey;
   },
-  nodeInfo: (): QueryKey => {
-    return [...QUERY_KEYS.base, 'nodeInfo'];
+  nodeInfo: (url?: string): QueryKey => {
+    const queryKey = [...QUERY_KEYS.base, 'nodeInfo'];
+    if (url) queryKey.push(url);
+    return queryKey;
   },
   connectorList: (): QueryKey => {
     return [...QUERY_KEYS.base, 'connectorList'];
@@ -43,7 +55,7 @@ export const QUERY_KEYS = {
   },
   currentNetwork: (): QueryKey => {
     return [...QUERY_KEYS.base, 'currentNetwork'];
-  }
+  },
 };
 
 export const MUTATION_KEYS = {

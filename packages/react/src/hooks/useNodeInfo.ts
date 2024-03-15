@@ -13,7 +13,7 @@ export const useNodeInfo = ({ version = '0.0.0' }: NodeInfoParams = {}) => {
   const { provider } = useProvider();
 
   const query = useNamedQuery('nodeInfo', {
-    queryKey: [QUERY_KEYS.nodeInfo, provider?.url],
+    queryKey: QUERY_KEYS.nodeInfo(provider?.url),
     queryFn: () => {
       return provider?.fetchNode();
     },

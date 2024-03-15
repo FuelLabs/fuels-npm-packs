@@ -8,7 +8,7 @@ export const useWallet = (address?: string | null) => {
   const { fuel } = useFuel();
 
   return useNamedQuery('wallet', {
-    queryKey: [QUERY_KEYS.wallet, address],
+    queryKey: QUERY_KEYS.wallet(address),
     queryFn: async () => {
       try {
         const accountAddress = address || (await fuel.currentAccount()) || '';
