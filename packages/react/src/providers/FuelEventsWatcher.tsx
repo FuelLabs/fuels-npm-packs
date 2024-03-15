@@ -7,54 +7,54 @@ import { useFuel } from './FuelHooksProvider';
 
 export function FuelEventsWatcher() {
   const { fuel } = useFuel();
-  const fuelQueryClient = useQueryClient();
+  const queryClient = useQueryClient();
 
   function onCurrentConnectorChange() {
-    fuelQueryClient.invalidateQueries({ queryKey: [QUERY_KEYS.account] });
-    fuelQueryClient.invalidateQueries({ queryKey: [QUERY_KEYS.isConnected] });
-    fuelQueryClient.invalidateQueries({ queryKey: [QUERY_KEYS.wallet] });
-    fuelQueryClient.invalidateQueries({ queryKey: [QUERY_KEYS.balance] });
-    fuelQueryClient.invalidateQueries({ queryKey: [QUERY_KEYS.provider] });
-    fuelQueryClient.invalidateQueries({ queryKey: [QUERY_KEYS.nodeInfo] });
-    fuelQueryClient.invalidateQueries({ queryKey: [QUERY_KEYS.accounts] });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.account() });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.isConnected() });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.wallet() });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.balance() });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.provider() });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.nodeInfo() });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.accounts() });
   }
 
   function onConnectorsChange() {
-    fuelQueryClient.invalidateQueries({ queryKey: [QUERY_KEYS.connectorList] });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.connectorList() });
   }
 
   function onCurrentAccountChange() {
-    fuelQueryClient.invalidateQueries({ queryKey: [QUERY_KEYS.account] });
-    fuelQueryClient.invalidateQueries({ queryKey: [QUERY_KEYS.wallet] });
-    fuelQueryClient.invalidateQueries({ queryKey: [QUERY_KEYS.balance] });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.account() });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.wallet() });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.balance() });
   }
 
   function onConnectionChange() {
-    fuelQueryClient.invalidateQueries({ queryKey: [QUERY_KEYS.isConnected] });
-    fuelQueryClient.invalidateQueries({ queryKey: [QUERY_KEYS.account] });
-    fuelQueryClient.invalidateQueries({ queryKey: [QUERY_KEYS.wallet] });
-    fuelQueryClient.invalidateQueries({ queryKey: [QUERY_KEYS.balance] });
-    fuelQueryClient.invalidateQueries({ queryKey: [QUERY_KEYS.provider] });
-    fuelQueryClient.invalidateQueries({ queryKey: [QUERY_KEYS.nodeInfo] });
-    fuelQueryClient.invalidateQueries({ queryKey: [QUERY_KEYS.accounts] });
-    fuelQueryClient.invalidateQueries({ queryKey: [QUERY_KEYS.connectorList] });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.isConnected() });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.account() });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.wallet() });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.balance() });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.provider() });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.nodeInfo() });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.accounts() });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.connectorList() });
   }
 
   function onNetworkChange() {
-    fuelQueryClient.invalidateQueries({ queryKey: [QUERY_KEYS.currentNetwork] });
-    fuelQueryClient.invalidateQueries({ queryKey: [QUERY_KEYS.provider] });
-    fuelQueryClient.invalidateQueries({ queryKey: [QUERY_KEYS.transactionReceipts] });
-    fuelQueryClient.invalidateQueries({ queryKey: [QUERY_KEYS.chain] });
-    fuelQueryClient.invalidateQueries({ queryKey: [QUERY_KEYS.nodeInfo] });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.currentNetwork() });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.provider() });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.transactionReceipts() });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.chain() });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.nodeInfo() });
   }
 
   function onAccountsChange() {
-    fuelQueryClient.invalidateQueries({ queryKey: [QUERY_KEYS.account] });
-    fuelQueryClient.invalidateQueries({ queryKey: [QUERY_KEYS.accounts] });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.account() });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.accounts() });
   }
 
   function onAssetsChange() {
-    fuelQueryClient.invalidateQueries({ queryKey: [QUERY_KEYS.assets] });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.assets() });
   }
 
   useEffect(() => {
@@ -75,7 +75,7 @@ export function FuelEventsWatcher() {
       fuel.off(fuel.events.currentNetwork, onNetworkChange);
       fuel.off(fuel.events.assets, onAssetsChange);
     };
-  }, [fuel, fuelQueryClient]);
+  }, [fuel, queryClient]);
 
   return null;
 }
