@@ -57,7 +57,7 @@ export function useNamedQuery<
 >(
   name: TName,
   options: UndefinedInitialDataOptions<TQueryFnData, TError, TData, TQueryKey>,
-  queryClient?: QueryClient
+  queryClient?: QueryClient,
 ): NamedUseQueryResult<TName, TData, TError>;
 
 /**
@@ -73,7 +73,7 @@ export function useNamedQuery<
 >(
   name: TName,
   options: DefinedInitialDataOptions<TQueryFnData, TError, TData, TQueryKey>,
-  queryClient?: QueryClient
+  queryClient?: QueryClient,
 ): DefinedNamedUseQueryResult<TName, TData, TError>;
 
 /**
@@ -92,7 +92,7 @@ export function useNamedQuery<
 >(
   name: TName,
   options: UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>,
-  queryClient?: QueryClient
+  queryClient?: QueryClient,
 ): NamedUseQueryResult<TName, TData, TError> {
   const query = useQuery(options, queryClient);
 

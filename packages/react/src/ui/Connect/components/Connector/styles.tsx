@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 export const ConnectorTitle = styled.h2`
   text-align: center;

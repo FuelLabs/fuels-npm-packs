@@ -43,7 +43,9 @@ export function FuelEventsWatcher() {
   function onNetworkChange() {
     queryClient.invalidateQueries({ queryKey: QUERY_KEYS.currentNetwork() });
     queryClient.invalidateQueries({ queryKey: QUERY_KEYS.provider() });
-    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.transactionReceipts() });
+    queryClient.invalidateQueries({
+      queryKey: QUERY_KEYS.transactionReceipts(),
+    });
     queryClient.invalidateQueries({ queryKey: QUERY_KEYS.chain() });
     queryClient.invalidateQueries({ queryKey: QUERY_KEYS.nodeInfo() });
   }
