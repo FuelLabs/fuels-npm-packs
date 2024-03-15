@@ -36,6 +36,7 @@
   "devDependencies": {
     "@fuels/ts-config": "workspace:*",
     "@fuels/tsup-config": "workspace:*",
+    "@tanstack/react-query": "5.28.4",
     "compare-versions": "^6.1.0",
     "fuels": "0.74.0",
     "styled-components": "^6.1.1",
