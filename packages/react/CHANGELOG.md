@@ -1,5 +1,15 @@
 # @fuels/react
 
+## 0.17.0
+
+### Minor Changes
+
+- ✨ feat: make react-query package a peerDependency, by [@LuizAsFight](https://github.com/LuizAsFight) (See [#60](https://github.com/FuelLabs/fuels-npm-packs/pull/60))
+
+### Patch Changes
+
+- 🐞 fix: listen to prop data also using Reflect, by [@LuizAsFight](https://github.com/LuizAsFight) (See [#58](https://github.com/FuelLabs/fuels-npm-packs/pull/58))
+
 ## 0.16.0
 
 ### Minor Changes
