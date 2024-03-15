@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import * as Dialog from '@radix-ui/react-dialog';
-import styled, { keyframes } from 'styled-components';
+import { styled, keyframes } from 'styled-components';
 
 import { BackIcon as CBackIcon } from './icons/BackIcon';
 import { CloseIcon as CCloseIcon } from './icons/CloseIcon';

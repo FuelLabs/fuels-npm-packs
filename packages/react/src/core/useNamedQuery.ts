@@ -1,6 +1,10 @@
 import type {
+  DefaultError,
+  DefinedInitialDataOptions,
   DefinedUseQueryResult,
+  QueryClient,
   QueryKey,
+  UndefinedInitialDataOptions,
   UseQueryOptions,
   UseQueryResult,
 } from '@tanstack/react-query';
@@ -12,7 +16,7 @@ type ExcludeData<T> = Omit<T, 'data'>;
 type NamedUseQueryResult<
   TName extends string,
   TQueryFnData = unknown,
-  TError = unknown,
+  TError = DefaultError,
 > = ExcludeData<UseQueryResult<TQueryFnData, TError>> & {
   [key in TName]: UseQueryResult<TQueryFnData, TError>['data'];
 };
@@ -20,7 +24,7 @@ type NamedUseQueryResult<
 type DefinedNamedUseQueryResult<
   TName extends string,
   TQueryFnData = unknown,
-  TError = unknown,
+  TError = DefaultError,
 > = ExcludeData<DefinedUseQueryResult<TQueryFnData, TError>> & {
   [key in TName]: DefinedUseQueryResult<TQueryFnData, TError>['data'];
 };
@@ -28,7 +32,7 @@ type DefinedNamedUseQueryResult<
 function createProxyHandler<
   TName extends string,
   TData = unknown,
-  TError = unknown,
+  TError = DefaultError,
 >(name: TName) {
   const handlers: ProxyHandler<UseQueryResult<TData, TError>> = {
     get(target, prop) {
@@ -47,15 +51,13 @@ function createProxyHandler<
 export function useNamedQuery<
   TName extends string,
   TQueryFnData = unknown,
-  TError = unknown,
+  TError = DefaultError,
   TData = TQueryFnData,
   TQueryKey extends QueryKey = QueryKey,
 >(
   name: TName,
-  options: Omit<
-    UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>,
-    'initialData'
-  > & { initialData?: () => undefined },
+  options: UndefinedInitialDataOptions<TQueryFnData, TError, TData, TQueryKey>,
+  queryClient?: QueryClient,
 ): NamedUseQueryResult<TName, TData, TError>;
 
 /**
@@ -65,15 +67,13 @@ export function useNamedQuery<
 export function useNamedQuery<
   TName extends string,
   TQueryFnData = unknown,
-  TError = unknown,
+  TError = DefaultError,
   TData = TQueryFnData,
   TQueryKey extends QueryKey = QueryKey,
 >(
   name: TName,
-  options: Omit<
-    UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>,
-    'initialData'
-  > & { initialData: TQueryFnData | (() => TQueryFnData) },
+  options: DefinedInitialDataOptions<TQueryFnData, TError, TData, TQueryKey>,
+  queryClient?: QueryClient,
 ): DefinedNamedUseQueryResult<TName, TData, TError>;
 
 /**
@@ -86,14 +86,15 @@ export function useNamedQuery<
 export function useNamedQuery<
   TName extends string,
   TQueryFnData = unknown,
-  TError = unknown,
+  TError = DefaultError,
   TData = TQueryFnData,
   TQueryKey extends QueryKey = QueryKey,
 >(
   name: TName,
   options: UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>,
+  queryClient?: QueryClient,
 ): NamedUseQueryResult<TName, TData, TError> {
-  const query = useQuery(options);
+  const query = useQuery(options, queryClient);
 
   const proxy = useMemo(() => {
     return new Proxy(query, createProxyHandler(name)) as NamedUseQueryResult<

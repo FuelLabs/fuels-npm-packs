@@ -59,7 +59,7 @@ export function FuelUIProvider({
 }: FuelUIProviderProps) {
   const [theme, setTheme] = useState(initialTheme || 'light');
   const { fuel } = useFuel();
-  const { isLoading: isConnecting, isError, connect } = useConnect();
+  const { isPending: isConnecting, isError, connect } = useConnect();
   const { connectors, isLoading } = useConnectors();
   const [connector, setConnector] = useState<FuelConnector | null>(null);
   const [isOpen, setOpen] = useState(false);

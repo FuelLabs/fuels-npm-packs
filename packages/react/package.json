@@ -25,17 +25,18 @@
     "ts:check": "pnpm tsc --noEmit"
   },
   "peerDependencies": {
+    "@tanstack/react-query": ">=5.0.0",
     "fuels": ">=0.74.0",
     "react": "^18.2.0"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.5",
-    "@tanstack/react-query": "^4.36.1",
     "events": "^3.3.0"
   },
   "devDependencies": {
     "@fuels/ts-config": "workspace:*",
     "@fuels/tsup-config": "workspace:*",
+    "@tanstack/react-query": "5.28.4",
     "compare-versions": "^6.1.0",
     "fuels": "0.74.0",
     "styled-components": "^6.1.1",

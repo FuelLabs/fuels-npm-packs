@@ -11,7 +11,7 @@ export const useTransactionReceipts = ({ txId }: { txId?: string }) => {
   const { fuel } = useFuel();
 
   return useNamedQuery('transactionReceipts', {
-    queryKey: [QUERY_KEYS.transactionReceipts, txId],
+    queryKey: QUERY_KEYS.transactionReceipts(txId),
     queryFn: async () => {
       try {
         const provider = await fuel.getProvider();

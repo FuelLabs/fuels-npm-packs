@@ -6,12 +6,12 @@ import { MUTATION_KEYS } from '../utils';
 export const useAddNetwork = () => {
   const { fuel } = useFuel();
 
-  const { mutate, mutateAsync, ...queryProps } = useMutation(
-    [MUTATION_KEYS.addAssets],
-    async (networkUrl: string) => {
+  const { mutate, mutateAsync, ...queryProps } = useMutation({
+    mutationKey: [MUTATION_KEYS.addAssets],
+    mutationFn: async (networkUrl: string) => {
       return fuel.addNetwork(networkUrl);
     },
-  );
+  });
 
   return {
     addNetwork: (networkUrl: string) => mutate(networkUrl),
