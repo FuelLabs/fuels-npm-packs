@@ -33,7 +33,7 @@ export const QUERY_KEYS = {
     return queryKey;
   },
   transaction: (id?: string): QueryKey => {
-    const queryKey = QUERY_KEYS.base.concat('transaction'); 
+    const queryKey = QUERY_KEYS.base.concat('transaction');
     if (id) queryKey.push(id);
     return queryKey;
   },
