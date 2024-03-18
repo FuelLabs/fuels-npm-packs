@@ -1,5 +1,11 @@
 # @fuels/ts-config
 
+## 0.17.0
+
+### Minor Changes
+
+- ✨ feat: bump typescript to 5.4.2, by [@LuizAsFight](https://github.com/LuizAsFight) (See [#60](https://github.com/FuelLabs/fuels-npm-packs/pull/60))
+
 ## 0.16.0
 
 ## 0.15.3
