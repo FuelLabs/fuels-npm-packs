@@ -21,7 +21,6 @@
     "build:watch": "pnpm -r --parallel build --watch",
     "changeset": "changeset",
     "changeset:check": "changeset status --since=origin/main",
-    "changeset:release": "changeset publish --no-git-tag",
     "changeset:version": "changeset version",
     "deps:update": "updates -gu && pnpm -r exec updates -gu",
     "lint": "run-s lint:check prettier:check",
