@@ -45,7 +45,7 @@ jobs:
         id: changesets
         uses: FuelLabs/changesets-action@main
         with:
-          publish: pnpm changeset publish --tag next
+          publish: pnpm changeset:release
           commit: "ci(changesets): versioning packages"
           title: "ci(changesets): versioning packages"
           createGithubReleases: aggregate
@@ -55,12 +55,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Release to @main tag
+      - name: Release to @dev tag
         if: steps.changesets.outputs.published != 'true'
         run: |
           git checkout main
-          pnpm changeset version --snapshot main
-          pnpm changeset publish --tag main
+          pnpm changeset version --snapshot dev
+          pnpm changeset publish --tag dev
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
