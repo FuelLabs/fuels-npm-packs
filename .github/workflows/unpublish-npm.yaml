@@ -1,8 +1,6 @@
 name: "Unpublish old versions"
 
 on:
-  pull_request:
-    types: [open, synchronize, reopen]
   workflow_dispatch:
     inputs:
       delete_packages:
