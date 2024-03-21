@@ -11,14 +11,15 @@ const DELETE_PACKAGES = process.env.DELETE_PACKAGES === 'true';
 const dryRun = DELETE_PACKAGES ? '' : '--dry-run';
 
 async function getPublicPackages() {
-  const packages = await readdir(join(__dirname, '../packages'), {
+  const base = join(__dirname, '../packages');
+  const packages = await readdir(base, {
     withFileTypes: true,
   });
   const packagesNames = await Promise.all(
     packages.map(async (p) => {
       try {
         const packageContent = await readFile(
-          join(p.path, p.name, 'package.json'),
+          join(base, p.name, 'package.json'),
           'utf8',
         );
         const pkg = JSON.parse(packageContent.toString());
