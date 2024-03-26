@@ -8,7 +8,7 @@ const { version } = require('../packages/react/package.json');
 const DELETE_TAGS = /next|dev|rc|main/;
 const CURRENT_VERSION = version;
 const DELETE_PACKAGES = process.env.DELETE_PACKAGES === 'true';
-const dryRun = DELETE_PACKAGES ? '' : '--dry-run';
+const dryRun = DELETE_PACKAGES ? '--force' : '--dry-run';
 
 async function getPublicPackages() {
   const base = join(__dirname, '../packages');
