@@ -1,5 +1,11 @@
 # @fuels/react
 
+## 0.18.0
+
+### Minor Changes
+
+- 🐞 fix: only set theme colors style when its on client, by [@LuizAsFight](https://github.com/LuizAsFight) (See [#63](https://github.com/FuelLabs/fuels-npm-packs/pull/63))
+
 ## 0.17.0
 
 ### Minor Changes
