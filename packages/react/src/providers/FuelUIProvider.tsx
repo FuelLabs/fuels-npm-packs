@@ -26,7 +26,6 @@ export type FuelUIContextType = {
   isError: boolean;
   connect: () => void;
   cancel: () => void;
-  setTheme: (theme: string) => void;
   error: Error | null;
   dialog: {
     connector: FuelConnector | null;
@@ -55,9 +54,8 @@ export const useConnectUI = () => {
 
 export function FuelUIProvider({
   children,
-  theme: initialTheme,
+  theme,
 }: FuelUIProviderProps) {
-  const [theme, setTheme] = useState(initialTheme || 'light');
   const { fuel } = useFuel();
   const { isPending: isConnecting, isError, connect } = useConnect();
   const { connectors, isLoading } = useConnectors();
@@ -105,8 +103,7 @@ export function FuelUIProvider({
   return (
     <FuelConnectContext.Provider
       value={{
-        theme,
-        setTheme,
+        theme: theme || 'light',
         isLoading,
         isConnecting,
         isError,
