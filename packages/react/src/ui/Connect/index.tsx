@@ -20,7 +20,7 @@ export function Connect() {
   // Fix hydration problem between nextjs render and frontend render
   // UI was not getting updated and theme colors was set wrongly
   // see more here https://nextjs.org/docs/messages/react-hydration-error
-  const [isClient, setIsClient] = useState(false)
+  const [isClient, setIsClient] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const {
     theme,
@@ -29,8 +29,8 @@ export function Connect() {
   } = useConnectUI();
 
   useEffect(() => {
-    setIsClient(true)
-  }, [])
+    setIsClient(true);
+  }, []);
 
   const handleOpenChange = (openState: boolean) => {
     if (!openState) cancel();
@@ -40,10 +40,14 @@ export function Connect() {
     <>
       <FuelRoot
         ref={containerRef}
-        style={isClient ? {
-          display: isOpen ? 'block' : 'none',
-          ...getThemeVariables(theme),
-        } : undefined}
+        style={
+          isClient
+            ? {
+                display: isOpen ? 'block' : 'none',
+                ...getThemeVariables(theme),
+              }
+            : undefined
+        }
       />
       <Dialog.Root open={isOpen} onOpenChange={handleOpenChange}>
         <Dialog.Portal container={containerRef.current}>

@@ -52,10 +52,7 @@ export const useConnectUI = () => {
   return context;
 };
 
-export function FuelUIProvider({
-  children,
-  theme,
-}: FuelUIProviderProps) {
+export function FuelUIProvider({ children, theme }: FuelUIProviderProps) {
   const { fuel } = useFuel();
   const { isPending: isConnecting, isError, connect } = useConnect();
   const { connectors, isLoading } = useConnectors();
