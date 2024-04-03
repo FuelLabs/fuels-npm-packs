@@ -14,7 +14,7 @@ export function ConnectorsLoader({ items }: ConnectorsLoaderProps) {
         <div style={{ height: 32, width: 32 }} />
       </PlaceholderLoader>
       <PlaceholderLoader>
-        <ConnectorName>Fuel Wallet</ConnectorName>
+        <ConnectorName style={{ width: 180 }}>Fuel Wallet</ConnectorName>
       </PlaceholderLoader>
     </ConnectorItem>
   ));

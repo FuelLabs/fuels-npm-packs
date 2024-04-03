@@ -22,7 +22,7 @@ export function FuelProvider({
   if (ui) {
     return (
       <FuelHooksProvider fuelConfig={fuelConfig}>
-        <FuelUIProvider theme={theme}>
+        <FuelUIProvider theme={theme} fuelConfig={fuelConfig}>
           <Connect />
           {children}
         </FuelUIProvider>
