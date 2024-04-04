@@ -150,7 +150,7 @@ export const PlaceholderLoader = styled.div`
   animation-name: ${placeholderLoader};
   animation-timing-function: linear;
   background: #d1d5d9;
-  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background: var(--fuel-loader-background);
   background-size: 1000px 104px;
   height: fit-content;
   position: relative;

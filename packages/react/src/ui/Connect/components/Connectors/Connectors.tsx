@@ -6,6 +6,7 @@ import { ConnectorItem, ConnectorList, ConnectorName } from './styles';
 
 export function Connectors() {
   const {
+    fuelConfig,
     connectors,
     isLoading,
     theme,
@@ -35,7 +36,9 @@ export function Connectors() {
           <ConnectorName>{connector.name}</ConnectorName>
         </ConnectorItem>
       ))}
-      {isLoading && <ConnectorsLoader items={2} />}
+      {isLoading && (
+        <ConnectorsLoader items={fuelConfig.connectors?.length || 2} />
+      )}
     </ConnectorList>
   );
 }

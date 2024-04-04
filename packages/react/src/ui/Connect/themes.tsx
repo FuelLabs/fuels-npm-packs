@@ -20,6 +20,8 @@ const lightTheme = {
   '--fuel-border-hover': 'hsla(0, 0%, 78.04%, 1)',
   '--fuel-button-background': 'rgb(226 230 233)',
   '--fuel-button-background-hover': 'rgb(203 205 207)',
+  '--fuel-loader-background':
+    'linear-gradient(to right, hsl(0, 0%, 92%) 8%, hsl(0, 0%, 85%) 18%, hsl(0, 0%, 92%) 33%)',
 };
 
 const darkTheme = {
@@ -31,6 +33,8 @@ const darkTheme = {
   '--fuel-border-hover': 'hsla(0, 0%, 50%, 1)',
   '--fuel-button-background': 'hsla(0, 0%, 30%, 1)',
   '--fuel-button-background-hover': 'hsla(0, 0%, 40%, 1)',
+  '--fuel-loader-background':
+    'linear-gradient(to right, hsl(0, 0%, 20%) 8%, hsl(0, 0%, 25%) 18%, hsl(0, 0%, 20%) 33%)',
 };
 
 type CustomTheme = Partial<typeof commonTheme & typeof lightTheme>;

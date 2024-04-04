@@ -1,4 +1,4 @@
-import type { FuelConnector } from 'fuels';
+import type { FuelConfig, FuelConnector } from 'fuels';
 import {
   createContext,
   useContext,
@@ -6,6 +6,7 @@ import {
   useState,
   useCallback,
   useEffect,
+  useMemo,
 } from 'react';
 
 import { useConnect } from '../hooks/useConnect';
@@ -15,10 +16,12 @@ import { useFuel } from './FuelHooksProvider';
 
 export type FuelUIProviderProps = {
   children?: ReactNode;
+  fuelConfig: FuelConfig;
   theme?: string;
 };
 
 export type FuelUIContextType = {
+  fuelConfig: FuelConfig;
   theme: string;
   connectors: Array<FuelConnector>;
   isLoading: boolean;
@@ -52,10 +55,14 @@ export const useConnectUI = () => {
   return context;
 };
 
-export function FuelUIProvider({ children, theme }: FuelUIProviderProps) {
+export function FuelUIProvider({
+  fuelConfig,
+  children,
+  theme,
+}: FuelUIProviderProps) {
   const { fuel } = useFuel();
   const { isPending: isConnecting, isError, connect } = useConnect();
-  const { connectors, isLoading } = useConnectors();
+  const { connectors, isLoading: isLoadingConnectors } = useConnectors();
   const [connector, setConnector] = useState<FuelConnector | null>(null);
   const [isOpen, setOpen] = useState(false);
   const [error, setError] = useState<Error | null>(null);
@@ -97,9 +104,16 @@ export function FuelUIProvider({ children, theme }: FuelUIProviderProps) {
     [fuel],
   );
 
+  const isLoading = useMemo(() => {
+    const hasLoadedConnectors =
+      (fuelConfig.connectors || []).length > connectors.length;
+    return isLoadingConnectors || hasLoadedConnectors;
+  }, [connectors, isLoadingConnectors, fuelConfig]);
+
   return (
     <FuelConnectContext.Provider
       value={{
+        fuelConfig,
         theme: theme || 'light',
         isLoading,
         isConnecting,
