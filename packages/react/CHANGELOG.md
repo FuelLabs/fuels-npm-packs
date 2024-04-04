@@ -1,5 +1,11 @@
 # @fuels/react
 
+## 0.18.1
+
+### Patch Changes
+
+- 🐞 fix: UI connectors loader, by [@luizstacio](https://github.com/luizstacio) (See [#68](https://github.com/FuelLabs/fuels-npm-packs/pull/68))
+
 ## 0.18.0
 
 ### Minor Changes
