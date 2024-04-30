@@ -9,11 +9,11 @@ const output = `---
 "@fuels/changeset": patch
 "@fuels/tsup-config": patch
 "@fuels/react-xstore": patch
-"@fuels/react-xstore": patch
 "@fuels/eslint-plugin": patch
 "@fuels/local-storage": patch
 "@fuels/prettier-config": patch
-
 ---
-\nincremental\n`;
+
+incremental
+`;
 writeFileSync('.changeset/fuel-labs-ci.md', output);
