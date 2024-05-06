@@ -20,12 +20,12 @@ export const useBalance = ({
     queryKey: QUERY_KEYS.balance(address, assetId),
     queryFn: async () => {
       try {
-        // TODO: replace with ETH_ASSET_ID from asset-list package after this task gets done
-        // https://linear.app/fuel-network/issue/FRO-144/make-asset-list-package-public-and-publish-in-npm
-        const currentFuelBalance = await provider?.getBalance(
+        if (!provider) throw new Error('Provider is needed');
+
+        const baseAssetId = assetId || provider.getBaseAssetId();
+        const currentFuelBalance = await provider.getBalance(
           Address.fromString(address || ''),
-          assetId ||
-            '0x0000000000000000000000000000000000000000000000000000000000000000',
+          baseAssetId,
         );
         return currentFuelBalance || null;
       } catch (error: unknown) {
