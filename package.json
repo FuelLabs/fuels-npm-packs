@@ -35,7 +35,8 @@
     "test:clear": "pnpm -r exec jest --clearCache",
     "test:coverage": "turbo run test --parallel -- --coverage",
     "ts:check": "turbo run ts:check",
-    "xstate:typegen": "pnpm -r xstate:typegen"
+    "xstate:typegen": "pnpm -r xstate:typegen",
+    "packages:version": "node ./scripts/version.js"
   },
   "devDependencies": {
     "@jest/types": "^29.6.3",
