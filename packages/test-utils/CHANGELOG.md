@@ -1,5 +1,12 @@
 # @fuels/playwright-utils
 
+## 0.19.0
+
+### Minor Changes
+
+- Upgrade to testnet (fuel-core 0.26.0 + fuels-ts 0.84.0), by [@arthurgeron](https://github.com/arthurgeron) (See [#72](https://github.com/FuelLabs/fuels-npm-packs/pull/72))
+- Upgraded fuels-ts to new minor 0.83.0, by [@arthurgeron](https://github.com/arthurgeron) (See [#72](https://github.com/FuelLabs/fuels-npm-packs/pull/72))
+
 ## 0.18.1
 
 ## 0.18.0
