@@ -1,25 +1,22 @@
-import type { BN } from 'fuels';
-import { Address, BaseAssetId, Wallet, Provider, bn } from 'fuels';
-
-type SeedWalletOptions = {
-  gasPrice?: number;
-};
+import type { BN, TxParamsType } from 'fuels';
+import { Address, Wallet, Provider, bn } from 'fuels';
 
 export async function seedWallet(
   address: string,
   amount: BN,
   fuelProviderUrl: string,
   genesisSecret: string,
-  options: SeedWalletOptions = {},
+  options: TxParamsType = {},
 ) {
   const fuelProvider = await Provider.create(fuelProviderUrl);
-  const { minGasPrice } = await fuelProvider.getGasConfig();
+  const baseAssetId = fuelProvider.getBaseAssetId();
   const genesisWallet = Wallet.fromPrivateKey(genesisSecret!, fuelProvider);
+  const parameters: TxParamsType = { gasLimit: bn(100_000), ...options };
   const response = await genesisWallet.transfer(
     Address.fromString(address),
     amount,
-    BaseAssetId,
-    { gasPrice: minGasPrice, gasLimit: bn(100_000), ...options },
+    baseAssetId,
+    parameters,
   );
   await response.wait();
 }
