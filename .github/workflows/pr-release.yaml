@@ -19,7 +19,7 @@ jobs:
 
       - uses: FuelLabs/github-actions/setups/node@master
         with:
-          pnpm-version: 8.x.x
+          pnpm-version: 8.15.7
       - uses: FuelLabs/github-actions/setups/npm@master
         with:
           npm-token: ${{ secrets.NPM_TOKEN }}

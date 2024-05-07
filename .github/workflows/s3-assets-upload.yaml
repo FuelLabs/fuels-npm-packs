@@ -17,6 +17,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - uses: FuelLabs/github-actions/setups/node@master
+        with:
+          pnpm-version: 8.15.7
 
       - name: Build
         run: pnpm build
