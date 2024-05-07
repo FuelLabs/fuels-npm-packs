@@ -47,7 +47,7 @@ jobs:
 
       - uses: FuelLabs/github-actions/setups/node@master
         with:
-          pnpm-version: 8.x.x
+          pnpm-version: 8.15.7
       - run: pnpm changeset:check
 
   audit:
@@ -57,7 +57,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: FuelLabs/github-actions/setups/node@master
         with:
-          pnpm-version: 8.x.x
+          pnpm-version: 8.15.7
       - run: pnpm audit --prod
 
   lint-build:
@@ -67,7 +67,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: FuelLabs/github-actions/setups/node@master
         with:
-          pnpm-version: 8.x.x
+          pnpm-version: 8.15.7
       - run: |
           pnpm lint
           pnpm build
@@ -79,7 +79,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: FuelLabs/github-actions/setups/node@master
         with:
-          pnpm-version: 8.x.x
+          pnpm-version: 8.15.7
       - name: Checking PR Number
         uses: jwalton/gh-find-current-pr@v1
         id: findPr
