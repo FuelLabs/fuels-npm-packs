@@ -1,5 +1,12 @@
 # @fuels/playwright-utils
 
+## 0.20.0
+
+### Minor Changes
+
+- Update fuels dependency to 0.86.0, by [@LuizAsFight](https://github.com/LuizAsFight) (See [#80](https://github.com/FuelLabs/fuels-npm-packs/pull/80))
+- Use fuelWallet 0.19.0, by [@LuizAsFight](https://github.com/LuizAsFight) (See [#80](https://github.com/FuelLabs/fuels-npm-packs/pull/80))
+
 ## 0.19.0
 
 ### Minor Changes
