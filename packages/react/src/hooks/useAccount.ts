@@ -10,7 +10,7 @@ export const useAccount = () => {
     queryFn: async () => {
       try {
         const currentFuelAccount = await fuel?.currentAccount();
-        return currentFuelAccount || null;
+        return currentFuelAccount;
       } catch (error: unknown) {
         return null;
       }
