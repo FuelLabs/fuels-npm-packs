@@ -10,5 +10,6 @@ export const useNetwork = () => {
     queryFn: async () => {
       return fuel.currentNetwork();
     },
+    initialData: null,
   });
 };

@@ -20,5 +20,6 @@ export const useWallet = (address?: string | null) => {
         return null;
       }
     },
+    initialData: null,
   });
 };

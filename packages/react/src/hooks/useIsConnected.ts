@@ -15,7 +15,7 @@ export const useIsConnected = () => {
         return false;
       }
     },
-    initialData: null,
+    initialData: false,
   });
 
   return query;
