@@ -6,6 +6,7 @@ Provide consistent return types across Fuel hooks, for an easier typed experienc
 Every query hook will now return a `null` value if the query is not available, instead of `undefined`.
 
 ### Examples
+
 ```tsx
 const { wallet } = useWallet(); // wallet is Wallet | null
 const { network } = useNetwork(); // network is Network | null
