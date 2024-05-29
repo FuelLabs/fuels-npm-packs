@@ -37,9 +37,11 @@
     "@fuels/ts-config": "workspace:*",
     "@fuels/tsup-config": "workspace:*",
     "@tanstack/react-query": "5.28.4",
+    "abitype": "1.0.2",
     "compare-versions": "^6.1.0",
     "fuels": "0.86.0",
     "styled-components": "^6.1.1",
-    "tsup": "^7.2.0"
+    "tsup": "^7.2.0",
+    "viem": "2.12.0"
   }
 }
