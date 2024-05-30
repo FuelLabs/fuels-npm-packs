@@ -32,6 +32,9 @@ export const useContractRead = <
       if (!provider || !chainId) {
         throw new Error('Provider and chainId are required to read the contract');
       };
+      if (!_contract && (!address || !abi)) {
+        throw new Error('Either contract or address and abi are required to read the contract');
+      }
       const contract = _contract || new Contract(address, abi, provider);
       
       const wouldWriteToStorage = Object.values(contract.interface.functions).find((f) => f.name === functionName)?.attributes?.find((attr) => attr.name === 'storage')?.arguments?.includes('write');
