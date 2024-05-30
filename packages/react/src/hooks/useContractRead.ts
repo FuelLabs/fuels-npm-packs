@@ -1,38 +1,41 @@
-import type { Abi } from 'abitype';
 import { type AbstractAddress, type JsonAbi, Contract } from 'fuels';
-import type { ContractFunctionName, ContractFunctionArgs } from 'viem';
+import type { FunctionNames, InputsForFunctionName } from 'src/types';
 
 import { useNamedQuery } from '../core/useNamedQuery';
 import { QUERY_KEYS } from '../utils';
 
+import { abi as _abi } from './abi-ex';
 import { useProvider } from './useProvider';
 
-type ReadOnlyCalls = 'pure' | 'view';
-
 export const useContractRead = <
-  abi extends (Abi & JsonAbi),
-  functionName extends ContractFunctionName<abi, ReadOnlyCalls>,
-  args extends ContractFunctionArgs<abi, ReadOnlyCalls, functionName>
+  TAbi extends JsonAbi,
+  TFunctionName extends FunctionNames<TAbi>
 >({address, abi, functionName, args}: {
   address: AbstractAddress; 
-  abi: abi; 
-  functionName: functionName;
-  args: args;
+  abi: TAbi; 
+  functionName: TFunctionName;
+  args: InputsForFunctionName<TAbi, TFunctionName>;
 }) => {
   const { provider } = useProvider();
   const chainId = provider?.getChainId();
 
-   useNamedQuery(`contract`, {
-    queryKey: QUERY_KEYS.contract(address?.toString(), chainId, args?.toString()),
+  return useNamedQuery(`contract`, {
+    queryKey: QUERY_KEYS.contract(address.toString(), chainId, args?.toString()),
     queryFn: async () => {
       if (!provider || !chainId) {
         throw new Error('Provider and chainId are required to read the contract');
       };
       const contract = new Contract(address, abi, provider);
+      
+      const wouldWriteToStorage = Object.values(contract.interface.functions).find((f) => f.name === functionName)?.attributes?.find((attr) => attr.name === 'storage')?.arguments?.includes('write');
+
+      if (wouldWriteToStorage) {
+        throw new Error('Methods that write to storage should not be called with useContractRead');
+      }
+      contract.id
       return contract.functions[functionName](args);
     },
     enabled: !!provider && !!chainId,
    }
-
    )
 };
