@@ -42,7 +42,11 @@ export const useContractRead = <
       if (wouldWriteToStorage) {
         throw new Error('Methods that write to storage should not be called with useContractRead');
       }
-      contract.id
+
+      if (!contract?.functions?.[functionName]) {
+        throw new Error(`Function ${functionName || ''} not found on contract`);
+      }
+      
       return contract.functions[functionName](args);
     },
     enabled: !!provider && !!chainId,
