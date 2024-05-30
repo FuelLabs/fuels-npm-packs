@@ -15,14 +15,14 @@ export const useTransactionResponse = ({ txId = '', waitForResult = false }: Use
     queryKey: QUERY_KEYS.transaction(txId), // @TODO: Update it
     queryFn: async () => {
       const provider = await fuel.getProvider();     
+      const txResult = new TransactionResponse(txId, provider);
 
       if(waitForResult) {
-        const txResult = new TransactionResponse(txId, provider);
         const data = await txResult.waitForResult();
         return data;
       }
       
-      const data = await TransactionResponse.create(txId, provider);
+      const data = await txResult.fetch();
       return data;
     },
     initialData: null,
