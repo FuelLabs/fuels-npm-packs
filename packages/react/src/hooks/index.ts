@@ -7,6 +7,7 @@ export * from './useAddNetwork';
 export * from './useNetwork';
 export * from './useAddAssets';
 export * from './useConnect';
+export * from './useContractRead';
 export * from './useConnectors';
 export * from './useDisconnect';
 export * from './useIsConnected';
