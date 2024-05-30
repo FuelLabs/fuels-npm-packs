@@ -14,4 +14,5 @@ export * from './useNodeInfo';
 export * from './useProvider';
 export * from './useTransaction';
 export * from './useTransactionReceipts';
+export * from './useTransactionResponse';
 export * from './useWallet';
