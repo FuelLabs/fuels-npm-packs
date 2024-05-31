@@ -3,7 +3,7 @@
 ---
 
 - Add `useTransactionResult` hook to get a transaction that has been successfully mined.
-- Create a type `UseQueryParams` to allow overriding `select` function of TanStack Query.
+- Create a type `UseNamedQueryParams` to allow overriding `select` function of TanStack Query and our custom `name` property.
 
 ### Basic usage with `select` function
 

@@ -35,7 +35,7 @@ type DefinedNamedUseQueryResult<
  *
  * See docs for more information: https://tanstack.com/query/latest/docs/framework/react/reference/useQuery
  */
-export interface UseQueryParams<
+export interface UseNamedQueryParams<
   TName extends string,
   TQueryFnData = unknown,
   TError = DefaultError,

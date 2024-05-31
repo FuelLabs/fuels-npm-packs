@@ -4,7 +4,7 @@ import {
   TransactionResponse,
 } from 'fuels';
 
-import { type UseQueryParams, useNamedQuery } from '../core';
+import { type UseNamedQueryParams, useNamedQuery } from '../core';
 import { useFuel } from '../providers';
 import { QUERY_KEYS } from '../utils';
 
@@ -14,7 +14,7 @@ type UseTransactionResultParams<
   TData,
 > = {
   txId?: string;
-  query?: UseQueryParams<
+  query?: UseNamedQueryParams<
     TName,
     TransactionResult<TTransactionType> | null,
     Error,
