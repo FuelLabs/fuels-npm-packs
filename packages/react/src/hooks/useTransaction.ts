@@ -1,3 +1,7 @@
+// TODO: fix this import when sdk error gets fixed: https://github.com/FuelLabs/fuels-ts/issues/1054
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import type * as fuels from 'fuels';
+
 import { useNamedQuery } from '../core';
 import { useFuel } from '../providers';
 import { QUERY_KEYS } from '../utils';
