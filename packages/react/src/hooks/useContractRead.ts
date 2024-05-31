@@ -4,7 +4,6 @@ import type { FunctionNames, InputsForFunctionName } from 'src/types';
 import { useNamedQuery } from '../core/useNamedQuery';
 import { QUERY_KEYS } from '../utils';
 
-import { abi as _abi } from './abi-ex';
 import { useProvider } from './useProvider';
 
 export const useContractRead = <
