@@ -36,7 +36,7 @@ export const useContractRead = <
       }
       const contract = _contract || new Contract(address, abi, provider);
       
-      const wouldWriteToStorage = Object.values(contract.interface.functions).find((f) => f.name === functionName)?.attributes?.find((attr) => attr.name === 'storage')?.arguments?.includes('write');
+      const wouldWriteToStorage = !contract.functions[functionName].isReadOnly;
 
       if (wouldWriteToStorage) {
         throw new Error('Methods that write to storage should not be called with useContractRead');
