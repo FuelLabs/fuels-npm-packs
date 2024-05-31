@@ -1,7 +1,7 @@
 import {
-  TransactionResponse,
   type TransactionResult,
-  TransactionType,
+  type TransactionType,
+  TransactionResponse,
 } from 'fuels';
 
 import { type UseQueryParams, useNamedQuery } from '../core';
@@ -10,9 +10,11 @@ import { QUERY_KEYS } from '../utils';
 
 type UseTransactionResultParams<
   TTransactionType extends TransactionType,
+  TName,
   TData,
 > = {
   txId?: string;
+  name?: TName;
   query?: UseQueryParams<
     TransactionResult<TTransactionType> | null,
     Error,
@@ -22,14 +24,16 @@ type UseTransactionResultParams<
 
 export const useTransactionResult = <
   TTransactionType extends TransactionType,
+  TName extends string = string,
   TData = TransactionResult<TTransactionType> | null,
 >({
   txId = '',
+  name = 'transactionResult' as TName,
   query,
-}: UseTransactionResultParams<TTransactionType, TData>) => {
+}: UseTransactionResultParams<TTransactionType, TName, TData>) => {
   const { fuel } = useFuel();
 
-  return useNamedQuery('transactionResult', {
+  return useNamedQuery(name, {
     queryKey: QUERY_KEYS.transactionResult(txId),
     queryFn: async () => {
       const provider = await fuel.getProvider();
