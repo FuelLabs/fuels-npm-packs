@@ -46,7 +46,7 @@ export const useContractRead = <
         throw new Error(`Function ${functionName || ''} not found on contract`);
       }
       
-      return contract.functions[functionName](args);
+      return args !== undefined ? contract.functions[functionName](args) : contract.functions[functionName]();
     },
     enabled: !!provider && !!chainId,
    }
