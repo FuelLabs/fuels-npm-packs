@@ -1,4 +1,4 @@
-import { type AbstractAddress, type JsonAbi, Contract } from 'fuels';
+import { Contract, type Address, type JsonAbi } from 'fuels';
 import type { FunctionNames, InputsForFunctionName } from 'src/types';
 
 import { useNamedQuery } from '../core/useNamedQuery';
@@ -10,7 +10,7 @@ export const useContractRead = <
   TAbi extends JsonAbi,
   TFunctionName extends FunctionNames<TAbi>
 >({address, abi, functionName, args, contract: _contract}: {
-  address: AbstractAddress; 
+  address: Address; 
   abi: TAbi; 
   functionName: TFunctionName;
   args: InputsForFunctionName<TAbi, TFunctionName>;
