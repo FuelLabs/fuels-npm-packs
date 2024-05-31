@@ -35,12 +35,18 @@ type DefinedNamedUseQueryResult<
  *
  * See docs for more information: https://tanstack.com/query/latest/docs/framework/react/reference/useQuery
  */
-export type UseQueryParams<
+export interface UseQueryParams<
+  TName extends string,
   TQueryFnData = unknown,
   TError = DefaultError,
   TData = TQueryFnData,
   TQueryKey extends QueryKey = QueryKey,
-> = Pick<UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>, 'select'>;
+> extends Pick<
+    UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>,
+    'select'
+  > {
+  name?: TName;
+}
 
 function createProxyHandler<
   TName extends string,

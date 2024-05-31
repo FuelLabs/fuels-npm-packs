@@ -10,12 +10,12 @@ import { QUERY_KEYS } from '../utils';
 
 type UseTransactionResultParams<
   TTransactionType extends TransactionType,
-  TName,
+  TName extends string,
   TData,
 > = {
   txId?: string;
-  name?: TName;
   query?: UseQueryParams<
+    TName,
     TransactionResult<TTransactionType> | null,
     Error,
     TData
@@ -28,10 +28,10 @@ export const useTransactionResult = <
   TData = TransactionResult<TTransactionType> | null,
 >({
   txId = '',
-  name = 'transactionResult' as TName,
-  query,
+  query = {},
 }: UseTransactionResultParams<TTransactionType, TName, TData>) => {
   const { fuel } = useFuel();
+  const { name = 'transactionResult', ...options } = query;
 
   return useNamedQuery(name, {
     queryKey: QUERY_KEYS.transactionResult(txId),
@@ -46,6 +46,6 @@ export const useTransactionResult = <
     },
     initialData: null,
     enabled: !!txId,
-    ...query,
+    ...options,
   });
 };
