@@ -26,7 +26,7 @@ export const useContractRead = <
   const { provider } = useProvider();
   const chainId = provider?.getChainId();
 
-  return useNamedQuery(`contract`, {
+  return useNamedQuery('contract', {
     queryKey: QUERY_KEYS.contract((_contract?.id || address || '')?.toString(), chainId, args?.toString()),
     queryFn: async () => {
       if (!provider || !chainId) {
