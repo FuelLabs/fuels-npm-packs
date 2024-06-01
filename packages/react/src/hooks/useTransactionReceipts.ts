@@ -7,6 +7,9 @@ import { useNamedQuery } from '../core';
 import { useFuel } from '../providers';
 import { QUERY_KEYS } from '../utils';
 
+/**
+ * @deprecated `useTransactionReceipts` is deprecated. Use `useTransactionResult` instead with `select` function in the `query` parameter.
+ */
 export const useTransactionReceipts = ({ txId }: { txId?: string }) => {
   const { fuel } = useFuel();
 
