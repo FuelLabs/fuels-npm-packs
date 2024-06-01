@@ -2,7 +2,7 @@
 '@fuels/react': minor
 ---
 
-- Add `useTransactionResult` hook to get a transaction that has been successfully mined.
+- Add `useTransactionResult` hook to get a transaction that has been executed
 - Create a type `UseNamedQueryParams` to allow overriding `select` function of TanStack Query and our custom `name` property.
 
 ### Basic usage with `select` function
