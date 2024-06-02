@@ -34,7 +34,7 @@ export const useContractRead = <
       if (!isValid) {
         throw new Error('Contract or address, abi and provider are required to read the contract');
       };
-      if (!chainId) {
+      if (typeof chainId !== 'number') {
         throw new Error('ChainId is required to read the contract');
       };
       const contract = _contract || new Contract(address, abi, provider);
