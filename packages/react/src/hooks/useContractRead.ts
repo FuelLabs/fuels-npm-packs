@@ -30,7 +30,7 @@ export const useContractRead = <
   return useNamedQuery('contract', {
     queryKey: QUERY_KEYS.contract((_contract?.id || address || '')?.toString(), args?.toString()),
     queryFn: async () => {
-      if (isValid) {
+      if (!isValid) {
         throw new Error('Contract or address, abi and provider are required to read the contract');
       };
       const contract = _contract || new Contract(address, abi, provider);
