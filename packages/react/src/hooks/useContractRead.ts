@@ -1,20 +1,20 @@
-import { Contract, type Address, type JsonAbi } from 'fuels';
+import { Contract, type Account, type Address, type JsonAbi, type Provider } from 'fuels';
 import type { FunctionNames, InputsForFunctionName } from 'src/types';
 
 import { useNamedQuery } from '../core/useNamedQuery';
 import { QUERY_KEYS } from '../utils';
 
-import { useProvider } from './useProvider';
-
 type ContractReadProps<TAbi extends JsonAbi, TFunctionName extends FunctionNames<TAbi>> = {
   address: Address; 
   abi: TAbi; 
+  provider: Account | Provider;
   functionName: TFunctionName;
   args: InputsForFunctionName<TAbi, TFunctionName>;
   contract?: never;
 } | {
   abi?: never;
   address?: never;
+  provider?: never;
   contract: Contract;
   functionName: TFunctionName;
   args: InputsForFunctionName<TAbi, TFunctionName>;
@@ -23,19 +23,16 @@ type ContractReadProps<TAbi extends JsonAbi, TFunctionName extends FunctionNames
 export const useContractRead = <
   TAbi extends JsonAbi,
   TFunctionName extends FunctionNames<TAbi>
->({address, abi, functionName, args, contract: _contract}: ContractReadProps<TAbi, TFunctionName>) => {
-  const { provider } = useProvider();
-  const chainId = provider?.getChainId();
+>({address, abi, functionName, args, contract: _contract, provider}: ContractReadProps<TAbi, TFunctionName>) => {
+
+  const isValid = !!_contract || (!!address && !!abi && !!provider);
 
   return useNamedQuery('contract', {
-    queryKey: QUERY_KEYS.contract((_contract?.id || address || '')?.toString(), chainId, args?.toString()),
+    queryKey: QUERY_KEYS.contract((_contract?.id || address || '')?.toString(), args?.toString()),
     queryFn: async () => {
-      if (!provider || !chainId) {
-        throw new Error('Provider and chainId are required to read the contract');
+      if (isValid) {
+        throw new Error('Contract or address, abi and provider are required to read the contract');
       };
-      if (!_contract && (!address || !abi)) {
-        throw new Error('Either contract or address and abi are required to read the contract');
-      }
       const contract = _contract || new Contract(address, abi, provider);
       
       const wouldWriteToStorage = !contract.functions[functionName].isReadOnly;
@@ -50,7 +47,7 @@ export const useContractRead = <
       
       return args !== undefined ? contract.functions[functionName](args) : contract.functions[functionName]();
     },
-    enabled: !!provider && !!chainId,
+    enabled: isValid,
    }
    )
 };
