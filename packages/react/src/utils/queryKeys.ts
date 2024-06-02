@@ -14,8 +14,8 @@ export const QUERY_KEYS = {
   },
   contract: (address: string, chainId: number | undefined,args: string | undefined): QueryKey => {
     const queryKey = QUERY_KEYS.base.concat('contract').concat(address);
-    if (args) queryKey.push(args);
-    if (chainId) queryKey.push(chainId);
+    if (typeof args !== 'undefined') queryKey.push(args);
+    if (typeof chainId !== 'undefined') queryKey.push(chainId);
     return queryKey;
   },
   chain: (): QueryKey => {
