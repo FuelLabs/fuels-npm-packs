@@ -44,8 +44,11 @@ export const QUERY_KEYS = {
     return queryKey;
   },
   transactionReceipts: (id?: string): QueryKey => {
-    const queryKey = QUERY_KEYS.base.concat('transactionReceipts');
-    if (id) queryKey.push(id);
+    const queryKey = QUERY_KEYS.transaction(id).concat('receipts');
+    return queryKey;
+  },
+  transactionResult: (id?: string): QueryKey => {
+    const queryKey = QUERY_KEYS.transaction(id).concat('result');
     return queryKey;
   },
   nodeInfo: (url?: string): QueryKey => {

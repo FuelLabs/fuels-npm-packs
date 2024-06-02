@@ -29,6 +29,25 @@ type DefinedNamedUseQueryResult<
   [key in TName]: DefinedUseQueryResult<TQueryFnData, TError>['data'];
 };
 
+/**
+ * TanStack Query parameters, like queryFn and queryKey, are used internally and you cannot override them.
+ * Currently we're exporting only "select" function.
+ *
+ * See docs for more information: https://tanstack.com/query/latest/docs/framework/react/reference/useQuery
+ */
+export interface UseNamedQueryParams<
+  TName extends string,
+  TQueryFnData = unknown,
+  TError = DefaultError,
+  TData = TQueryFnData,
+  TQueryKey extends QueryKey = QueryKey,
+> extends Pick<
+    UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>,
+    'select'
+  > {
+  name?: TName;
+}
+
 function createProxyHandler<
   TName extends string,
   TData = unknown,
