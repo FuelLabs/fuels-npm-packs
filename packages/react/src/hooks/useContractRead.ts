@@ -6,10 +6,7 @@ import { QUERY_KEYS } from '../utils';
 
 import { useProvider } from './useProvider';
 
-export const useContractRead = <
-  TAbi extends JsonAbi,
-  TFunctionName extends FunctionNames<TAbi>
->({address, abi, functionName, args, contract: _contract}: {
+type ContractReadProps<TAbi extends JsonAbi, TFunctionName extends FunctionNames<TAbi>> = {
   address: Address; 
   abi: TAbi; 
   functionName: TFunctionName;
@@ -17,11 +14,16 @@ export const useContractRead = <
   contract?: never;
 } | {
   abi?: never;
-  address?: undefined;
+  address?: never;
   contract: Contract;
   functionName: TFunctionName;
   args: InputsForFunctionName<TAbi, TFunctionName>;
-}) => {
+};
+
+export const useContractRead = <
+  TAbi extends JsonAbi,
+  TFunctionName extends FunctionNames<TAbi>
+>({address, abi, functionName, args, contract: _contract}: ContractReadProps<TAbi, TFunctionName>) => {
   const { provider } = useProvider();
   const chainId = provider?.getChainId();
 
