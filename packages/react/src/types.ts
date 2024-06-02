@@ -19,7 +19,6 @@ export type Connector = {
 
 export type ConnectorList = Array<Connector>;
 
-
 type JsonAbiArgument = JsonAbi['functions'][number]['inputs'][number];
 type JsonAbiType = JsonAbi['types'][number];
 
@@ -69,9 +68,10 @@ type ResolveAbiType<TAbi extends JsonAbi, T extends JsonAbiType> =
 type ExtractTypeIdFromString<S extends string> = S extends `${infer Id}` ? NumberStringToNumber<Id> : never;
 type NumberStringToNumber<S extends string> = S extends `${infer D extends number}` ? D : never;
 
-type ResolveInputs<TAbi extends JsonAbi, Inputs extends ReadonlyArray<JsonAbiArgument>> = {
-  [K in keyof Inputs]: ResolveAbiType<TAbi, GetAbiTypeById<TAbi, Inputs[K]['type']>>;
-};
+type ResolveInputs<TAbi extends JsonAbi, Inputs extends ReadonlyArray<JsonAbiArgument>> = 
+  Inputs['length'] extends 1
+    ? ResolveAbiType<TAbi, GetAbiTypeById<TAbi, Inputs[0]['type']>>
+    : { [K in keyof Inputs]: ResolveAbiType<TAbi, GetAbiTypeById<TAbi, Inputs[K]['type']>> };
 
 export type InputsForFunctionName<TAbi extends JsonAbi, N extends FunctionNames<TAbi>> = 
   ResolveInputs<TAbi, Extract<TAbi['functions'][number], { name: N }>['inputs']>;
