@@ -34,15 +34,15 @@ export const useContractRead = <
         throw new Error('Contract or address, abi and provider are required to read the contract');
       };
       const contract = _contract || new Contract(address, abi, provider);
-      
-      const wouldWriteToStorage = !contract.functions[functionName].isReadOnly;
-
-      if (wouldWriteToStorage) {
-        throw new Error('Methods that write to storage should not be called with useContractRead');
-      }
 
       if (!contract?.functions?.[functionName]) {
         throw new Error(`Function ${functionName || ''} not found on contract`);
+      }
+
+      const wouldWriteToStorage = contract.functions[functionName].isReadOnly?.() !== undefined ? !contract.functions[functionName].isReadOnly() : Object.values(contract.interface.functions).find((f) => f.name === functionName)?.attributes?.find((attr) => attr.name === 'storage')?.arguments?.includes('write');
+
+      if (wouldWriteToStorage) {
+        throw new Error('Methods that write to storage should not be called with useContractRead');
       }
       
       return args !== undefined ? contract.functions[functionName](args) : contract.functions[functionName]();
