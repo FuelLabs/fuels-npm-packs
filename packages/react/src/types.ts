@@ -48,7 +48,7 @@ type ResolveAbiType<TAbi extends JsonAbi, T extends JsonAbiType> =
       : { [K in NonNullable<T['components']>[number] as K['name']]: ResolveAbiType<TAbi, GetAbiTypeById<TAbi, K['type']>> }
     : T['type'] extends 'enum'
     ? ResolveEnumType<TAbi, T>
-    : T['type'] extends 'u64' | 'u256'
+    : T['type'] extends 'u64' | 'u256' | 'uint256'
     ? bigint
     : T['type'] extends 'u32' | 'u16' | 'u8'
     ? number
