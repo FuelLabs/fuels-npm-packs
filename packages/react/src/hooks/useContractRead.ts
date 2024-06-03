@@ -33,7 +33,7 @@ export const useContractRead = <
   const { abi, address, provider } = (_contract as ContractData<TAbi>) ?? {};
 	const chainId = _contract?.provider?.getChainId();
 
-	return useNamedQuery("contract", {
+	return useNamedQuery("contractRead", {
 		queryKey: QUERY_KEYS.contract(
 			(isContractData ? address?.toString() : _contract?.id?.toString()),
 			chainId,
