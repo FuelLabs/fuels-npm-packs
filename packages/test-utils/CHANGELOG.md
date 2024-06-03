@@ -1,5 +1,11 @@
 # @fuels/playwright-utils
 
+## 0.21.0
+
+### Patch Changes
+
+- update wallet version to 0.21.0, by [@LuizAsFight](https://github.com/LuizAsFight) (See [#98](https://github.com/FuelLabs/fuels-npm-packs/pull/98))
+
 ## 0.20.0
 
 ### Minor Changes
