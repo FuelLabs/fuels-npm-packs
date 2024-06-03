@@ -18,8 +18,8 @@ export const useAddAssets = () => {
   });
 
   return {
-    addAssets: (assets: Asset | Asset[]) => mutate(assets),
-    addAssetsAsync: (assets: Asset | Asset[]) => mutateAsync(assets),
+    addAssets: mutate,
+    addAssetsAsync: mutateAsync,
     ...queryProps,
   };
 };
