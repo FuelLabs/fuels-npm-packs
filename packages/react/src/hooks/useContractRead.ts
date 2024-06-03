@@ -27,7 +27,8 @@ export const useContractRead = <
   args,
   contract: _contract,
 }: ContractReadProps<TAbi, TFunctionName>) => {
-  const isContractData = 'abi' in _contract && 'address' in _contract;
+  const isContractData =
+    _contract && 'abi' in _contract && 'address' in _contract;
   const { abi, address, provider } = (_contract as ContractData<TAbi>) ?? {};
   const chainId = _contract?.provider?.getChainId();
 
@@ -50,8 +51,9 @@ export const useContractRead = <
       if (typeof chainId !== 'number') {
         throw new Error('ChainId is required to read the contract');
       }
-      const contract =
-        (_contract as Contract) || new Contract(address, abi, provider);
+      const contract = isContractData
+        ? new Contract(address, abi, provider)
+        : (_contract as Contract);
 
       if (!contract?.functions?.[functionName]) {
         throw new Error(`Function ${functionName || ''} not found on contract`);
