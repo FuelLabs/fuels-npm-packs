@@ -17,7 +17,7 @@ export const useSendTransaction = () => {
 
   const { mutate, mutateAsync, ...queryProps } = useMutation({
     mutationFn: ({ address, transaction }: UseSendTransactionParams) => {
-      const destination = Address.fromAddressOrString(address).toString();
+      const destination = Address.fromDynamicInput(address).toString();
       return fuel.sendTransaction(destination, transaction);
     },
   });
