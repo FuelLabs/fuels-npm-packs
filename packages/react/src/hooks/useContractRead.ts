@@ -31,7 +31,6 @@ export const useContractRead = <
 }: ContractReadProps<TAbi, TFunctionName>) => {
   const isContractData = 'abi' in _contract && 'address' in _contract;
   const { abi, address, provider } = (_contract as ContractData<TAbi>) ?? {};
-	const isValid = isContractData ? (!!abi && !!address && !!provider) : !!_contract;
 	const chainId = _contract?.provider?.getChainId();
 
 	return useNamedQuery("contract", {
@@ -41,6 +40,8 @@ export const useContractRead = <
 			args?.toString(),
 		),
 		queryFn: async () => {
+    	const isValid = isContractData ? (!!abi && !!address && !!provider) : !!_contract && 'provider' in _contract;
+
 			if (!isValid) {
 				throw new Error(
 					"Contract or address, abi and provider are required to read the contract",
@@ -73,6 +74,5 @@ export const useContractRead = <
 				? contract.functions[functionName](args)
 				: contract.functions[functionName]();
 		},
-		enabled: isValid,
 	});
 };
