@@ -1,5 +1,9 @@
 import { useMutation } from '@tanstack/react-query';
-import { Address, type AbstractAddress, type TransactionRequestLike } from 'fuels';
+import {
+  Address,
+  type AbstractAddress,
+  type TransactionRequestLike,
+} from 'fuels';
 
 import { useFuel } from '../providers';
 
@@ -12,7 +16,7 @@ export const useSendTransaction = () => {
   const { fuel } = useFuel();
 
   const { mutate, mutateAsync, ...queryProps } = useMutation({
-    mutationFn: ({address, transaction}: UseSendTransactionParams) => {
+    mutationFn: ({ address, transaction }: UseSendTransactionParams) => {
       const destination = Address.fromAddressOrString(address).toString();
       return fuel.sendTransaction(destination, transaction);
     },
