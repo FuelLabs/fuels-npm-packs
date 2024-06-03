@@ -45,7 +45,7 @@ export const useContractRead = <
 
       if (!isValid) {
         throw new Error(
-          'Contract or address, abi and provider are required to read the contract',
+          'Valind input `contract` is required to read the contract',
         );
       }
       if (typeof chainId !== 'number') {
