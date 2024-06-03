@@ -14,8 +14,8 @@ export const useAddNetwork = () => {
   });
 
   return {
-    addNetwork: (networkUrl: string) => mutate(networkUrl),
-    addNetworkAsync: (networkUrl: string) => mutateAsync(networkUrl),
+    addNetwork: mutate,
+    addNetworkAsync: mutateAsync,
     ...queryProps,
   };
 };

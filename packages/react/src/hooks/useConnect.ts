@@ -15,8 +15,8 @@ export const useConnect = () => {
   });
 
   return {
-    connect: (connectorName?: string | null) => mutate(connectorName),
-    connectAsync: (connectorName?: string | null) => mutateAsync(connectorName),
+    connect: mutate,
+    connectAsync: mutateAsync,
     ...mutateProps,
   };
 };
