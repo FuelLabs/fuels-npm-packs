@@ -18,9 +18,8 @@ export const useSendTransaction = () => {
   });
 
   return {
-    sendTransaction: (params: UseSendTransactionParams) => mutate(params),
-    sendTransactionAsync: (params: UseSendTransactionParams) =>
-      mutateAsync(params),
+    sendTransaction: mutate,
+    sendTransactionAsync: mutateAsync,
     ...queryProps,
   };
 };
