@@ -55,9 +55,9 @@ export function Connect() {
           <DialogContent data-connector={!!connector}>
             <DialogTitle>Connect Wallet</DialogTitle>
             <Dialog.Close asChild>
-              <CloseIcon size={24} />
+              <CloseIcon size={32} />
             </Dialog.Close>
-            <BackIcon size={24} onClick={back} data-connector={!!connector} />
+            <BackIcon size={32} onClick={back} data-connector={!!connector} />
             <DialogMain>
               {connector ? <Connector connector={connector} /> : <Connectors />}
             </DialogMain>
