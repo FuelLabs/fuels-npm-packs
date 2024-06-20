@@ -3,23 +3,22 @@ import { styled } from 'styled-components';
 export const ConnectorItem = styled.div`
   display: flex;
   align-items: center;
-  background-color: transparent;
+  background-color: var(--fuel-connector-background);
   box-sizing: border-box;
   cursor: pointer;
   width: 100%;
   color: var(--fuel-font-color);
   gap: var(--fuel-items-gap);
   padding: 0.8em;
-  border: var(--fuel-border);
-  border-radius: var(--fuel-border-radius);
-  transition: background-color border-color opacity 50ms
-    cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 16px;
+  letter-spacing: var(--fuel-letter-spacing);
+  font-weight: 700;
+  transition: background-color opacity 50ms cubic-bezier(0.16, 1, 0.3, 1);
 
   &:active {
     opacity: 0.8;
   }
   &:hover {
-    border-color: var(--fuel-border-hover);
     background-color: var(--fuel-connector-hover);
   }
 `;
