@@ -68,8 +68,8 @@ export const DialogContent = styled(Dialog.Content)`
 ` as any as typeof Dialog.Content;
 
 export const DialogTitle = styled(Dialog.Title)`
-  padding-bottom: 18px;
-  padding-top: 4px;
+  padding-bottom: 20px;
+  padding-top: 8px;
   margin: 0;
   font-weight: normal;
   text-align: center;
@@ -86,17 +86,17 @@ export const DialogMain = styled.div`
 
 export const BackIcon = styled(CBackIcon)`
   fill: var(--fuel-color);
-  padding: 4px;
-  opacity: 0.5;
+  padding: 7px;
   font-family: inherit;
-  border-radius: 100%;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 18px;
+  left: 28px;
   cursor: pointer;
+  font-weight: 700;
 
   &[data-connector='false'] {
     display: none;
@@ -104,17 +104,16 @@ export const BackIcon = styled(CBackIcon)`
 
   &:hover,
   &:active {
-    background-color: var(--mauve-1);
+    background-color: var(--fuel-connector-hover);
     opacity: 1;
   }
 `;
 
 export const CloseIcon = styled(CCloseIcon)`
   fill: var(--fuel-color);
-  padding: 4px;
-  opacity: 0.5;
+  padding: 7px;
   font-family: inherit;
-  border-radius: 100%;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,7 +125,7 @@ export const CloseIcon = styled(CCloseIcon)`
 
   &:hover,
   &:active {
-    background-color: var(--mauve-1);
+    background-color: var(--fuel-connector-hover);
     opacity: 1;
   }
 `;

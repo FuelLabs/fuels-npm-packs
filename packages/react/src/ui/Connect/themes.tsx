@@ -29,9 +29,9 @@ const lightTheme = {
 const darkTheme = {
   '--fuel-color': '#e4e7e7',
   '--fuel-color-bold': '#ffffff',
-  '--fuel-dialog-background': 'hsla(0,0%,8.63%,1)',
-  '--fuel-overlay-background': 'rgba(0,0,0,0.6)',
-  '--fuel-connector-background': 'rgba(37,38,38, 0.24)',
+  '--fuel-dialog-background': 'rgb(25 26 26)',
+  '--fuel-overlay-background': 'rgba(20, 20, 20, 0.8)',
+  '--fuel-connector-background': 'rgb(30 30 30)',
   '--fuel-connector-hover': 'hsl(0deg 0% 18.77%)',
   '--fuel-border-color': 'hsl(0deg 0% 18.77%)',
   '--fuel-border-hover': 'hsla(0, 0%, 50%, 1)',

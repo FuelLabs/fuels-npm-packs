@@ -12,7 +12,7 @@ export const ConnectorItem = styled.div`
   padding: 0.8em;
   border-radius: 16px;
   letter-spacing: var(--fuel-letter-spacing);
-  font-weight: 700;
+  font-weight: 500;
   transition: background-color opacity 50ms cubic-bezier(0.16, 1, 0.3, 1);
 
   &:active {
