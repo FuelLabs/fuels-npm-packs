@@ -55,7 +55,7 @@ export const DialogContent = styled(Dialog.Content)`
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 36px;
-  padding: 14px;
+  padding: 14px 0px;
   padding-bottom: 18px;
   animation: ${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow:
@@ -68,15 +68,22 @@ export const DialogContent = styled(Dialog.Content)`
 ` as any as typeof Dialog.Content;
 
 export const DialogTitle = styled(Dialog.Title)`
-  padding-bottom: 20px;
-  padding-top: 8px;
+  padding: 8px 14px 12px;
   margin: 0;
   font-weight: normal;
   text-align: center;
   font-size: 16px;
   letter-spacing: var(--fuel-letter-spacing);
   font-weight: 700;
-  border-bottom: 1px solid var(--fuel-border-color);
+`;
+
+export const Divider = styled.div`
+  height: 0.5px;
+  width: 100%;
+  background-color: var(--fuel-border-color);
+  margin: 10px 0;
+  padding: 0;
+  box-sizing: border-box;
 `;
 
 export const DialogMain = styled.div`
@@ -93,7 +100,7 @@ export const BackIcon = styled(CBackIcon)`
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 18px;
+  top: 20px;
   left: 28px;
   cursor: pointer;
   font-weight: 700;

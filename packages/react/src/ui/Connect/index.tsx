@@ -15,6 +15,7 @@ import {
   DialogTitle,
   DialogMain,
   FuelRoot,
+  Divider,
 } from './styles';
 import { getThemeVariables } from './themes';
 
@@ -56,6 +57,7 @@ export function Connect() {
           <DialogOverlay />
           <DialogContent data-connector={!!connector}>
             <DialogTitle>Connect Wallet</DialogTitle>
+            <Divider></Divider>
             <Dialog.Close asChild>
               <CloseIcon size={32} />
             </Dialog.Close>

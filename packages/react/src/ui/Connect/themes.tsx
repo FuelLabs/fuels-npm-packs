@@ -33,7 +33,7 @@ const darkTheme = {
   '--fuel-overlay-background': 'rgba(20, 20, 20, 0.8)',
   '--fuel-connector-background': 'rgb(30 30 30)',
   '--fuel-connector-hover': 'hsl(0deg 0% 18.77%)',
-  '--fuel-border-color': 'hsl(0deg 0% 18.77%)',
+  '--fuel-border-color': 'rgba(255, 255, 255, 0.05)',
   '--fuel-border-hover': 'hsla(0, 0%, 50%, 1)',
   '--fuel-button-background': 'hsla(0, 0%, 30%, 1)',
   '--fuel-button-background-hover': 'hsla(0, 0%, 40%, 1)',

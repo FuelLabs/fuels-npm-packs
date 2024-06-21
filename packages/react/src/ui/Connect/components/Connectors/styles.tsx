@@ -28,6 +28,7 @@ export const ConnectorList = styled.div`
   flex-direction: column;
   align-items: center;
   gap: var(--fuel-items-gap);
+  padding: 0px 14px;
 `;
 
 export const ConnectorName = styled.div`
