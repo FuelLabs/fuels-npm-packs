@@ -45,13 +45,10 @@ export const DialogContent = styled(Dialog.Content)`
   overflow: hidden;
   color: var(--fuel-color);
   user-select: none;
-  width: 360px;
-  max-width: calc(100% - 20px);
   max-height: calc(100% - 20px);
   box-sizing: border-box;
   background-color: var(--fuel-dialog-background);
   position: fixed;
-  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 36px;
@@ -64,6 +61,20 @@ export const DialogContent = styled(Dialog.Content)`
 
   &:focus {
     outline: none;
+  }
+
+  @media (min-width: 431px) {
+    top: 50%;
+    width: 360px;
+    max-width: calc(100% - 20px);
+  }
+
+  @media (max-width: 430px) {
+    top: auto;
+    bottom: -246px;
+    width: 100vw;
+    max-width: 100%;
+    border-radius: 36px 36px 0 0;
   }
 ` as any as typeof Dialog.Content;
 
