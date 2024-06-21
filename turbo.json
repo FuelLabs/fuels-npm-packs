@@ -1,7 +1,9 @@
 {
+  "globalDependencies": ["**/.env.*local"],
   "pipeline": {
     "build": {
       "dependsOn": ["ts:check", "^build"],
+      "outputs": ["dist/**"],
       "cache": false
     },
     "ts:check": {
