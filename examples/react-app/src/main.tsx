@@ -18,8 +18,6 @@ import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
 import ScreenSizeIndicator from './components/screensize-indicator.tsx';
 import './index.css';
-// import { SolanaConnector } from "@fuels/connectors/solana";
-// import { defaultSolanaConfig } from "@web3modal/solana";
 
 const queryClient = new QueryClient();
 
