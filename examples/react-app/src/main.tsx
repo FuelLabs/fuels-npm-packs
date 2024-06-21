@@ -8,7 +8,6 @@ import { WalletConnectConnector } from '@fuels/connectors/walletconnect';
 import { FuelProvider } from '@fuels/react';
 import * as Toast from '@radix-ui/react-toast';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { coinbaseWallet, walletConnect } from '@wagmi/connectors';
 import { http, createConfig, injected } from '@wagmi/core';
 import { mainnet, sepolia } from '@wagmi/core/chains';
@@ -81,8 +80,6 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         </Toast.Provider>
         <ScreenSizeIndicator />
       </FuelProvider>
-
-      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   </React.StrictMode>,
 );
