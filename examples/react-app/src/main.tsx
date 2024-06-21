@@ -3,6 +3,7 @@ import {
   FuelWalletConnector,
   FuelWalletDevelopmentConnector,
   FueletWalletConnector,
+  BakoSafeConnector,
 } from '@fuels/connectors';
 import { WalletConnectConnector } from '@fuels/connectors/walletconnect';
 import { FuelProvider } from '@fuels/react';
@@ -62,6 +63,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         fuelConfig={{
           connectors: [
             new FuelWalletConnector(),
+            new BakoSafeConnector(),
             new FueletWalletConnector(),
             new WalletConnectConnector({
               wagmiConfig,
