@@ -31,10 +31,6 @@ export function Connector({ className, connector, theme }: ConnectorProps) {
 
   useEffect(() => {
     const ping = async () => {
-      // If the connector have been detected from the SDK, we don't need to ping it again
-      if (connector.installed) return;
-
-      // Let's give a last chance to the connector to detect it
       try {
         await connector.ping();
         connector.installed = true;
