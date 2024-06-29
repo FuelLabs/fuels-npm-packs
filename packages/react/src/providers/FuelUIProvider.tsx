@@ -29,6 +29,7 @@ export type FuelUIContextType = {
   isError: boolean;
   connect: () => void;
   cancel: () => void;
+  setError: (error: Error | null) => void;
   error: Error | null;
   dialog: {
     connector: FuelConnector | null;
@@ -46,9 +47,9 @@ export const useHasFuelConnectProvider = () => {
 };
 
 export const useConnectUI = () => {
-  const context = useContext(FuelConnectContext) as FuelUIContextType;
+  const context = useContext<FuelUIContextType | null>(FuelConnectContext);
 
-  if (context === undefined) {
+  if (!context) {
     throw new Error('useConnectUI must be used within a FuelUIProvider');
   }
 
@@ -120,6 +121,7 @@ export function FuelUIProvider({
         isError,
         connectors,
         error,
+        setError,
         connect: handleConnect,
         cancel: handleCancel,
         dialog: {

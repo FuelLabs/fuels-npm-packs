@@ -1,5 +1,7 @@
 import type { FuelConnector } from 'fuels';
+import { useEffect, useState } from 'react';
 
+import { useConnectUI } from '../../../../providers/FuelUIProvider';
 import { ConnectorIcon } from '../ConnectorIcon';
 
 import {
@@ -9,8 +11,6 @@ import {
   ConnectorImage,
   ConnectorTitle,
 } from './styles';
-import { useEffect, useState } from 'react';
-import { useConnectUI } from '../../../../providers/FuelUIProvider';
 
 type ConnectorProps = {
   theme?: string;
@@ -24,6 +24,7 @@ export function Connector({ className, connector, theme }: ConnectorProps) {
   } = connector.metadata;
 
   const {
+    setError,
     dialog: { connect },
   } = useConnectUI();
   const [isLoading, setLoading] = useState(!connector.installed);
@@ -38,13 +39,14 @@ export function Connector({ className, connector, theme }: ConnectorProps) {
         await connector.ping();
         connector.installed = true;
         connect(connector);
-      } catch (_error) {
+      } catch (error) {
         setLoading(false);
+        setError(error as Error);
       }
     };
 
     ping();
-  }, [connector, connect]);
+  }, [connector, connect, setError]);
 
   return (
     <div className={className}>
