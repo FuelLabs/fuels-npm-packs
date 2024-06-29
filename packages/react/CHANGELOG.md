@@ -1,5 +1,11 @@
 # @fuels/react
 
+## 0.22.0
+
+### Minor Changes
+
+- Add a loading state to display when the connector has installed status set to false, by [@helciofranco](https://github.com/helciofranco) (See [#104](https://github.com/FuelLabs/fuels-npm-packs/pull/104))
+
 ## 0.21.0
 
 ### Minor Changes
