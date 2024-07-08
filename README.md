@@ -6,7 +6,7 @@ Common libraries for Fuel frontend development.
 
 ### Packages
 
-- [assets](./packages/assets/README.md): contains a list of assets and metadata for the Fuel Netowork
+- [assets](./packages/assets/README.md): contains a list of assets and metadata for the Fuel Network
 - changeset: handles the changelog for keeping track of changes.
 - eslint-plugin: common linting rules for Fuel frontend projects.
 - jest: common test mocks and test setup for Fuel frontend projects.
@@ -16,7 +16,7 @@ Common libraries for Fuel frontend development.
 - react-xstore: custom react state management library used alongside xstate.
 - test-utils: test utilities and mocks for interacting with the Fuel wallet.
 - ts-config: common ts-config for Fuel frontend projects.
-- tsup-config: common tsup configruation for Fuel frontend projects.
+- tsup-config: common tsup configuration for Fuel frontend projects.
 
 ## 📜 License
 
