@@ -1,10 +1,10 @@
 import { useQueryClient } from '@tanstack/react-query';
+import type { FuelConfig } from 'fuels';
 import { useEffect } from 'react';
 
 import { QUERY_KEYS } from '../utils';
 
 import { useFuel } from './FuelHooksProvider';
-import { FuelConfig } from 'fuels';
 
 export function FuelEventsWatcher({ fuelConfig }: { fuelConfig?: FuelConfig }) {
   const { fuel } = useFuel();
@@ -81,7 +81,7 @@ export function FuelEventsWatcher({ fuelConfig }: { fuelConfig?: FuelConfig }) {
   }, [fuel, queryClient]);
 
   useEffect(() => {
-	queryClient.invalidateQueries({ queryKey: QUERY_KEYS.connectorList() });
+    queryClient.invalidateQueries({ queryKey: QUERY_KEYS.connectorList() });
   }, [fuelConfig?.connectors, queryClient]);
 
   return null;

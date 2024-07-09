@@ -104,7 +104,7 @@ export function FuelUIProvider({
     },
     [fuel],
   );
-  
+
   const isLoading = useMemo(() => {
     const hasLoadedConnectors =
       (fuelConfig.connectors || []).length > connectors.length;
