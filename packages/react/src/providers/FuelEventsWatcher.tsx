@@ -4,8 +4,9 @@ import { useEffect } from 'react';
 import { QUERY_KEYS } from '../utils';
 
 import { useFuel } from './FuelHooksProvider';
+import { FuelConfig } from 'fuels';
 
-export function FuelEventsWatcher() {
+export function FuelEventsWatcher({ fuelConfig }: { fuelConfig?: FuelConfig }) {
   const { fuel } = useFuel();
   const queryClient = useQueryClient();
 
@@ -78,6 +79,10 @@ export function FuelEventsWatcher() {
       fuel.off(fuel.events.assets, onAssetsChange);
     };
   }, [fuel, queryClient]);
+
+  useEffect(() => {
+	queryClient.invalidateQueries({ queryKey: QUERY_KEYS.connectorList() });
+  }, [fuelConfig?.connectors, queryClient]);
 
   return null;
 }
