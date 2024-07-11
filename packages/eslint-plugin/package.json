@@ -1,6 +1,6 @@
 {
   "name": "@fuels/eslint-plugin",
-  "version": "0.22.0",
+  "version": "0.23.0",
   "license": "Apache-2.0",
   "access": "public",
   "main": "./index.js",
