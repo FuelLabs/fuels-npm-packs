@@ -1,5 +1,7 @@
 import { useDisconnect } from '@fuels/react';
+
 import { useWallet } from '../hooks/useWallet';
+
 import Button from './button';
 import Feature from './feature';
 

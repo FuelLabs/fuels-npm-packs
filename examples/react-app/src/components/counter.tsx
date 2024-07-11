@@ -1,9 +1,11 @@
-import { bn } from 'fuels';
+import { type Account, bn } from 'fuels';
 import { useEffect, useState } from 'react';
+
 import { useLogEvents } from '../hooks/use-log-events';
 import { useWallet } from '../hooks/useWallet';
 import { CounterAbi__factory } from '../types';
 import type { CustomError } from '../utils/customError';
+
 import { DEFAULT_AMOUNT } from './balance';
 import Button from './button';
 import ContractLink from './contract-link';
@@ -67,7 +69,7 @@ export default function ContractCounter({ isSigning, setIsSigning }: Props) {
       setIsSigning(true);
       const contract = CounterAbi__factory.connect(
         COUNTER_CONTRACT_ID,
-        wallet,
+        wallet as Account,
       );
       try {
         await contract.functions
@@ -106,7 +108,7 @@ export default function ContractCounter({ isSigning, setIsSigning }: Props) {
 
     const counterContract = CounterAbi__factory.connect(
       COUNTER_CONTRACT_ID,
-      wallet,
+      wallet as Account,
     );
 
     try {

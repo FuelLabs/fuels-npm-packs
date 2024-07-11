@@ -1,6 +1,8 @@
 import { bn } from 'fuels';
 import { useEffect } from 'react';
+
 import { useWallet } from '../hooks/useWallet';
+
 import Feature from './feature';
 
 export const DEFAULT_AMOUNT = bn.parseUnits('0.0001');
