@@ -1,5 +1,7 @@
 import type { FuelConnector } from 'fuels';
+import { useEffect, useState } from 'react';
 
+import { useConnectUI } from '../../../../providers/FuelUIProvider';
 import { ConnectorIcon } from '../ConnectorIcon';
 
 import {
@@ -21,6 +23,27 @@ export function Connector({ className, connector, theme }: ConnectorProps) {
     install: { action, link, description },
   } = connector.metadata;
 
+  const {
+    setError,
+    dialog: { connect },
+  } = useConnectUI();
+  const [isLoading, setLoading] = useState(!connector.installed);
+
+  useEffect(() => {
+    const ping = async () => {
+      try {
+        await connector.ping();
+        connector.installed = true;
+        connect(connector);
+      } catch (error) {
+        setLoading(false);
+        setError(error as Error);
+      }
+    };
+
+    ping();
+  }, [connector, connect, setError]);
+
   return (
     <div className={className}>
       <ConnectorImage>
@@ -33,11 +56,15 @@ export function Connector({ className, connector, theme }: ConnectorProps) {
       </ConnectorImage>
       <ConnectorContent>
         <ConnectorTitle>{connector.name}</ConnectorTitle>
-        <ConnectorDescription>{description}</ConnectorDescription>
+        <ConnectorDescription>
+          {isLoading ? 'Loading...' : description}
+        </ConnectorDescription>
       </ConnectorContent>
-      <ConnectorButton href={link} target="_blank">
-        {action || 'Install'}
-      </ConnectorButton>
+      {!isLoading && (
+        <ConnectorButton href={link} target="_blank">
+          {action || 'Install'}
+        </ConnectorButton>
+      )}
     </div>
   );
 }
