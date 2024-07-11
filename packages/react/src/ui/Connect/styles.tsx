@@ -89,7 +89,7 @@ export const DialogTitle = styled(Dialog.Title)`
 `;
 
 export const Divider = styled.div`
-  height: 0.5px;
+  height: 1px;
   width: 100%;
   background-color: var(--fuel-border-color);
   margin: 10px 0;

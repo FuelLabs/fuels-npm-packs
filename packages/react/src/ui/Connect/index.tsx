@@ -57,7 +57,7 @@ export function Connect() {
           <DialogOverlay />
           <DialogContent data-connector={!!connector}>
             <DialogTitle>Connect Wallet</DialogTitle>
-            <Divider></Divider>
+            <Divider />
             <Dialog.Close asChild>
               <CloseIcon size={32} />
             </Dialog.Close>
