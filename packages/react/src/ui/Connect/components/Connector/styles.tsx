@@ -29,9 +29,8 @@ export const ConnectorButton = styled.a`
   text-decoration: none;
   justify-content: center;
   align-items: center;
-  margin-top: 1.4em;
-  width: 100%;
-  padding: 0.6em 1em;
+  margin: 1.4em 1em 0;
+  padding: 0.6em 0;
   font-size: 1.1em;
   color: var(--fuel-color-bold);
   border-radius: var(--fuel-border-radius);

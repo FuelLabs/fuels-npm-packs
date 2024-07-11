@@ -83,7 +83,10 @@
       "semver@<7.5.2": ">=7.5.2",
       "word-wrap": "npm:@aashutoshrathi/word-wrap",
       "@babel/traverse@<7.23.2": ">=7.23.2",
-      "@adobe/css-tools@<4.3.2": ">=4.3.2"
+      "@adobe/css-tools@<4.3.2": ">=4.3.2",
+      "ws@>=8.0.0 <8.17.1": ">=8.17.1",
+      "braces@<3.0.3": ">=3.0.3"
     }
-  }
+  },
+  "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a"
 }
