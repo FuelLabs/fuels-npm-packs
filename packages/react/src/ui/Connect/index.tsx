@@ -1,6 +1,8 @@
 import * as Dialog from '@radix-ui/react-dialog';
 import { useEffect, useRef, useState } from 'react';
 
+import './index.css';
+
 import { useConnectUI } from '../../providers/FuelUIProvider';
 
 import { Connector } from './components/Connector/Connector';
@@ -13,6 +15,7 @@ import {
   DialogTitle,
   DialogMain,
   FuelRoot,
+  Divider,
 } from './styles';
 import { getThemeVariables } from './themes';
 
@@ -54,10 +57,11 @@ export function Connect() {
           <DialogOverlay />
           <DialogContent data-connector={!!connector}>
             <DialogTitle>Connect Wallet</DialogTitle>
+            <Divider />
             <Dialog.Close asChild>
-              <CloseIcon size={24} />
+              <CloseIcon size={32} />
             </Dialog.Close>
-            <BackIcon size={24} onClick={back} data-connector={!!connector} />
+            <BackIcon size={32} onClick={back} data-connector={!!connector} />
             <DialogMain>
               {connector ? <Connector connector={connector} /> : <Connectors />}
             </DialogMain>
