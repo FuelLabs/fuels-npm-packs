@@ -2,4 +2,4 @@
 '@fuels/react': patch
 ---
 
-Connect wallets modal styles
+Updated UI connector's style to match provider's modal style, increasing user experience.
