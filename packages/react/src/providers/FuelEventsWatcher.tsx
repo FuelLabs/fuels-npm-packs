@@ -11,6 +11,7 @@ export function FuelEventsWatcher({ fuelConfig }: { fuelConfig?: FuelConfig }) {
   const queryClient = useQueryClient();
 
   function onCurrentConnectorChange() {
+    console.log('asd onCurrentConnectorChange');
     queryClient.invalidateQueries({ queryKey: QUERY_KEYS.account() });
     queryClient.invalidateQueries({ queryKey: QUERY_KEYS.isConnected() });
     queryClient.invalidateQueries({ queryKey: QUERY_KEYS.wallet() });
@@ -21,16 +22,19 @@ export function FuelEventsWatcher({ fuelConfig }: { fuelConfig?: FuelConfig }) {
   }
 
   function onConnectorsChange() {
+    console.log(`asd onConnectorsChange`);
     queryClient.invalidateQueries({ queryKey: QUERY_KEYS.connectorList() });
   }
 
   function onCurrentAccountChange() {
+    console.log(`asd onCurrentAccountChange`);
     queryClient.invalidateQueries({ queryKey: QUERY_KEYS.account() });
     queryClient.invalidateQueries({ queryKey: QUERY_KEYS.wallet() });
     queryClient.invalidateQueries({ queryKey: QUERY_KEYS.balance() });
   }
 
   function onConnectionChange() {
+    console.log(`asd onConnectionChange`);
     queryClient.invalidateQueries({ queryKey: QUERY_KEYS.isConnected() });
     queryClient.invalidateQueries({ queryKey: QUERY_KEYS.account() });
     queryClient.invalidateQueries({ queryKey: QUERY_KEYS.wallet() });
@@ -61,6 +65,7 @@ export function FuelEventsWatcher({ fuelConfig }: { fuelConfig?: FuelConfig }) {
   }
 
   useEffect(() => {
+    console.log(`asd start listeners`);
     fuel.on(fuel.events.currentAccount, onCurrentAccountChange);
     fuel.on(fuel.events.currentConnector, onCurrentConnectorChange);
     fuel.on(fuel.events.connectors, onConnectorsChange);
@@ -70,6 +75,7 @@ export function FuelEventsWatcher({ fuelConfig }: { fuelConfig?: FuelConfig }) {
     fuel.on(fuel.events.assets, onAssetsChange);
 
     return () => {
+      console.log(`asd remove listeners`);
       fuel.off(fuel.events.currentConnector, onCurrentConnectorChange);
       fuel.off(fuel.events.currentAccount, onCurrentAccountChange);
       fuel.off(fuel.events.connectors, onConnectorsChange);

@@ -9,6 +9,7 @@ export const useAccount = () => {
     queryKey: QUERY_KEYS.account(),
     queryFn: async () => {
       try {
+        console.log(`asd querying currentAccount`);
         const currentFuelAccount = await fuel?.currentAccount();
         return currentFuelAccount;
       } catch (error: unknown) {
