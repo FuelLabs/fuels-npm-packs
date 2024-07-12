@@ -1,5 +1,15 @@
 # @fuels/react
 
+## 0.23.0
+
+### Minor Changes
+
+- 🐞 Fixing infinite loading of wallet connector when fuelConfig connectors are defined asynchronously, by [@rodrigobranas](https://github.com/rodrigobranas) (See [#108](https://github.com/FuelLabs/fuels-npm-packs/pull/108))
+
+### Patch Changes
+
+- Updated UI connector's style to match provider's modal style, increasing user experience, by [@LeoCourbassier](https://github.com/LeoCourbassier) (See [#110](https://github.com/FuelLabs/fuels-npm-packs/pull/110))
+
 ## 0.22.0
 
 ### Minor Changes
