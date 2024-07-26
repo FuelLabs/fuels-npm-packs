@@ -1,4 +1,4 @@
-name: "Release latest"
+name: 'Release latest'
 
 on:
   workflow_dispatch:
@@ -8,7 +8,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  BUILD_VERSION: ""
+  BUILD_VERSION: ''
 
 jobs:
   release-npm-latest:
@@ -25,7 +25,7 @@ jobs:
       - uses: FuelLabs/github-actions/setups/npm@master
         with:
           npm-token: ${{ secrets.NPM_TOKEN }}
-      
+
       - name: Collect current version
         run: |
           echo "BUILD_VERSION=$(pnpm -s packages:version)" >> $GITHUB_ENV
@@ -38,7 +38,6 @@ jobs:
           npm dist-tag add @fuels/jest@${{ env.BUILD_VERSION }} latest
           npm dist-tag add @fuels/local-storage@${{ env.BUILD_VERSION }} latest
           npm dist-tag add @fuels/prettier-config@${{ env.BUILD_VERSION }} latest
-          npm dist-tag add @fuels/react@${{ env.BUILD_VERSION }} latest
           npm dist-tag add @fuels/react-xstore@${{ env.BUILD_VERSION }} latest
           npm dist-tag add @fuels/playwright-utils@${{ env.BUILD_VERSION }} latest
           npm dist-tag add @fuels/ts-config@${{ env.BUILD_VERSION }} latest

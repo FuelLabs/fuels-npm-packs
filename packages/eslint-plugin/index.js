@@ -143,11 +143,7 @@ module.exports = {
     },
     /** confirations for specific frameworks */
     base: {
-      extends: [
-        'plugin:@fuels/typescript',
-        'plugin:@fuels/jest',
-        'plugin:@fuels/react',
-      ],
+      extends: ['plugin:@fuels/typescript', 'plugin:@fuels/jest'],
     },
     next: {
       extends: ['plugin:@fuels/base', 'plugin:@next/next/recommended'],
