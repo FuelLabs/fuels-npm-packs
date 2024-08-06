@@ -6,7 +6,6 @@ Common libraries for Fuel frontend development.
 
 ### Packages
 
-- [assets](./packages/assets/README.md): contains a list of assets and metadata for the Fuel Netowork
 - changeset: handles the changelog for keeping track of changes.
 - eslint-plugin: common linting rules for Fuel frontend projects.
 - jest: common test mocks and test setup for Fuel frontend projects.

@@ -33,7 +33,6 @@ jobs:
       - name: Change tag to latest
         run: |
           npm dist-tag add @fuels/changeset@${{ env.BUILD_VERSION }} latest
-          npm dist-tag add @fuels/assets@${{ env.BUILD_VERSION }} latest
           npm dist-tag add @fuels/eslint-plugin@${{ env.BUILD_VERSION }} latest
           npm dist-tag add @fuels/jest@${{ env.BUILD_VERSION }} latest
           npm dist-tag add @fuels/local-storage@${{ env.BUILD_VERSION }} latest
