@@ -4,7 +4,6 @@ const output = `---
 "@fuels/playwright-utils": patch
 "@fuels/ts-config": patch
 "@fuels/jest": patch
-"@fuels/assets": patch
 "@fuels/changeset": patch
 "@fuels/tsup-config": patch
 "@fuels/react-xstore": patch

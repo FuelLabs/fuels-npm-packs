@@ -2,4 +2,3 @@
 dist
 node_modules
 pnpm-lock.yaml
-packages/assets/images/assets.json
