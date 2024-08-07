@@ -5,7 +5,6 @@ const output = `---
 "@fuels/react": patch
 "@fuels/ts-config": patch
 "@fuels/jest": patch
-"@fuels/assets": patch
 "@fuels/changeset": patch
 "@fuels/tsup-config": patch
 "@fuels/react-xstore": patch
