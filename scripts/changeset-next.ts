@@ -2,7 +2,6 @@ import { writeFileSync } from 'node:fs';
 
 const output = `---
 "@fuels/playwright-utils": patch
-"@fuels/react": patch
 "@fuels/ts-config": patch
 "@fuels/jest": patch
 "@fuels/changeset": patch

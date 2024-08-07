@@ -38,6 +38,7 @@ dist-ssr
 # misc
 .DS_Store
 *.pem
+.zed
 
 # local env files
 .env.local

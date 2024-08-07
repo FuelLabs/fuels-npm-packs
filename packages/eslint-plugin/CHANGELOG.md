@@ -85,11 +85,7 @@ Or you can pick some specific configuration:
 
 ```json
 {
-  "extends": [
-    "plugin:@fuels/typescript",
-    "plugin:@fuels/react",
-    "plugin:@fuels/jest"
-  ]
+  "extends": ["plugin:@fuels/typescript", "plugin:@fuels/jest"]
 }
 ```
 
