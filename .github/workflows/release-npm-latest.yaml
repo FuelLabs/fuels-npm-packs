@@ -38,6 +38,5 @@ jobs:
           npm dist-tag add @fuels/local-storage@${{ env.BUILD_VERSION }} latest
           npm dist-tag add @fuels/prettier-config@${{ env.BUILD_VERSION }} latest
           npm dist-tag add @fuels/react-xstore@${{ env.BUILD_VERSION }} latest
-          npm dist-tag add @fuels/playwright-utils@${{ env.BUILD_VERSION }} latest
           npm dist-tag add @fuels/ts-config@${{ env.BUILD_VERSION }} latest
           npm dist-tag add @fuels/tsup-config@${{ env.BUILD_VERSION }} latest

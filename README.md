@@ -13,7 +13,6 @@ Common libraries for Fuel frontend development.
 - prettier-config: common prettier configuration for Fuel frontend projects.
 - react: react hooks for interacting with the Fuel wallet SDK.
 - react-xstore: custom react state management library used alongside xstate.
-- test-utils: test utilities and mocks for interacting with the Fuel wallet.
 - ts-config: common ts-config for Fuel frontend projects.
 - tsup-config: common tsup configruation for Fuel frontend projects.
 
