@@ -20,7 +20,7 @@ jobs:
           fetch-depth: 0
       - uses: FuelLabs/github-actions/setups/node@master
         with:
-          pnpm-version: 8.15.7
+          pnpm-version: 9.5.0
       - uses: FuelLabs/github-actions/setups/npm@master
         with:
           npm-token: ${{ secrets.NPM_TOKEN }}
