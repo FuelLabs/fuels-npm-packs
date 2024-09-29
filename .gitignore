@@ -49,3 +49,4 @@ dist-ssr
 # turbo
 .turbo
 tsconfig.tsbuildinfo
+*.tgz
