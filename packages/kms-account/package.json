@@ -3,6 +3,11 @@
   "version": "0.24.0",
   "license": "Apache-2.0",
   "main": "src/index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FuelLabs/fuels-npm-packs.git",
+    "directory": "packages/kms-account"
+  },
   "publishConfig": {
     "access": "public",
     "main": "./dist/index.js",
