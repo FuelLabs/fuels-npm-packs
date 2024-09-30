@@ -35,6 +35,7 @@ jobs:
           npm dist-tag add @fuels/changeset@${{ env.BUILD_VERSION }} latest
           npm dist-tag add @fuels/eslint-plugin@${{ env.BUILD_VERSION }} latest
           npm dist-tag add @fuels/jest@${{ env.BUILD_VERSION }} latest
+          npm dist-tag add @fuels/kms-account@${{ env.BUILD_VERSION }} latest
           npm dist-tag add @fuels/local-storage@${{ env.BUILD_VERSION }} latest
           npm dist-tag add @fuels/prettier-config@${{ env.BUILD_VERSION }} latest
           npm dist-tag add @fuels/react-xstore@${{ env.BUILD_VERSION }} latest
