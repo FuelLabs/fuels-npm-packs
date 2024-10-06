@@ -41,3 +41,5 @@ jobs:
           npm dist-tag add @fuels/react-xstore@${{ env.BUILD_VERSION }} latest
           npm dist-tag add @fuels/ts-config@${{ env.BUILD_VERSION }} latest
           npm dist-tag add @fuels/tsup-config@${{ env.BUILD_VERSION }} latest
+          npm dist-tag add @fuels/proxy-cli@${{ env.BUILD_VERSION }} latest
+          
