@@ -2,25 +2,32 @@
  * This is a stand-alone script that upgrades the bridge
  */
 import { Proxy } from '@fuel-bridge/fungible-token';
-import type { Account} from 'fuels';
+import type { Account } from 'fuels';
 import { Address } from 'fuels';
 
 import { debug } from '../utils';
 
 type TransferOwnershipParams = {
-    account: Account;
-    newOwner: string;
-    proxyAddress: string;
-}
+  account: Account;
+  newOwner: string;
+  proxyAddress: string;
+};
 
-export const transferOwnership = async ({ account, newOwner, proxyAddress }: TransferOwnershipParams) => {
+export const transferOwnership = async ({
+  account,
+  newOwner,
+  proxyAddress,
+}: TransferOwnershipParams) => {
   const proxy = new Proxy(proxyAddress, account);
 
   console.log(`Proxy(${proxyAddress}) transfer ownership script initiated`);
   console.log('\t> Owner address: ', account.address.toB256());
-  console.log('\t> Balance: ', (await account.getBalance()).format({
-    precision: 9
-  }));
+  console.log(
+    '\t> Balance: ',
+    (await account.getBalance()).format({
+      precision: 9,
+    }),
+  );
 
   debug('Detecting if contract is a proxy...');
   const owner: string | null = await proxy.functions
@@ -60,4 +67,3 @@ export const transferOwnership = async ({ account, newOwner, proxyAddress }: Tra
   console.log('\t> Transaction ID: ', tx.transactionId);
   await tx.waitForResult();
 };
-
