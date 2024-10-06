@@ -2,10 +2,11 @@ import { Option, program } from 'commander';
 
 import { getBalance } from './actions/getBalance';
 import { getOwnership } from './actions/getOwnership';
-import { setImplementation } from './actions/setimplementation';
+import { setImplementation } from './actions/setImplementation';
 import { transferOwnership } from './actions/transferOwnership';
 import { transferSelf } from './actions/transferSelf';
 import { createAccount } from './utils';
+import { getImplementation } from './actions/getImplementation';
 
 const optionProvider = new Option('--providerUrl <provider>', 'Provider URL is required!').env('PROVIDER_URL').makeOptionMandatory();
 const optionAccountKey = new Option('-a, --account <account>', 'Account address is required!').env('ACCOUNT_KEY').makeOptionMandatory();
@@ -35,6 +36,19 @@ program
             account,
             proxyAddress: options.proxyAddress,
             implementationAddress: options.implementationAddress
+        });
+    });
+
+program
+    .command('getImplementation')
+    .addOption(optionProvider)
+    .addOption(optionAccountKey)
+    .requiredOption('-p, --proxyAddress <proxyAddress>', 'Proxy address is required!')
+    .action(async (options) => {
+        const account = await createAccount(options.account, options.providerUrl);
+        await getImplementation({
+            account,
+            proxyAddress: options.proxyAddress,
         });
     });
 

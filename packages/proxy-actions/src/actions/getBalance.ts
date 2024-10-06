@@ -6,7 +6,7 @@ type GetBalanceParams = {
 
 export async function getBalance({ account }: GetBalanceParams) {
     const balance = await account.getBalance();
-    console.log(`${account.address}: ${balance.format({
+    console.log(`${account.address.toB256()}: ${balance.format({
         precision: 9,
     })}`);
 }
