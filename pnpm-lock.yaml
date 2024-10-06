@@ -284,6 +284,31 @@ importers:
         specifier: ^3.0.3
         version: 3.0.3
 
+  packages/proxy-actions:
+    dependencies:
+      '@fuel-bridge/fungible-token':
+        specifier: ^0.6.0
+        version: 0.6.0
+      '@fuels/kms-account':
+        specifier: 0.24.1
+        version: 0.24.1(fuels@0.94.8)
+      '@types/node':
+        specifier: ^18.11.9
+        version: 18.19.54
+      commander:
+        specifier: ^12.1.0
+        version: 12.1.0
+      fuels:
+        specifier: 0.94.4
+        version: 0.94.8
+    devDependencies:
+      ts-node:
+        specifier: ^10.9.1
+        version: 10.9.1(@swc/core@1.3.82)(@types/node@18.19.54)(typescript@5.4.2)
+      typescript:
+        specifier: ^5.1.6
+        version: 5.4.2
+
   packages/react-xstore:
     dependencies:
       '@fuels/local-storage':
@@ -1337,6 +1362,9 @@ packages:
     resolution: {integrity: sha512-ZSjtmelB7IJfWD2Fvb7+Z+ChTIKWq6kjda95fLcQKNS5aheVHn4IkfgRQE3sIIzTcSLwLcLZUD9UBt+V7+h+Pw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
+  '@fuel-bridge/fungible-token@0.6.0':
+    resolution: {integrity: sha512-ScOWLPXrM4KBJHdj/BpOmfSpiQlSLd+6NICSgxT4/FzgZMmLMXu9OwhfrF3l+OgM2CA2W+R4SAliisMTspB06Q==}
+
   '@fuel-ts/abi-coder@0.94.8':
     resolution: {integrity: sha512-tyqDHfGyHyEOrH+CjgoMLuoBHBmHJgcsqdR6jGWw4gvvctvo8j0GIk2H9HBc4t9mK5+IGCCnURSvUvAdh5S8bQ==}
     engines: {node: ^18.20.3 || ^20.0.0 || ^22.0.0}
@@ -1402,6 +1430,11 @@ packages:
     resolution: {integrity: sha512-pIHx16H1NxiAkMNiQ0rAd2JiKc3Gd28e2NJh7OZQZU3zKZQkmMqqf4F5y+zdj6Mlka//csSp750pnVgVK/3Tbg==}
     engines: {node: ^18.20.3 || ^20.0.0 || ^22.0.0}
     hasBin: true
+
+  '@fuels/kms-account@0.24.1':
+    resolution: {integrity: sha512-lcm4CrZfg3KJ7TpDH2oZye7QrWPCnvf5YwN0VbBU3o6UkeuJndJYZgUC01G8PntzV4CiTl1ys62pEHFb7XTOUg==}
+    peerDependencies:
+      fuels: '>=0.94.8'
 
   '@fuels/vm-asm@0.57.1':
     resolution: {integrity: sha512-+TSJSfamSaHrG4j274NEDW0ndZXLEXfNq5TvgjA4HN4JTnGudm41pFM7+Xgrfi0AxkpxJCaZLBTycGj6SZNmBw==}
@@ -2072,6 +2105,9 @@ packages:
 
   '@types/node@12.20.55':
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
+
+  '@types/node@18.19.54':
+    resolution: {integrity: sha512-+BRgt0G5gYjTvdLac9sIeE0iZcJxi4Jc4PV5EUzqi+88jmQLr+fRZdv2tCTV7IHKSGxM6SaLoOXQWWUiLUItMw==}
 
   '@types/node@20.5.9':
     resolution: {integrity: sha512-PcGNd//40kHAS3sTlzKB9C9XL4K0sTup8nbG5lC14kzEteTNuAFh9u5nA0o5TWnSG2r/JNPRXFVcHJIIeRlmqQ==}
@@ -5224,6 +5260,9 @@ packages:
   unbox-primitive@1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
 
+  undici-types@5.26.5:
+    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+
   universalify@0.1.2:
     resolution: {integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==}
     engines: {node: '>= 4.0.0'}
@@ -6642,6 +6681,8 @@ snapshots:
 
   '@eslint/js@8.48.0': {}
 
+  '@fuel-bridge/fungible-token@0.6.0': {}
+
   '@fuel-ts/abi-coder@0.94.8':
     dependencies:
       '@fuel-ts/crypto': 0.94.8
@@ -6799,6 +6840,15 @@ snapshots:
     dependencies:
       chalk: 4.1.2
       cli-table: 0.3.11
+
+  '@fuels/kms-account@0.24.1(fuels@0.94.8)':
+    dependencies:
+      '@aws-sdk/client-kms': 3.658.1
+      '@noble/curves': 1.6.0
+      asn1js: 3.0.5
+      fuels: 0.94.8
+    transitivePeerDependencies:
+      - aws-crt
 
   '@fuels/vm-asm@0.57.1': {}
 
@@ -7689,6 +7739,10 @@ snapshots:
   '@types/minimist@1.2.2': {}
 
   '@types/node@12.20.55': {}
+
+  '@types/node@18.19.54':
+    dependencies:
+      undici-types: 5.26.5
 
   '@types/node@20.5.9': {}
 
@@ -11363,6 +11417,26 @@ snapshots:
 
   ts-interface-checker@0.1.13: {}
 
+  ts-node@10.9.1(@swc/core@1.3.82)(@types/node@18.19.54)(typescript@5.4.2):
+    dependencies:
+      '@cspotcode/source-map-support': 0.8.1
+      '@tsconfig/node10': 1.0.9
+      '@tsconfig/node12': 1.0.11
+      '@tsconfig/node14': 1.0.3
+      '@tsconfig/node16': 1.0.4
+      '@types/node': 18.19.54
+      acorn: 8.9.0
+      acorn-walk: 8.2.0
+      arg: 4.1.3
+      create-require: 1.1.1
+      diff: 4.0.2
+      make-error: 1.3.6
+      typescript: 5.4.2
+      v8-compile-cache-lib: 3.0.1
+      yn: 3.1.1
+    optionalDependencies:
+      '@swc/core': 1.3.82
+
   ts-node@10.9.1(@swc/core@1.3.82)(@types/node@20.5.9)(typescript@5.4.2):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
@@ -11534,6 +11608,8 @@ snapshots:
       has-bigints: 1.0.2
       has-symbols: 1.0.3
       which-boxed-primitive: 1.0.2
+
+  undici-types@5.26.5: {}
 
   universalify@0.1.2: {}
 
