@@ -1,12 +1,12 @@
 import { Option, program } from 'commander';
 
 import { getBalance } from './actions/getBalance';
+import { getImplementation } from './actions/getImplementation';
 import { getOwnership } from './actions/getOwnership';
 import { setImplementation } from './actions/setImplementation';
 import { transferOwnership } from './actions/transferOwnership';
 import { transferSelf } from './actions/transferSelf';
 import { createAccount } from './utils';
-import { getImplementation } from './actions/getImplementation';
 
 const optionProvider = new Option('--providerUrl <provider>', 'Provider URL is required!').env('PROVIDER_URL').makeOptionMandatory();
 const optionAccountKey = new Option('-a, --account <account>', 'Account address is required!').env('ACCOUNT_KEY').makeOptionMandatory();
