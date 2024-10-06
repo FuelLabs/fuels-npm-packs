@@ -1,7 +1,7 @@
 import { Option, program } from 'commander';
 
 import { getBalance } from './actions/getBalance';
-// import { getImplementation } from './actions/getImplementation';
+import { getImplementation } from './actions/getImplementation';
 import { getOwnership } from './actions/getOwnership';
 import { setImplementation } from './actions/setImplementation';
 import { transferOwnership } from './actions/transferOwnership';
@@ -39,18 +39,18 @@ program
         });
     });
 
-// program
-//     .command('getImplementation')
-//     .addOption(optionProvider)
-//     .addOption(optionAccountKey)
-//     .requiredOption('-p, --proxyAddress <proxyAddress>', 'Proxy address is required!')
-//     .action(async (options) => {
-//         const account = await createAccount(options.account, options.providerUrl);
-//         await getImplementation({
-//             account,
-//             proxyAddress: options.proxyAddress,
-//         });
-//     });
+program
+    .command('getImplementation')
+    .addOption(optionProvider)
+    .addOption(optionAccountKey)
+    .requiredOption('-p, --proxyAddress <proxyAddress>', 'Proxy address is required!')
+    .action(async (options) => {
+        const account = await createAccount(options.account, options.providerUrl);
+        await getImplementation({
+            account,
+            proxyAddress: options.proxyAddress,
+        });
+    });
 
 program
     .command('getOwnership')
