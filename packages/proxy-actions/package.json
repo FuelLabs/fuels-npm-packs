@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@fuel-bridge/fungible-token": "^0.6.0",
-    "@fuels/kms-account": "0.24.1",
+    "@fuels/kms-account": "workspace:*",
     "@types/node": "^18.11.9",
     "commander": "^12.1.0"
   }
