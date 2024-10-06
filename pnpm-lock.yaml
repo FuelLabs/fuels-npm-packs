@@ -290,8 +290,8 @@ importers:
         specifier: ^0.6.0
         version: 0.6.0
       '@fuels/kms-account':
-        specifier: 0.24.1
-        version: 0.24.1(fuels@0.94.4)
+        specifier: workspace:*
+        version: link:../kms-account
       '@types/node':
         specifier: ^18.11.9
         version: 18.19.54
@@ -1646,11 +1646,6 @@ packages:
     resolution: {integrity: sha512-pIHx16H1NxiAkMNiQ0rAd2JiKc3Gd28e2NJh7OZQZU3zKZQkmMqqf4F5y+zdj6Mlka//csSp750pnVgVK/3Tbg==}
     engines: {node: ^18.20.3 || ^20.0.0 || ^22.0.0}
     hasBin: true
-
-  '@fuels/kms-account@0.24.1':
-    resolution: {integrity: sha512-lcm4CrZfg3KJ7TpDH2oZye7QrWPCnvf5YwN0VbBU3o6UkeuJndJYZgUC01G8PntzV4CiTl1ys62pEHFb7XTOUg==}
-    peerDependencies:
-      fuels: '>=0.94.8'
 
   '@fuels/vm-asm@0.56.0':
     resolution: {integrity: sha512-oa9P55qkez/UASB8VNhTg3XflVWLHAC0JTKuCDLKZ+2ivxzLeHHcrIO+3AtJXLvUwTU9kC4rHMNUqXDaKz7HrA==}
@@ -7150,15 +7145,6 @@ snapshots:
     dependencies:
       chalk: 4.1.2
       cli-table: 0.3.11
-
-  '@fuels/kms-account@0.24.1(fuels@0.94.4)':
-    dependencies:
-      '@aws-sdk/client-kms': 3.658.1
-      '@noble/curves': 1.6.0
-      asn1js: 3.0.5
-      fuels: 0.94.4
-    transitivePeerDependencies:
-      - aws-crt
 
   '@fuels/vm-asm@0.56.0': {}
 
