@@ -2,6 +2,12 @@
 
 A Fuel Account that uses AWS KMS to sign transactions and messages.
 
+### Installation
+
+```bash
+pnpm install @fuels/kms-account
+```
+
 ### Usage
 
 ```ts

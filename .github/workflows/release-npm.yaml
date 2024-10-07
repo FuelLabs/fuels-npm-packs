@@ -64,4 +64,16 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    
+
+      - name: ZIP Proxy Action CLI
+        run: |
+          zip -j -r ./proxy-actions.zip ./packages/proxy-actions/dist
+
+      - name: Upload Proxy Action CLI to Release
+        if: steps.changesets.outputs.published == 'true'
+        uses: softprops/action-gh-release@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag_name: v${{ env.BUILD_VERSION }}
+          files: |
+            ./proxy-actions.zip
