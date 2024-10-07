@@ -8,5 +8,5 @@ export default {
   target: 'node14', // Target a specific Node.js version for CLI
   outDir: 'dist', // Specify output directory for clarity
   clean: true, // Clean the output directory before building
-  noExternal: []
+  noExternal: [],
 };

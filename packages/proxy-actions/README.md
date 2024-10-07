@@ -36,7 +36,6 @@ Commands:
 
 For passing the provider URL and account key, you can use the environment variables `PROVIDER_URL` and `ACCOUNT_KEY` respectively.
 
-
 ### License
 
 This package is licensed under the Apache 2.0 license.
