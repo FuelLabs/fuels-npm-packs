@@ -1,5 +1,11 @@
 # @fuels/proxy-cli
 
+## 0.25.1
+
+### Patch Changes
+
+- Update README of the packages, by [@luizstacio](https://github.com/luizstacio) (See [#130](https://github.com/FuelLabs/fuels-npm-packs/pull/130))
+
 ## 0.25.0
 
 ### Minor Changes
