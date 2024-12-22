@@ -37,6 +37,7 @@ export class LocalStorage {
       localStorage.setItem(this.createKey(key), JSON.stringify(value));
       this.dispatchChange(key, value);
     } catch (error) {
+      // Silently fail if localStorage is not available or quota is exceeded
     }
   };
 
@@ -57,7 +58,8 @@ export class LocalStorage {
         .filter((key) => key.startsWith(this.prefix))
         .forEach((key) => localStorage.removeItem(key));
       this.dispatchChange();
-    } catch {
+    } catch (error) {
+      // Silently fail if localStorage operations fail
     }
   };
 
@@ -66,7 +68,8 @@ export class LocalStorage {
     try {
       localStorage.removeItem(this.createKey(key));
       this.dispatchChange();
-    } catch {
+    } catch (error) {
+      // Silently fail if localStorage operations fail
     }
   };
 
