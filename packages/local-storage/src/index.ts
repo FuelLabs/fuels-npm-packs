@@ -24,7 +24,7 @@ export class LocalStorage {
   }
 
   subscribe = (listener: <T extends unknown[]>(...args: T) => void) => {
-    if (!this.emitter) return () => { };
+    if (!this.emitter) return () => {};
     this.emitter.on('change', listener);
     return () => {
       this.emitter.off('change', listener);
