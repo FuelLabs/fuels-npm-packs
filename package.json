@@ -35,10 +35,10 @@
     "test:ci": "jest --ci --testLocationInResults --json --coverage --config jest.config.ts",
     "test:clear": "pnpm -r exec jest --clearCache",
     "test:coverage": "turbo run test --parallel -- --coverage",
-    "ts:check": "turbo run ts:check",
     "xstate:typegen": "pnpm -r xstate:typegen",
+    "ts:check": "turbo run ts:check",
     "packages:version": "node ./scripts/version.js"
-  },
+  }, 
   "devDependencies": {
     "@jest/types": "^29.6.3",
     "@types/jest": "^29.5.4",

@@ -17,11 +17,6 @@ export class LocalStorage {
     };
   };
 
-  setItem = <T>(key: string, value: T) => {
-    localStorage.setItem(this.createKey(key), JSON.stringify(value));
-    this.dispatchChange(key, value);
-  };
-
   getItem = <T>(key: string): T | null => {
     try {
       const data = localStorage.getItem(this.createKey(key));
@@ -30,7 +25,12 @@ export class LocalStorage {
       return null;
     }
   };
-
+  
+  setItem = <T>(key: string, value: T) => {
+    localStorage.setItem(this.createKey(key), JSON.stringify(value));
+    this.dispatchChange(key, value);
+  };
+  
   clear = () => {
     Object.keys(localStorage)
       .filter((key) => key.startsWith(this.prefix))
