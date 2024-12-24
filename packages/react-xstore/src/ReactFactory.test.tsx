@@ -32,11 +32,17 @@ describe('ReactFactory', () => {
     }, opts);
 
     expect(result.current).toEqual([payload]);
-    expect(spy.mock.calls.filter(call => !call[0].includes('__storage_test__')).length).toBe(1);
-    expect(spy.mock.calls.some(call => 
-      call[0] === '@xstate/store_todos' && 
-      JSON.parse(call[1]).context.todos[0].id === payload.id
-    )).toBe(true);
+    expect(
+      spy.mock.calls.filter((call) => !call[0].includes('__storage_test__'))
+        .length,
+    ).toBe(1);
+    expect(
+      spy.mock.calls.some(
+        (call) =>
+          call[0] === '@xstate/store_todos' &&
+          JSON.parse(call[1]).context.todos[0].id === payload.id,
+      ),
+    ).toBe(true);
 
     let storageState: ReturnType<typeof store.services.todos.getSnapshot>;
     expect(() => {
