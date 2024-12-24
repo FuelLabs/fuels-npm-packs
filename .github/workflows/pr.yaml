@@ -48,14 +48,17 @@ jobs:
         with:
           pnpm-version: 9.5.0
 
+      - name: Install dependencies
+        run: pnpm install
+
       - name: Check Changesets
-        uses: changesets/action@v1
-        with:
-          version: pnpm changeset:check
-          title: "Check Changesets"
-          commit: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Get the base commit (where the PR branched from main)
+          BASE_COMMIT=$(git merge-base origin/main HEAD)
+          echo "Base commit: $BASE_COMMIT"
+          
+          # Run changeset check from that commit
+          pnpm changeset status --since $BASE_COMMIT
 
   audit:
     name: Audit
