@@ -44,17 +44,6 @@ jobs:
         with:
           fetch-depth: 0
           
-      - name: Setup Git Branch
-        run: |
-          git checkout -b ${{ github.head_ref }}
-
-      - name: Debug Git Info
-        run: |
-          echo "Current branch: $(git branch --show-current)"
-          echo "Remote branches: $(git branch -r)"
-          echo "Main branch status: $(git show-ref origin/main)"
-          echo "HEAD ref: ${{ github.head_ref }}"
-          
       - uses: FuelLabs/github-actions/setups/node@master
         with:
           pnpm-version: 9.5.0
