@@ -20,7 +20,7 @@
     "build": "turbo run build",
     "build:watch": "pnpm -r --parallel build --watch",
     "changeset": "changeset",
-    "changeset:check": "changeset status --since=main",
+    "changeset:check": "changeset status --since=origin/main",
     "changeset:next": "tsx ./scripts/changeset-next",
     "changeset:release": "changeset publish --no-git-tag",
     "changeset:version": "changeset version",
