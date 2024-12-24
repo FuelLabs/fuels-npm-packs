@@ -42,9 +42,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          # need this to get full git-history/clone in order to build changelogs and check changesets
           fetch-depth: 0
-
+          
+      - name: Debug Git Info
+        run: |
+          echo "Current branch: $(git branch --show-current)"
+          echo "Remote branches: $(git branch -r)"
+          echo "Main branch status: $(git show-ref origin/main)"
+          echo "HEAD ref: ${{ github.head_ref }}"
+          
       - uses: FuelLabs/github-actions/setups/node@master
         with:
           pnpm-version: 9.5.0
