@@ -5,7 +5,7 @@
   "fixed": [["@fuels/*"]],
   "linked": [],
   "access": "public",
-  "baseBranch": "origin/main",
+  "baseBranch": "main",
   "updateInternalDependencies": "patch",
   "snapshot": {
     "useCalculatedVersion": true,
