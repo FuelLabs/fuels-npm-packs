@@ -43,8 +43,12 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          ref: ${{ github.event.pull_request.head.sha }}
           
+      - name: Setup Git Branch
+        run: |
+          git checkout -b ${{ github.head_ref }}
+          git branch --set-upstream-to=origin/main main
+
       - name: Debug Git Info
         run: |
           echo "Current branch: $(git branch --show-current)"
