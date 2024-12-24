@@ -53,26 +53,21 @@ jobs:
           # Fetch all branches and tags
           git fetch --all --tags
           
-          # Create and switch to a temporary branch
-          git switch -c temp-branch
+          # Get the merge base between current HEAD and main
+          MERGE_BASE=$(git merge-base HEAD origin/main)
+          echo "Merge base with main: ${MERGE_BASE}"
           
-          # Create local main branch tracking origin/main
-          git branch main origin/main
-          
-          # Debug info
-          echo "Git branches:"
-          git branch -a
-          echo "Current ref:"
-          git rev-parse --abbrev-ref HEAD
-          echo "Main ref:"
-          git rev-parse main
+          # Store merge base for later use
+          echo "MERGE_BASE=${MERGE_BASE}" >> $GITHUB_ENV
 
       - uses: FuelLabs/github-actions/setups/node@master
         with:
           pnpm-version: 9.5.0
 
       - name: Run Changeset Check
-        run: pnpm changeset status --since=main
+        run: |
+          # Use the stored merge base
+          pnpm changeset status --since=${MERGE_BASE}
 
   audit:
     name: Audit
