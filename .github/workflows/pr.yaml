@@ -43,32 +43,18 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          ref: ${{ github.event.pull_request.head.sha }}
 
-      # Fetch and checkout main branch
-      - name: Fetch main branch
+      - name: Fetch all history and tags
         run: |
-          git remote set-branches --add origin main
-          git fetch origin main
-          git checkout origin/main -b main
+          git fetch --prune --unshallow
+          git fetch origin main:main
           git checkout ${{ github.event.pull_request.head.sha }}
-
-      # Check for changeset files
-      - name: Check for changeset files
-        id: check-changeset
-        run: |
-          if [ -z "$(ls -A .changeset/*.md 2>/dev/null)" ]; then
-            echo "No changeset file found"
-            exit 1
-          else
-            echo "Changeset file(s) found"
-          fi
 
       - uses: FuelLabs/github-actions/setups/node@master
         with:
           pnpm-version: 9.5.0
 
-      - run: pnpm install
+      - run: pnpm changeset:check
 
   audit:
     name: Audit
