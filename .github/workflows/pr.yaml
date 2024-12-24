@@ -44,16 +44,18 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Fetch main branch
-        run: |
-          git fetch origin main
-          git branch -f main origin/main
-
       - uses: FuelLabs/github-actions/setups/node@master
         with:
           pnpm-version: 9.5.0
 
-      - run: pnpm changeset:check
+      - name: Check Changesets
+        uses: changesets/action@v1
+        with:
+          version: pnpm changeset:check
+          title: "Check Changesets"
+          commit: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   audit:
     name: Audit
