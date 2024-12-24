@@ -42,29 +42,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
+          # need this to get full git-history/clone in order to build changelogs and check changesets
           fetch-depth: 0
-      
-      - name: Git setup
-        run: |
-          git fetch --unshallow origin main
-          git branch -f origin/main origin/main
-          
+
       - uses: FuelLabs/github-actions/setups/node@master
         with:
           pnpm-version: 9.5.0
-
-      # Debug git state
-      - name: Debug Git State
-        run: |
-          echo "Current branch:"
-          git branch --show-current
-          echo "All branches:"
-          git branch -a
-          echo "Git status:"
-          git status
-          
-      - name: Run Changeset Check
-        run: pnpm changeset:check
+      - run: pnpm changeset:check
 
   audit:
     name: Audit
@@ -112,5 +96,7 @@ jobs:
           package-manager: pnpm
           annotations: failed-tests
           test-script: pnpm test:ci
+          prnumber: ${{ steps.findPr.outputs.number }}
+          skip-test: all
           coverage-file: ${{ env.COVERAGE_FILE }}
           base-coverage-file: ${{ env.COVERAGE_FILE }}
