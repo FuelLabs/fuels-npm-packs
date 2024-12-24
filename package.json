@@ -64,7 +64,7 @@
   "dependencies": {
     "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "2.27.11",
-    "@changesets/get-github-info": "^0.5.2",
+    "@changesets/get-github-info": "^0.6.0",
     "@fuels/changeset": "workspace:*",
     "@fuels/eslint-plugin": "workspace:~"
   },

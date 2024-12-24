@@ -27,8 +27,8 @@ importers:
         specifier: 2.27.11
         version: 2.27.11
       '@changesets/get-github-info':
-        specifier: ^0.5.2
-        version: 0.5.2
+        specifier: ^0.6.0
+        version: 0.6.0
       '@fuels/changeset':
         specifier: workspace:*
         version: link:packages/changeset
@@ -100,8 +100,8 @@ importers:
   packages/changeset:
     dependencies:
       '@changesets/get-github-info':
-        specifier: ^0.5.2
-        version: 0.5.2
+        specifier: ^0.6.0
+        version: 0.6.0
       dotenv:
         specifier: ^16.3.1
         version: 16.3.1
@@ -758,6 +758,9 @@ packages:
 
   '@changesets/get-github-info@0.5.2':
     resolution: {integrity: sha512-JppheLu7S114aEs157fOZDjFqUDpm7eHdq5E8SSR0gUBTEK0cNSHsrSR5a66xs0z3RWuo46QvA3vawp8BxDHvg==}
+
+  '@changesets/get-github-info@0.6.0':
+    resolution: {integrity: sha512-v/TSnFVXI8vzX9/w3DU2Ol+UlTZcu3m0kXTjTT4KlAdwSvwutcByYwyYn9hwerPWfPkT2JfpoX0KgvCEi8Q/SA==}
 
   '@changesets/get-release-plan@4.0.6':
     resolution: {integrity: sha512-FHRwBkY7Eili04Y5YMOZb0ezQzKikTka4wL753vfUA5COSebt7KThqiuCN9BewE4/qFGgF/5t3AuzXx1/UAY4w==}
@@ -6104,6 +6107,13 @@ snapshots:
     dependencies:
       dataloader: 1.4.0
       node-fetch: 2.6.11
+    transitivePeerDependencies:
+      - encoding
+
+  '@changesets/get-github-info@0.6.0':
+    dependencies:
+      dataloader: 1.4.0
+      node-fetch: 2.7.0
     transitivePeerDependencies:
       - encoding
 
