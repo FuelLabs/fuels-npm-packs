@@ -53,6 +53,9 @@ jobs:
 
       - name: Check Changesets
         run: |
+          # First ensure we're on the PR branch
+          git checkout -b pr-branch ${{ github.event.pull_request.head.sha }}
+          
           echo "Current branch:"
           git branch --show-current
           
@@ -60,20 +63,14 @@ jobs:
           git branch -r
           
           echo "\nTrying to fetch main:"
-          git fetch origin main
+          git fetch origin main:main
           
-          echo "\nChecking if main exists:"
-          git rev-parse --verify origin/main
-          
-          echo "\nGetting merge base:"
-          BASE_COMMIT=$(git merge-base origin/main HEAD)
-          echo "Base commit: $BASE_COMMIT"
-          
-          echo "\nCurrent HEAD:"
-          git rev-parse HEAD
+          echo "\nChecking commits:"
+          echo "Main commit: $(git rev-parse main)"
+          echo "Current commit: $(git rev-parse HEAD)"
           
           echo "\nRunning changeset check:"
-          pnpm changeset status --since $BASE_COMMIT
+          pnpm changeset status --since origin/main
 
   audit:
     name: Audit
