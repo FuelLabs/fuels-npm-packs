@@ -53,11 +53,26 @@ jobs:
 
       - name: Check Changesets
         run: |
-          # Get the base commit (where the PR branched from main)
+          echo "Current branch:"
+          git branch --show-current
+          
+          echo "\nRemote branches:"
+          git branch -r
+          
+          echo "\nTrying to fetch main:"
+          git fetch origin main
+          
+          echo "\nChecking if main exists:"
+          git rev-parse --verify origin/main
+          
+          echo "\nGetting merge base:"
           BASE_COMMIT=$(git merge-base origin/main HEAD)
           echo "Base commit: $BASE_COMMIT"
           
-          # Run changeset check from that commit
+          echo "\nCurrent HEAD:"
+          git rev-parse HEAD
+          
+          echo "\nRunning changeset check:"
           pnpm changeset status --since $BASE_COMMIT
 
   audit:
