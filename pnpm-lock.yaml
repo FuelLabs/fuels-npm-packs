@@ -14,7 +14,7 @@ overrides:
   micromatch@<4.0.8: '>=4.0.8'
   rollup: '>=3.29.5'
   nanoid: '>=3.3.8'
-  cross-spawn: '>=7.0.6'
+  cross-spawn: '>=7.0.5'
 
 importers:
 
