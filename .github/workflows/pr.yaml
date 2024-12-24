@@ -44,11 +44,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Fetch all history and tags
+      - name: Fetch main branch
         run: |
-          git fetch --prune --unshallow
-          git fetch origin main:main
-          git checkout ${{ github.event.pull_request.head.sha }}
+          git fetch origin main
+          git branch -f main origin/main
 
       - uses: FuelLabs/github-actions/setups/node@master
         with:
