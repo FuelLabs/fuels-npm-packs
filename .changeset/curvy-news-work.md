@@ -1,5 +1,4 @@
 ---
-'@fuels/local-storage': minor
 '@fuels/react-xstore': minor
 ---
 
