@@ -1,5 +1,11 @@
 # @fuels/local-storage
 
+## 0.26.0
+
+### Minor Changes
+
+- Check for localStorage availability, by [@nelitow](https://github.com/nelitow) (See [#132](https://github.com/FuelLabs/fuels-npm-packs/pull/132))
+
 ## 0.25.1
 
 ## 0.25.0

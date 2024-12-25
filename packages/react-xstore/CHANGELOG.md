@@ -1,5 +1,11 @@
 # @fuels/react-xstore
 
+## 0.26.0
+
+### Minor Changes
+
+- Update tests to handle the new local-storage checks, by [@nelitow](https://github.com/nelitow) (See [#132](https://github.com/FuelLabs/fuels-npm-packs/pull/132))
+
 ## 0.25.1
 
 ## 0.25.0

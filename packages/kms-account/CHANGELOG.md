@@ -1,5 +1,7 @@
 # @fuels/kms-account
 
+## 0.26.0
+
 ## 0.25.1
 
 ### Patch Changes
