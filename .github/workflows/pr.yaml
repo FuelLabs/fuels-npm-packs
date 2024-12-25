@@ -45,10 +45,13 @@ jobs:
           # need this to get full git-history/clone in order to build changelogs and check changesets
           fetch-depth: 0
 
-      - uses: FuelLabs/github-actions/setups/node@master
+      - name: CI Setup
+        uses: FuelLabs/github-actions/setups/node@58bcd91d7246e40938e1971be0b0fe35b253dff0
         with:
+          node-version: 20.11.0
           pnpm-version: 9.5.0
-      - run: pnpm changeset:check
+
+      - run: pnpm changeset status --since=origin/${{ github.base_ref }}
 
   audit:
     name: Audit
