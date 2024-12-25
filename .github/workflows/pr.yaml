@@ -38,17 +38,19 @@ jobs:
     name: Changeset Checks
     needs: check-packages-changed
     if: ${{ github.head_ref != 'changeset-release/main' && needs.check-packages-changed.outputs.changed == 'true' }}
-    runs-on: buildjet-4vcpu-ubuntu-2204
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          ref: ${{github.event.pull_request.head.sha}}
 
-      - uses: FuelLabs/github-actions/setups/node@master
+      - name: CI Setup
+        uses: FuelLabs/github-actions/setups/node@58bcd91d7246e40938e1971be0b0fe35b253dff0
         with:
-          pnpm-version: 9.12.0
-      - run: pnpm changeset:check
+          node-version: 20.11.0
+          pnpm-version: 9.5.0
+
+      - run: pnpm changeset status --since=origin/${{ github.base_ref }}
 
   audit:
     name: Audit
