@@ -12,7 +12,8 @@ concurrency:
 jobs:
   release-changesets:
     name: Changesets Release
-    runs-on: ubuntu-latest
+    runs-on: buildjet-4vcpu-ubuntu-2204
+    environment: npm-deploy
     steps:
       - uses: actions/checkout@v3
         with:
@@ -52,7 +53,7 @@ jobs:
           githubReleaseName: v${{ env.BUILD_VERSION }}
           githubTagName: v${{ env.BUILD_VERSION }}
         env:
-          GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Release to @main tag
