@@ -5,6 +5,7 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "strict": false,
+    "skipLibCheck": true,
     "esModuleInterop": true
   },
   "include": ["src/**/*"],
