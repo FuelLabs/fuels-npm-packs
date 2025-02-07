@@ -31,12 +31,12 @@
     "test:watch": "vitest"
   },
   "peerDependencies": {
-    "fuels": ">=0.94.8"
+    "fuels": ">=0.99.0"
   },
   "devDependencies": {
     "@fuels/tsup-config": "workspace:*",
     "aws-sdk-client-mock": "^4.0.2",
-    "fuels": "^0.94.8",
+    "fuels": "^0.99.0",
     "vitest": "^2.1.1"
   },
   "dependencies": {
