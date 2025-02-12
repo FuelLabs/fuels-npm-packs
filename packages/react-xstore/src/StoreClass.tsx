@@ -15,6 +15,7 @@ import type {
   StateItem,
 } from './types';
 import { createHandlers, waitFor } from './utils/xstate';
+import { MaybeLazy } from '@xstate/inspect';
 
 interface IStore<T extends MachinesObj> {
   /** @deprecated an internal property acting as a "phantom" type, not meant to be used at runtime */
@@ -88,8 +89,8 @@ export class StoreClass<T extends MachinesObj> implements IStore<T> {
     const hasStorage = this.opts.persistedStates?.includes(key);
     store.set(machinesAtom, {
       hasStorage,
-      key,
-      getMachine: machine,
+      key: key as string,
+      getMachine: machine as MaybeLazy<T[string]>,
       getOptions: opts,
     });
     return this;

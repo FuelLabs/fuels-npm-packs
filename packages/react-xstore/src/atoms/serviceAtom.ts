@@ -22,7 +22,7 @@ export function createServiceAtom<T extends MachinesObj>(
         const machineAtom = get(machinesAtom)[key];
         const service = get(machineAtom).service as InterpreterFrom<T[K]>;
         if (!service) {
-          throw new Error(`Service ${key} does not exist`);
+          throw new Error(`Service ${String(key)} does not exist`);
         }
         return service;
       },
@@ -31,7 +31,7 @@ export function createServiceAtom<T extends MachinesObj>(
         const serviceAtom = get(machineAtom).atoms.service;
         const service = get(serviceAtom) as InterpreterFrom<T[K]>;
         if (!service) {
-          throw new Error(`Service ${key} does not exist`);
+          throw new Error(`Service ${String(key)} does not exist`);
         }
         updateService(service, opts);
         return service;
