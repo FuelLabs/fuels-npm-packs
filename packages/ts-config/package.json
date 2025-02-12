@@ -5,10 +5,10 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
-    "typescript": "5.4.2"
-  },
   "peerDependencies": {
-    "typescript": "5.2.2"
+    "typescript": ">=5.4.2"
+  },
+  "devDependencies": {
+    "typescript": "5.4.2"
   }
 }
