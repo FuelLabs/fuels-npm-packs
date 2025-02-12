@@ -1,3 +1,4 @@
+import type { MaybeLazy } from '@xstate/inspect';
 import type { AnyInterpreter, AnyState, StateFrom } from 'xstate';
 
 import { ReactFactory } from './ReactFactory';
@@ -15,7 +16,6 @@ import type {
   StateItem,
 } from './types';
 import { createHandlers, waitFor } from './utils/xstate';
-import { MaybeLazy } from '@xstate/inspect';
 
 interface IStore<T extends MachinesObj> {
   /** @deprecated an internal property acting as a "phantom" type, not meant to be used at runtime */
