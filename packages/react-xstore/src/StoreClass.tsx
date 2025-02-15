@@ -1,3 +1,4 @@
+import type { MaybeLazy } from '@xstate/inspect';
 import type { AnyInterpreter, AnyState, StateFrom } from 'xstate';
 
 import { ReactFactory } from './ReactFactory';
@@ -88,8 +89,8 @@ export class StoreClass<T extends MachinesObj> implements IStore<T> {
     const hasStorage = this.opts.persistedStates?.includes(key);
     store.set(machinesAtom, {
       hasStorage,
-      key,
-      getMachine: machine,
+      key: key as string,
+      getMachine: machine as MaybeLazy<T[string]>,
       getOptions: opts,
     });
     return this;

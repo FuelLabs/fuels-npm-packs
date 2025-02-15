@@ -25,7 +25,7 @@ export function createMachinesAtom<T extends MachinesObj>() {
   const machinesObjAtom = atom<Obj>({} as Obj);
   return atom(
     (get) => get(machinesObjAtom),
-    (get, set, input: AddMachineInput<T, keyof T>) => {
+    (get, set, input: AddMachineInput<T, string>) => {
       const curr = get(machinesObjAtom);
       const machineAtom = atomWithMachine(input);
       const machinesObj = { ...curr, [input.key]: machineAtom };

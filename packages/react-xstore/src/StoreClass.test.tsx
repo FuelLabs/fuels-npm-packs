@@ -42,8 +42,8 @@ describe('StoreClass', () => {
       const counterHandlersKeys = Object.keys(counterHandlers(store$));
       const todosHandlersKeys = Object.keys(todosHandlers(store$));
       const allCustomHandler = [...counterHandlersKeys, ...todosHandlersKeys];
-
-      for (const key of allCustomHandler) {
+      for (const _key of allCustomHandler) {
+        const key = _key as keyof typeof store;
         expect(store[key]).toBeDefined();
         expect(store[key]).toBeInstanceOf(Function);
       }
