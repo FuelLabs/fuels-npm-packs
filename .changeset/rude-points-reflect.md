@@ -1,5 +1,5 @@
 ---
-'@fuels/kms-account': major
+'@fuels/kms-account': minor
 ---
 
 Adjusting tsconfigs
