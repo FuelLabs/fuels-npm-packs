@@ -54,7 +54,7 @@
     "lint-staged": "^14.0.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.0.3",
-    "ts-node": "^10.9.1",
+    "ts-node": "^10.9.2",
     "tsup": "^7.2.0",
     "tsx": "^4.7.3",
     "turbo": "^1.10.13",
@@ -80,6 +80,7 @@
       ]
     },
     "overrides": {
+      "vite": ">=5.4.12",
       "semver@<7.5.2": ">=7.5.2",
       "word-wrap": "npm:@aashutoshrathi/word-wrap",
       "@babel/traverse@<7.23.2": ">=7.23.2",
@@ -91,5 +92,6 @@
       "nanoid": ">=3.3.8",
       "cross-spawn": ">=7.0.5"
     }
-  }
+  },
+  "packageManager": "pnpm@9.13.1+sha512.5ac37545851c55ec58521b6c285db6f848f93ca70889beb4145f5b40fe234e4ea4faee4dad12ac5c139e494374c65d9c3a6ec9a25954378fa286a250e68d2f20"
 }

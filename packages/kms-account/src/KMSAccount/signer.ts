@@ -94,12 +94,14 @@ export class KMSSigner {
     // According to EIP2 https://github.com/ethereum/EIPs/blob/master/EIPS/eip-2.md
     // if s < half the curve we need to invert it
     // s = curve.n - s
-    if (signature.s > halfPointS) {
-      signature.s = maxPointS - signature.s;
+    let normalizedS = signature.s;
+    if (normalizedS > halfPointS) {
+      normalizedS = maxPointS - normalizedS;
     }
-    const recovery = this.findRecovery(digest, signature);
-    const r = toBytes(`0x${signature.r.toString(16)}`, 32);
-    const s = toBytes(`0x${signature.s.toString(16)}`, 32);
+    const normalizedSignature = { ...signature, s: normalizedS };
+    const recovery = this.findRecovery(digest, normalizedSignature);
+    const r = toBytes(`0x${normalizedSignature.r.toString(16)}`, 32);
+    const s = toBytes(`0x${normalizedSignature.s.toString(16)}`, 32);
 
     // add recoveryParam to first s byte
     s[0] |= (recovery << 7) | (s[0] & 0x7f);
