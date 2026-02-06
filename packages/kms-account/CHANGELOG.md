@@ -1,5 +1,12 @@
 # @fuels/kms-account
 
+## 0.27.0
+
+### Minor Changes
+
+- Update fuels 0.99 on KMS Account, by [@dferendo](https://github.com/dferendo) (See [#147](https://github.com/FuelLabs/fuels-npm-packs/pull/147))
+- Adjusting tsconfigs, by [@dferendo](https://github.com/dferendo) (See [#147](https://github.com/FuelLabs/fuels-npm-packs/pull/147))
+
 ## 0.26.0
 
 ## 0.25.1

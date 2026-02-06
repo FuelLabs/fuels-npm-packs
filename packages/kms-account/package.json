@@ -1,6 +1,6 @@
 {
   "name": "@fuels/kms-account",
-  "version": "0.26.0",
+  "version": "0.27.0",
   "license": "Apache-2.0",
   "main": "src/index.ts",
   "repository": {
