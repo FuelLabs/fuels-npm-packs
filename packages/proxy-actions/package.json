@@ -1,6 +1,6 @@
 {
   "name": "@fuels/proxy-cli",
-  "version": "0.26.0",
+  "version": "1.0.0",
   "description": "A cli tool to execute action on a proxy contract",
   "license": "APACHE-2.0",
   "bin": {

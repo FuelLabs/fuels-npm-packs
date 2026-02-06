@@ -1,5 +1,11 @@
 # @fuels/ts-config
 
+## 1.0.0
+
+### Minor Changes
+
+- Remove deprecated `suppressImplicitAnyIndexErrors` property from base tsconfig.json, by [@helciofranco](https://github.com/helciofranco) (See [#143](https://github.com/FuelLabs/fuels-npm-packs/pull/143))
+
 ## 0.26.0
 
 ## 0.25.1

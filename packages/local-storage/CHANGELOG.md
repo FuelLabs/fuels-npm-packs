@@ -1,5 +1,7 @@
 # @fuels/local-storage
 
+## 1.0.0
+
 ## 0.26.0
 
 ### Minor Changes
