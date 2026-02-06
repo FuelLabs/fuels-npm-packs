@@ -35,12 +35,12 @@
   },
   "devDependencies": {
     "@fuels/tsup-config": "workspace:*",
-    "aws-sdk-client-mock": "^4.0.2",
+    "aws-sdk-client-mock": "^4.1.0",
     "fuels": "^0.99.0",
     "vitest": "^3.0.5"
   },
   "dependencies": {
-    "@aws-sdk/client-kms": "^3.658.1",
+    "@aws-sdk/client-kms": "^3.984.0",
     "@noble/curves": "^1.6.0",
     "asn1js": "^3.0.5"
   }
