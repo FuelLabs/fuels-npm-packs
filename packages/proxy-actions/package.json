@@ -3,6 +3,10 @@
   "version": "0.26.0",
   "description": "A cli tool to execute action on a proxy contract",
   "license": "APACHE-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FuelLabs/fuels-npm-packs.git"
+  },
   "bin": {
     "fuels-proxy": "./dist/index.js"
   },

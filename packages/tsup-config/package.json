@@ -3,6 +3,10 @@
   "version": "0.26.0",
   "license": "Apache-2.0",
   "access": "public",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FuelLabs/fuels-npm-packs.git"
+  },
   "files": [
     "./index.js",
     "./react-imports.js"

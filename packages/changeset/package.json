@@ -4,6 +4,10 @@
   "license": "Apache-2.0",
   "access": "public",
   "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FuelLabs/fuels-npm-packs.git"
+  },
   "files": [
     "dist"
   ],

@@ -3,6 +3,10 @@
   "version": "0.26.0",
   "license": "Apache-2.0",
   "main": "./index.json",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FuelLabs/fuels-npm-packs.git"
+  },
   "access": "public",
   "dependencies": {
     "prettier": "^3.0.3"
