@@ -21,13 +21,25 @@ jobs:
           # need this to get full git-history/clone in order to build changelogs and check changesets
           fetch-depth: 0
 
-      - uses: FuelLabs/github-actions/setups/node@master
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
         with:
-          pnpm-version: 9.13.1
+          node-version-file: '.nvmrc'
 
-      - uses: FuelLabs/github-actions/setups/npm@master
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
         with:
-          npm-token: ${{ secrets.NPM_TOKEN }}
+          run_install: true
+
+      - name: Use latest corepack
+        shell: bash
+        run: |
+          npm install -g corepack@latest
+          corepack enable
+
+      # Ensure latest NPM is installed to support OIDC publishing
+      - name: Update npm
+        run: npm install -g npm@latest
 
       - name: Collect current version
         run: |
