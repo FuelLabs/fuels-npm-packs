@@ -1,6 +1,6 @@
 {
   "name": "@fuels/kms-account",
-  "version": "0.26.0",
+  "version": "0.27.0",
   "license": "Apache-2.0",
   "main": "src/index.ts",
   "repository": {
@@ -31,13 +31,13 @@
     "test:watch": "vitest"
   },
   "peerDependencies": {
-    "fuels": ">=0.94.8"
+    "fuels": ">=0.99.0"
   },
   "devDependencies": {
     "@fuels/tsup-config": "workspace:*",
     "aws-sdk-client-mock": "^4.0.2",
-    "fuels": "^0.94.8",
-    "vitest": "^2.1.1"
+    "fuels": "^0.99.0",
+    "vitest": "^3.0.5"
   },
   "dependencies": {
     "@aws-sdk/client-kms": "^3.658.1",
