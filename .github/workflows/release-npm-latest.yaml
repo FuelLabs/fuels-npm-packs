@@ -23,7 +23,7 @@ jobs:
 
       - uses: FuelLabs/github-actions/setups/node@master
         with:
-          pnpm-version: 9.5.0
+          pnpm-version: 9.13.1
 
       - uses: FuelLabs/github-actions/setups/npm@master
         with:
