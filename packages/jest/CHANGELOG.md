@@ -1,5 +1,11 @@
 # @fuels/jest
 
+## 0.27.0
+
+### Minor Changes
+
+- Bump jest versions to fix audit security issue on Vite >=5.0.0 <=5.4.11, by [@helciofranco](https://github.com/helciofranco) (See [#143](https://github.com/FuelLabs/fuels-npm-packs/pull/143))
+
 ## 0.26.0
 
 ## 0.25.1
